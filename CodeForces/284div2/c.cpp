@@ -12,9 +12,10 @@ struct P
 	P(P a, P b){ x = b.x - a.x; y = b.y - a.y; }
 };
 
-double cha(P a, P b)
+double cal(double a, double b, double c, P s)
 {
-	return a.x * b.y - a.y * b.x;
+	if(a == 0) return -c / b - s.y;
+	else return (-c - a * s.x) / b - s.y;
 }
 
 P s, e, m;
@@ -31,11 +32,9 @@ int main()
 	for(int i = 0; i < n; i++)
 	{
 		scanf("%lf%lf%lf", &a, &b, &c);
-		if(b == 0) m = P(0, -c / a);
-		else if(a == 0) m = P(-c / b, 0);
-		else m = P(0, -c / b);
-		P v1(m, s); P v2(m, e); P d(-b, a);
-		if(cha(d, v1) * cha(d, v2) < 0) ans++;
+		double L = cal(a, b, c, s);
+		double R = cal(a, b, c, e);
+		if(L * R < 0) ans++;
 	}
 	printf("%d", ans);
 }
