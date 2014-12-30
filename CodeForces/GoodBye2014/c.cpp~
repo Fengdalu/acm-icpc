@@ -24,7 +24,7 @@ long long cal()
         for(int k = j; k >= 1; k--)
             c1[k] = c1[k - 1];
         c1[0] = t; 
-        for(int k = 1; k <= j; k++) ans += (long long)c[c1[k]];
+        for(int k = 1; k <= j; k++) ans += c[c1[k]];
     }
     return ans;
 }

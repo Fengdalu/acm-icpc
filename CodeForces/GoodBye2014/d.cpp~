@@ -62,7 +62,7 @@ int main()
       ans1 += (double)cc * (double)v[i];
    }
    
-   int nn;
+   int y;
    scanf("%d", &nn);
    double ans = ans1;
   double b = (double)(n) * (double)(n - 1) * (double)(n - 2) / 6; 
