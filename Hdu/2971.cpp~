@@ -67,7 +67,6 @@ int main()
     while(true)
     {
         scanf("%d", &n);
-        if(n == -1) break;
         memset(a.c, 0, sizeof a.c);
         a.set(0, 0, 1).set(0, 1, 1).set(1, 0, 1).set(1, 1, 0); 
         printf("%d\n", pow(a, n).get(1, 0));
