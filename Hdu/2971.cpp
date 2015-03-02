@@ -1,76 +1,99 @@
 #include <iostream>
 #include <cstdio>
-#include <algorithm>
 #include <cstring>
-#define N 5
+#define MAXM 16
 
 using namespace std;
 
-const int MOD = 10000;
+long long a2, N, m, MOD;
 
 struct Matrix
-{
-    int n, m;
-    int c[N * N];
-    Matrix(){}
-    Matrix(int n, int m)
-    {
-        memset(c, 0, sizeof c);
-       this->n = n; 
-       this->m = m;
-    }
-    int get(int x, int y)
-    {
-        return c[x * n + y];
-    }
-    void add(int x, int y, int cc)
-    {
-        c[x * n + y] += cc;
-        c[x * n + y] %= MOD;
-    }
-    Matrix& set(int x, int y, int cc)
-    {
-       c[x * n + y] = cc;
-       return *this;
-    }
-    Matrix& operator *(Matrix& b)
-    {
-       static Matrix ans(2, 2);
-       memset(ans.c, 0, sizeof ans.c);
-       for(int i = 0; i < n; i++) 
-           for(int j = 0; j < m; j++)
-           if(get(i, j))
-            for(int k = 0; k < b.m; k++)
-                  ans.add(i, k, get(i, j) * b.get(j, k) % MOD);
-       return ans;
-    }
-}; 
-Matrix& pow(Matrix& x, int c)
-{
-    static Matrix ans(2, 2);
-    memset(ans.c, 0, sizeof ans.c);
-    ans.set(0, 0, 1).set(1, 1, 1);
-    while(c)
-    {
-        if(c & 1) ans = ans * x;
-        x = x * x;
-        c >>= 1;
-    }
-    return ans;
+{	
+	long long a[MAXM];
+	int r, c;
+	Matrix(int nr, int nc)
+	{
+		r = nr; c = nc;
+		memset(a, 0, sizeof a);
+	}	
+	Matrix& set(int i, int j, long long num)
+	{
+		a[i * r + j] = num % MOD;
+		return *this;
+	}
+	Matrix& set(long long *init)
+	{
+		for(int i = 0; i < r; i++)
+			for(int j = 0; j < c; j++)
+				a[i * r + j] = init[i * r + j] % MOD;
+		return *this;
+	}
+	Matrix operator * (Matrix& b)
+	{
+		Matrix res(r, b.c);
+		for(int i = 0; i < r; i++)
+			for(int j = 0; j < c; j++)
+				if(a[i * r + j])
+					for(int k = 0; k < b.c; k++)
+					{
+						long long p = a[i * r + j] * b.a[j * b.r + k];
+						if(p > MOD) p %= MOD;
+						res.a[i * r + k] += p;
+						if(res.a[i * r + k] > MOD) res.a[i * r + k] %= MOD;
+					}		
+		return res;
+	}
+	/*
+	void disp()
+	{
+		putchar('\n');
+		for(int i = 0; i < r; i++)
+		{
+			for(int j = 0; j < c; j++)
+				cout << a[i * r + j] << " ";
+			putchar('\n');
+		}
+		putchar('\n');
+	}
+	*/
+};
+
+
+long long mul(long long p)
+{	
+	p--;
+	Matrix x(4, 4);
+	//Matrix one(4, 4);	
+	Matrix res(4, 1);
+	
+	long long init[MAXM] = 	
+	{
+		1, 1, 0, 0,
+		0, 4ll * ((a2 * a2) % MOD), 1, (-4ll * a2) % MOD + MOD,
+		0, 1, 0, 0,
+		0, 0, 2ll * a2, -1 + MOD % MOD
+	};
+	x.set(init);
+	res.set(0, 0, 1).set(1, 0, (a2 * a2) % MOD).set(2, 0, 1).set(3, 0, a2);
+	while(p)
+	{
+		if(p & 1) res = x * res;
+		x = x * x;
+		p >>= 1;
+	}
+	return res.a[0];
 }
 
 int main()
 {
-    Matrix a(2, 2), x(4, 1), y(4, 1);
-    a.set(0, 0, 1).set(0, 1, 1).set(1, 0, 1).set(1, 1, 0); 
-    int n;
-    while(true)
-    {
-        scanf("%d", &n);
-        if(n == -1) break;
-        memset(a.c, 0, sizeof a.c);
-        a.set(0, 0, 1).set(0, 1, 1).set(1, 0, 1).set(1, 1, 0); 
-        printf("%d\n", pow(a, n).get(1, 0));
-    }
-    return 0;
+	ios::sync_with_stdio(false);
+	int T;
+	cin >> T;
+	for(int ii = 0; ii < T; ii++)
+	{
+		cin >> a2 >> N >> m;
+		MOD = m;
+		cout << mul(N) << endl;
+	}
+	return 0;
 }
