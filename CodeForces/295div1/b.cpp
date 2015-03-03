@@ -18,6 +18,7 @@ int BG[MAXN];
 int cnt = 0, n;
 int cc = 0;
 set<int>s;
+set<int>vis;
 
 bool only(int x)
 {
@@ -83,8 +84,11 @@ void del(int x)
 	{
 		int d = p.down[i];
 		unlink(x, d);
-		if(can(d) && s.count(d) == 0) { s.insert(d); }
+		if(can(d) && vis.count(d) == 0 && s.count(d) == 0) { s.insert(d); }
 	}
+	for(int i = 0; i < 3; i++)
+	if(p.up[i] != -1)
+		unlink(p.up[i], x);
 }
 
 void gen()
@@ -115,15 +119,16 @@ void operator << (ostream& out, const P& p)
 {
 	out << "id: " << p.id << endl;
 	out << "x: " << p.x << ", y: " << p.y << endl;
+	out << "From: " << endl;
+	for(int i = 0; i < 3; i++) if(p.up[i] != -1) out << p.up[i] << endl;
 	out << "To: " << endl;
-	for(int i = 0; i < 3; i++) 
-	if(p.down[i] != -1) out << p.down[i] << endl;
+	for(int i = 0; i < 3; i++) if(p.down[i] != -1) out << p.down[i] << endl;
+	
 	out << endl;
 }
 
 int main()
 {
-	freopen("test.in", "r", stdin);
 	scanf("%d", &n);
 	for(int i = 0; i < n; i++)
 	{
@@ -145,40 +150,48 @@ int main()
 	BG[cc] = n;		
 	gen();
 	sort(pt, pt + n, cmp2);
-	s.clear();
-	for(int i = 0; i < n; i++) cout << pt[i];
+	s.clear(); vis.clear();
 	for(int i = 0; i < n; i++)
 		if(can(i)) 
 		{
-			//cout << i << endl;
+			//cout << i << endl;W
 			s.insert(i);
 		}
 	long long ans = 0;
 	long long MOD = 1000000009;
 	
-	
 	bool flg = 1;
+	
 	while(!s.empty())
 	{
 		int t;
 		flg ^= 1;
 		if(flg)
 		{
-			t = *(s.begin());
-			s.erase(s.begin());
+			while(true)
+			{
+				t = *(s.begin());
+				s.erase(s.begin());
+				if(can(t)) break;		
+			}
+			vis.insert(t);
 			del(t);
 			ans = (ans * n % MOD + t) % MOD;		
 		}
 		else
 		{
-			t = *(--s.end());
-			s.erase(s.find(t));
+			while(true)
+			{
+				t = *(--s.end());
+				s.erase(s.find(t));				
+				if(can(t)) break;				
+			}
+			vis.insert(t);
 			del(t);
 			ans = (ans * n % MOD + t) % MOD;				
 		}
-		cout << t << endl;
-		for(int i = 0; i < n; i++) cout << pt[i];
 	}
+	
 	printf("%I64d\n", ans);
 	
 	return 0;
