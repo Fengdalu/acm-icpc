@@ -14,18 +14,10 @@ struct P
 	int down[3], up[3];
 }pt[MAXN];
 
-struct cmp
-{
-	bool operator() (const int &a, const int &b)
-	{
-		return pt[a].id - pt[b].id;
-	}
-};
-
 int BG[MAXN];
 int cnt = 0, n;
 int cc = 0;
-set<int, cmp>s;
+set<int>s;
 
 bool only(int x)
 {
@@ -40,15 +32,20 @@ bool can(int x)
 {
 	P &p = pt[x];
 	for(int i = 0; i < 3; i++)
-		if(only(p.up[i])) return false;
+		if(p.up[i] != -1 && only(p.up[i])) return false;
 	return true;
 }
 
 
-int cmp(P a, P b)
+int cmp1(P a, P b)
 {
 	if(a.y == b.y) return a.x < b.x;
 	return a.y > b.y;
+}
+
+int cmp2(P a, P b)
+{
+	return a.id < b.id;
 }
 
 int find(int l, int r, int c)
@@ -67,15 +64,15 @@ int find(int l, int r, int c)
 void link(int up, int down)
 {
 	P &u = pt[up], &d = pt[down];
-	for(int i = 0; i < 3; i++) if(u.down[i] == -1) { u.down[i] = down; break; }
-	for(int i = 0; i < 3; i++) if(d.up[i] == -1) { d.up[i] = up; break; }
+	for(int i = 0; i < 3; i++) if(u.down[i] == -1) { u.down[i] = d.id; break; }
+	for(int i = 0; i < 3; i++) if(d.up[i] == -1) { d.up[i] = u.id; break; }
 }
 
 void unlink(int up, int down)
 {
 	P &d = pt[down], &u = pt[up];
 	for(int i = 0; i < 3; i++) if(d.up[i] == up) { d.up[i] = -1; break; }
-	for(int i = 0; i < 3; i++) if(d.down[i] == down) { d.down[i] = -1; break; }
+	for(int i = 0; i < 3; i++) if(u.down[i] == down) { u.down[i] = -1; break; }
 }
 
 void del(int x)
@@ -86,7 +83,7 @@ void del(int x)
 	{
 		int d = p.down[i];
 		unlink(x, d);
-		if(can(d)) { s.insert(d); }
+		if(can(d) && s.count(d) == 0) { s.insert(d); }
 	}
 }
 
@@ -126,6 +123,7 @@ void operator << (ostream& out, const P& p)
 
 int main()
 {
+	freopen("test.in", "r", stdin);
 	scanf("%d", &n);
 	for(int i = 0; i < n; i++)
 	{
@@ -133,7 +131,7 @@ int main()
 		for(int j = 0; j < 3; j++) pt[i].up[j] = pt[i].down[j] = -1;
 		pt[i].id = i;
 	}
-	sort(pt, pt + n, cmp);
+	sort(pt, pt + n, cmp1);
 	cc = 0;
 	BG[cc] = 0;
 	for(int i = 1; i < n; i++)
@@ -146,32 +144,40 @@ int main()
 	cc++;
 	BG[cc] = n;		
 	gen();
+	sort(pt, pt + n, cmp2);
 	s.clear();
-	//for(int i = 0; i < n; i++) cout << pt[i];
+	for(int i = 0; i < n; i++) cout << pt[i];
 	for(int i = 0; i < n; i++)
 		if(can(i)) 
 		{
+			//cout << i << endl;
 			s.insert(i);
 		}
-	
 	long long ans = 0;
 	long long MOD = 1000000009;
 	
 	
+	bool flg = 1;
 	while(!s.empty())
 	{
 		int t;
-		
-		t = *s.begin();
-		s.erase(s.begin()); 
-		del(t);
-		ans = (ans * n + pt[t].id) % MOD;		
-	
-	
-		t = *(--s.end());
-		s.erase(--s.end()); 
-		del(t);
-		ans = (ans * n + pt[t].id) % MOD;				
+		flg ^= 1;
+		if(flg)
+		{
+			t = *(s.begin());
+			s.erase(s.begin());
+			del(t);
+			ans = (ans * n % MOD + t) % MOD;		
+		}
+		else
+		{
+			t = *(--s.end());
+			s.erase(s.find(t));
+			del(t);
+			ans = (ans * n % MOD + t) % MOD;				
+		}
+		cout << t << endl;
+		for(int i = 0; i < n; i++) cout << pt[i];
 	}
 	printf("%I64d\n", ans);
 	
