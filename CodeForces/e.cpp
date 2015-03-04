@@ -3,6 +3,7 @@
 #include <cstring>
 #define LL long long
 #define N 41
+
 using namespace std;
 
 LL f[N][N];
@@ -19,6 +20,14 @@ void gen(LL f[N][N])
        f[i][j] = f[i - 1][j] + f[i - 1][j - 1];
        f[i][i - 1] = 1;
     }
+    /*
+    for(int i = 0; i < N; i++)
+    {
+        for(int j = 0; j <= i; j++)
+            printf("%5I64d", f[i][j]);
+        putchar('\n');
+    }
+    */
 }
 
 LL bit_count(LL x)
@@ -26,19 +35,18 @@ LL bit_count(LL x)
     int num = 0;
     while(x)
     {
-        num += x & 1LL;
-        x >>= 1LL;
+        num += x & 1;
+        x >>= 1;
     }
     return num;
 }
-
 LL offset(LL x)
 {
    int num = 0;
-   LL res = 1LL;
-   while((res << 1LL) < x)
+   LL res = 1;
+   while((res << 1) < x)
    {
-       res <<= 1LL;
+       res <<= 1;
        num ++;
    }
    return num;
@@ -46,14 +54,14 @@ LL offset(LL x)
 
 LL cal(LL p, LL r, LL T)
 {
-    if(T == 0 || p == 0) return 0;
-    if(T == 1) return 1;
-
+   cout << "p: " << p << " r: " << r << " T: "  << T << endl;
    if(p == 1) return (T == 1);
-   if(p <= (1LL << (r - 2LL))) return cal(p, r - 1, T);
+   if(p <= (1LL << (r - 1LL))) return cal(p, r - 1, T);
    else 
    {
-       return cal(p - (1LL << (r - 2LL)), r - 1, T >> 1LL) + f[r - 1][offset(T) + 1];
+       //cout << offset(T) << " " << f[r - 1][offset(T) + 1] << endl;
+       cout << (1LL << (r - 1LL)) << endl;
+       return cal(p - (1LL << (r - 1LL)), r - 1, T >> 1) + f[r - 1][offset(T) + 1];
    }
 }
 
@@ -61,26 +69,20 @@ int main()
 { 
     gen(f);
     scanf("%I64d%I64d", &M, &T); 
-    M++;
     if(bit_count(T) != 1) { puts("0"); return 0; }
     LL r = offset(M);
-    LL c = offset(T) + 1;
+    LL c = offset(T);
     res = 0;
-    for(int i = 1; i <= r; i++)
+    cout << r << " " << c << endl;
+    for(int i = 1; i < r - 1; i++)
         res += f[i][c];
     LL add = 0;
-    if(T == 1)
-    { 
-        if(r == 0) { puts("1"); return 0; }
-        if((1LL << (r + 1)) - 1 == M) r++;
-        printf("%I64d\n", r);
-        return 0;
-    }
-    if((1LL << (r + 1)) - 1 == M) res += f[r + 1][c];
+    if((1 << (r + 1)) - 1 == M) res += f[r][c];
     else 
     {
-        if(r == 0) r = 1;
         LL t = M - (1LL << r) + 1;
+        LL p = (1LL << r) + 1;
+        cout << t << " " << r << endl;
         add = cal(t, r + 1, T);
     }
     printf("%I64d\n", res + add);
