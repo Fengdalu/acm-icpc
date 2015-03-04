@@ -12,13 +12,13 @@ LL M, T, res;
 void gen(LL f[N][N])
 {
     memset(f, 0, sizeof f);
-    f[0][0] = 1;
-    for(int i = 1; i < N; i++) 
+    f[1][0] = 1;
+    for(int i = 2; i < N; i++) 
     { 
        f[i][0] = 1;
-       for(int j = 1; j < N; j++)
+       for(int j = 1; j < i - 1; j++)
        f[i][j] = f[i - 1][j] + f[i - 1][j - 1];
-       f[i][i] = 1;
+       f[i][i - 1] = 1;
     }
     /*
     for(int i = 0; i < N; i++)
@@ -44,7 +44,7 @@ LL offset(LL x)
 {
    int num = 0;
    LL res = 1;
-   while(res <= x)
+   while((res << 1) < x)
    {
        res <<= 1;
        num ++;
@@ -52,15 +52,16 @@ LL offset(LL x)
    return num;
 }
 
-LL cal(int p, int r, int T)
+LL cal(LL p, LL r, LL T)
 {
-   //cout << "p: " << p << " r: " << r << " T: "  << T << endl;
+   cout << "p: " << p << " r: " << r << " T: "  << T << endl;
    if(p == 1) return (T == 1);
-   if(p <= 1 << (r - 1)) return cal(p, r - 1, T);
+   if(p <= (1LL << (r - 1LL))) return cal(p, r - 1, T);
    else 
-   { 
-      // cout << r - 1 << " " << f[r - 1][offset(T) - 1] << endl; 
-      return f[r - 1][offset(T) - 1] + cal(p - (1 << (r - 1)), r - 1, T >> 1);
+   {
+       //cout << offset(T) << " " << f[r - 1][offset(T) + 1] << endl;
+       cout << (1LL << (r - 1LL)) << endl;
+       return cal(p - (1LL << (r - 1LL)), r - 1, T >> 1) + f[r - 1][offset(T) + 1];
    }
 }
 
@@ -70,18 +71,19 @@ int main()
     scanf("%I64d%I64d", &M, &T); 
     if(bit_count(T) != 1) { puts("0"); return 0; }
     LL r = offset(M);
-    LL c = offset(T) - 1;
+    LL c = offset(T);
     res = 0;
     cout << r << " " << c << endl;
     for(int i = 1; i < r - 1; i++)
         res += f[i][c];
-    LL add;
-    if(1 << (r - 1) == M) res += f[r][c];
+    LL add = 0;
+    if((1 << (r + 1)) - 1 == M) res += f[r][c];
     else 
     {
-        int t = M - (1 << (r - 1));
-        add = cal(t, r - 1, T);
-        //cout << add << endl;
+        LL t = M - (1LL << r) + 1;
+        LL p = (1LL << r) + 1;
+        cout << t << " " << r << endl;
+        add = cal(t, r + 1, T);
     }
     printf("%I64d\n", res + add);
     return 0;
