@@ -1,6 +1,5 @@
 # Ceva's ACM Training Code Set
 
------
 
 ## Online Judges
 
@@ -16,7 +15,6 @@ http://acm.zju.edu.cn
 
 http://acm.bnu.edu.cn/
 
------
 
 
 
