@@ -3,3 +3,6 @@
 *.in
 *.out
 *.o
+test.*
+*.swp
+*~
