@@ -2,15 +2,25 @@
 #include <cstdio>
 #include <cstring>
 using namespace std;
-#define _DEBUG_
 typedef long long LL;
-const LL MOD = 1000000007;
+const LL MOD = 1000000000LL + 7;
 
 LL a[100][100];
 LL f[100];
 LL m;
 LL ans;
 
+
+LL mul(LL a, LL b)
+{
+	LL ans = 0;
+	while(a)	
+	{
+		if(a & 1) ans = (ans + b) % MOD;
+		a >>= 1; b <<= 1;
+	}
+	return ans;
+}
 
 LL exgcd(LL a, LL b, LL &x, LL &y)
 {
@@ -33,6 +43,13 @@ LL C(LL n, LL k)
 		while(x < 0) x += MOD;
 		ans = (ans * x) % MOD;
 	}
+	return ans;
+}
+
+LL A(LL n, LL k)
+{
+	LL ans = 1LL;	
+	for(LL i = n; i > n - k; i--) ans = mul(ans, i);
 	return ans;
 }
 
@@ -83,31 +100,31 @@ void calf()
 	}
 }
 
+
 LL pp[11];
 LL P(LL x)
 {
 	return pp[x];	
 }
 LL num[11];
-void dfs(int x, int tot, int c) 
+void dfs(LL x, LL tot, LL c) 
 {
 	if(x == 0)
 	{
+		if(tot == 0) return;
 		if(c > f[0]) return;
 		num[0] = c;			
-		LL tmp = 1;
+		LL tmp = 1LL;
 		for(int i = 0; i < 10; i++)
 		if(num[i])
 		{
-			cout << i << " " << num[i] << "; ";
-			tmp = (tmp * C(f[i], num[i]) % MOD) * P(num[i]) % MOD;
+			tmp = (mul(tmp,  C(f[i], num[i])) % MOD) % MOD;
 		}
-		cout << tmp << endl;
 		ans = (ans + tmp) % MOD;
 		return;
 	}
+	if(!tot) return;
 	if(f[x] == 0) dfs(x - 1, tot, c);
-	else if(!tot) dfs(x - 1, 0, c);
 	else if(c == 7) { num[x] = 1; dfs(x - 1, tot, c - 1); return; }
 
 	for(int i = 0; i <= c; i++)
@@ -115,7 +132,9 @@ void dfs(int x, int tot, int c)
 	{
 		num[x] = i;
 		dfs(x - 1, tot - x * i, c - i);
+		num[x] = 0;
 	}
+	num[x] = 0;
 }
 
 int main()
@@ -151,9 +170,10 @@ int main()
 	for(int i = 1; i < 10; i++)
 	if(f[i])
 	{
+		memset(num, 0, sizeof num);
 		dfs(i, i, 7);
-		cout << endl;
 	}
+	ans = mul(ans, 720L);
 	printf("%I64d\n", ans);
 	return 0;
 }
