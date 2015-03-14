@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
-#define MAXM 16
+#define MAXM 20 
 
 using namespace std;
 
-long long a2, N, m, MOD;
+long long a2, N, MOD;
 
 struct Matrix
 {	
@@ -18,45 +18,26 @@ struct Matrix
 	}	
 	Matrix& set(int i, int j, long long num)
 	{
-		a[i * c + j] = num % MOD;
+		a[i * c + j] = num;
 		return *this;
 	}
-	Matrix& set(long long *init)
-	{
-		for(int i = 0; i < r; i++)
-			for(int j = 0; j < c; j++)
-				a[i * c + j] = init[i * r + j] % MOD;
-		return *this;
-	} 
 	long long get(int x, int y)
 	{
 		return a[x * c + y];
 	}
 
-	Matrix operator * (Matrix b)
+	Matrix operator * (Matrix& b)
 	{
 		Matrix res(r, b.c);
 		for(int i = 0; i < r; i++)
 			for(int j = 0; j < b.c; j++)
 			{
 				for(int k = 0; k < c; k++)
-					res.set(i, j, (res.get(i, j) + get(i, k) * b.get(k, j) % MOD) % MOD);
+					res.set(i, j, res.get(i, j) + get(i, k) * b.get(k, j));
+					res.set(i, j, res.get(i, j) % MOD);
 			}
 		return res;
 	}
-	/*
-	void disp()
-	{
-		putchar('\n');
-		for(int i = 0; i < r; i++)
-		{
-			for(int j = 0; j < c; j++)
-				cout << a[i * r + j] << " ";
-			putchar('\n');
-		}
-		putchar('\n');
-	}
-	*/
 };
 
 ostream& operator << (ostream& out, Matrix& a)
@@ -73,28 +54,31 @@ ostream& operator << (ostream& out, Matrix& a)
 long long mul(long long p)
 {	
 	if(p == 1) return 1;
-	if(p == 2) return (1 + (a2 * a2) % MOD) % MOD;
-	p--;p--;
+	p -= 2;
 	Matrix x(4, 4);
 	//Matrix one(4, 4);	
 	Matrix res(4, 1);
 	
-	long long init[MAXM] = 	
-	{
-		1, 4 * a2 % MOD * a2 % MOD, (-4 * a2 + MOD) % MOD, 1,
-		0, (4 * a2) % MOD, (-4 * a2 % MOD) % MOD, 1,
-		0, 0, -1 + MOD, 2 * a2 % MOD,
-		0, 1, 0, 0 
-	};
-	x.set(init);
-	res.set(0, 0, (1 + (a2 * a2) % MOD) % MOD).set(1, 0, a2 * a2 % MOD).set(2, 0, 0).set(3, 0, 0);
+	long long a22 = a2 * a2 % MOD;
+	x.set(0, 0, 1).set(0, 1, 1);
+
+	long long e = -8;
+	while(e < 0) e += MOD;
+	x.set(1, 1, 4LL * a22 % MOD).set(1, 2, 4LL * a2 % MOD)
+	.set(1, 3, ((e * a22) % MOD + 1) % MOD);
+	x.set(2, 2, MOD - 1LL).set(2, 3, 2 * a2 % MOD);
+	x.set(3, 1, 1);
+
+	long long a3 = (2LL * a2 * a2 % MOD + (MOD - 1)) % MOD;
+	res.set(0, 0, (1 + a22) % MOD).set(1, 0, a3 * a3 % MOD).set(2, 0, a2).set(3, 0, a22); 
+		
 	while(p)
 	{
 		if(p & 1) res = x * res;
 		x = x * x;
 		p >>= 1;
 	}
-	return res.a[1];
+	return (res.a[0]) % MOD;
 }
 
 int main()
@@ -104,8 +88,7 @@ int main()
 	cin >> T;
 	for(int ii = 0; ii < T; ii++)
 	{
-		cin >> a2 >> N >> m;
-		MOD = m;
+		cin >> a2 >> N >> MOD;
 		cout << mul(N) << endl;
 	}
 	return 0;
