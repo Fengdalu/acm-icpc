@@ -14,16 +14,17 @@ int pos[N];
 
 int n; 
 int a[N], b[N];
-int t1[N], t2[N];
-set<obj>s1, s2;
+multiset<obj>s1, s2;
 
 bool operator < (const obj &a, const obj &b)
 {
-	return a.c < b.c;
+	if(a.v == b.v) return a.c < b.c;
+	return a.v < b.v;
 }
 
 int main()
 {
+	//freopen("test.in", "r", stdin);
 	ios::sync_with_stdio(false);
 	cin >> n;
 	for(int i = 0; i < n; i++) cin >> a[i];
@@ -35,26 +36,45 @@ int main()
 		f[b[i]].c = b[i]; 
 		f[b[i]].v = abs(x);
 	}
-	t1[0] = -1;
-	for(int i = 0; i < n; i++) t1[i + 1] = b[i];
-	s1.clear(); s2.clear();
 	for(int i = 0; i < n; i++)
 		if(i - pos[b[i]] <= 0) s1.insert(f[b[i]]);
 		else s2.insert(f[b[i]]);
-	for(int i = 0; i < n; i++) t2[i] = -1;
-	for(int i = 0; i < n; i++)
-		if(i - pos[b[i]] <= 0) t2[i + n - pos[b[i]]] = b[i];
-		else t2[i - pos[b[i]]] = b[i];
-	/*
-	for(int i = 0; i < n; i++) cout << t1[i] << " ";
-	cout << endl;
-	for(int i = 0; i < n; i++) cout << t2[i] << " ";
-	cout << endl;
-	*/
-	for(int i = 0; i < n; i++)	
-	{
-		if()
-	}
-	return 0;
-}
 
+	int tmp = 0;
+	int inf = n + 1;
+	for(int i = 0; i < n; i++)
+	{
+		/*
+		for(set<obj>::iterator iter = s1.begin(); iter != s1.end(); iter++)
+		{
+			cout << iter->c << " " << iter->v << endl;
+		}
+		cout << endl; 
+
+		for(set<obj>::iterator iter = s2.begin(); iter != s2.end(); iter++)
+		{
+			cout << iter->c << " " << iter->v << endl;
+		}
+		*/
+		int x = (!s1.empty()) ? s1.begin()->v + tmp : inf;
+		int y = (!s2.empty()) ? s2.begin()->v - tmp : inf;
+		tmp++;
+		cout << min(x, y) << endl;
+		int p = b[i];
+		s1.erase(f[p]);
+		s2.erase(f[p]);
+		f[p].v = tmp + n - pos[p] - 1;
+		s2.insert(f[p]);
+		if(!s2.empty())
+		{
+			while(!s2.empty() && (s2.begin()->v) == tmp)
+			{
+				int p = s2.begin()->c;
+				s2.erase(f[p]);
+				f[p].v = -tmp;
+				s1.insert(f[p]);
+			}
+		}
+		//cout << endl;
+	}
+}
