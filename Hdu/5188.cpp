@@ -30,8 +30,7 @@ int main()
 		sort(a, a + n, cmp);
 		for(int i = 0; i < n; i++)
 		{
-			M += a[i].t; 
-			M += a[i].l;
+			M = max(M + a[i].t, a[i].l);
 		}
 		memset(f, 0, sizeof f);
 		int flg = -1;
