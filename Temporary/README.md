@@ -1,5 +1,0 @@
-# Temporary Dictionary
-
------
-
-Unfinished Works 
