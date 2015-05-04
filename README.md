@@ -30,3 +30,7 @@ http://code.bupt.edu.cn/
 ### NEERC
 
 2008-2009 http://codeforces.com/gym/100623
+
+### ASC
+
+40 http://codeforces.com/gym/100492
