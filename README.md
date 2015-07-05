@@ -25,6 +25,8 @@ http://hihocoder.com/
 
 http://code.bupt.edu.cn/
 
+http://ipsc.ksp.sk
+
 ## Problem List
 
 ### NEERC
