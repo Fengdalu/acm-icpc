@@ -5,7 +5,7 @@
 #include <set>
 using namespace std;
 #define LL long long
-#define N 100010
+#define N 100011
 
 int n;
 set<int>f[N];
