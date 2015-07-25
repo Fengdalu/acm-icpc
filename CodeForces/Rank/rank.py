@@ -22,6 +22,7 @@ def getMultiUserRank(userList):
 	f = StringIO.StringIO()
 	c.setopt(pycurl.WRITEFUNCTION, f.write)
 	c.perform()
+	print f.getvalue()
 	result =  json.loads(f.getvalue())['result']
 	result = sorted(result, userComp)
 	return result
