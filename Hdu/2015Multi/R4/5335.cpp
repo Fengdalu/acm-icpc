@@ -11,6 +11,7 @@ using namespace std;
 #define SQR(x) ((x) * (x))
 #define cmax(x, y) x = max(x, y)
 #define cmin(x, y) y = min(x, y)
+
 template<class T> struct queue
 {
     int l, r;
