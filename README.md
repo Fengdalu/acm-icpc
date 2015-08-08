@@ -39,6 +39,10 @@ http://www.jisuanke.com/
 
 40 http://codeforces.com/gym/100492
 
+## Hdu MultiSchool 
+
+
+
 ### Others
 
 Topcoder
