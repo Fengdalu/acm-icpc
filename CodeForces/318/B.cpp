@@ -1,36 +1,44 @@
 #include <iostream>
 #include <cstdio>
-#include <algorithm>
-#include <cstring>
+#include <iostream>
 #include <set>
-#include <map>
+#include <cstring>
 using namespace std;
-#define N 5010
-#define LL long long
+#define N 5000
+#define PII pair<int, int>
+#define A first
+#define B second
 
-LL dp[N][N];
-LL a[300010];
-int n, k;
+PII e[N];
+bool f[N][N];
+int c[N];
+int n, m;
 
 int main()
 {
-    scanf("%d%d", &n, &k);
-    for(int i = 1; i <= n; i++) scanf("%I64d", &a[i]);
-    sort(a + 1, a + n + 1);
-
-    int LA = n / k + 1;
-    int LB = n / k;
-    int A = n - k * LB;
-    int B = k - A;
-    for(int i = 0; i <= A; i++) for(int j = 0; j <= B; j++)
+    memset(c, 0, sizeof c);
+    memset(f, 0, sizeof f);
+    scanf("%d%d", &n, &m);
+    for(int i = 0; i < m; i++)
     {
-        if(i == 0 && j == 0) continue;
-        if(i == 0) dp[i][j] = dp[i][j - 1] + a[i * LA + j * LB] - a[i * LA + (j - 1) * LB + 1];
-        else if(j == 0) dp[i][j] = dp[i - 1][j] + a[i * LA + j * LB] - a[(i - 1) * LA + j * LB + 1];
-        else dp[i][j] = min(dp[i][j - 1] + a[i * LA + j * LB] - a[i * LA + (j - 1) * LB + 1],
-                            dp[i - 1][j] + a[i * LA + j * LB] - a[(i - 1) * LA + j * LB + 1]
-                            );
+        int x, y; scanf("%d%d", &x, &y);
+        c[x]++;
+        c[y]++;
+        e[i] = PII(x, y);
+        f[x][y] = true;
+        f[y][x] = true;
     }
-    printf("%I64d\n", dp[A][B]);
+    int ans = (5 * N);
+    for(int i = 0; i < m; i++)
+    {
+        int tmp = c[e[i].A] + c[e[i].B];
+        for(int j = 1; j <= n; j++)
+        if(f[e[i].A][j] && f[e[i].B][j])
+        {
+            ans = min(ans, tmp + c[j]);
+        }
+    }
+    if(ans == (5 * N)) printf("-1");
+    else printf("%d\n", ans - 6);
     return 0;
 }
