@@ -29,6 +29,8 @@ http://ipsc.ksp.sk
 
 http://www.jisuanke.com/
 
+http://vjudge.net
+
 ## Problem List
 
 ### NEERC
