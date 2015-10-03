@@ -49,6 +49,8 @@ http://vjudge.net
 
 Topcoder
 
+http://neerc.ifmo.ru/
+
 Multi School Training
 
 ## Interesting!
