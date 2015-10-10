@@ -22,4 +22,5 @@ typedef pair<int, int> PII;
 #define INS(x) insert(x)
 #define FOR(i, n) for(int i = 0; i < n; i++)
 #define MEM(a) memset(a, 0, sizeof a)
-#define ECH(x) FOR(typeof(x.OP) it; it != x.ED; it++)
+#define ECH(x) for(__typeof x.OP it = x.OP; it != x.ED; it++)
+
