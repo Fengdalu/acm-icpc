@@ -4,7 +4,9 @@
 #include <set>
 #include <map>
 #include <vector>
+#include <queue>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 #define LL long long
 #define u32  unsigned int
@@ -21,6 +23,8 @@ typedef pair<int, int> PII;
 #define CLR clear()
 #define INS(x) insert(x)
 #define FOR(i, n) for(int i = 0; i < n; i++)
+#define FORR(i, n) for(int i = 1; i <= n; i++)
 #define MEM(a) memset(a, 0, sizeof a)
 #define ECH(x) for(__typeof x.OP it = x.OP; it != x.ED; it++)
-
+#define ONES(x) __builtin_popcount(x)
+/*===========================================================*/
