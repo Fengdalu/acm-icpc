@@ -1,0 +1,30 @@
+﻿\subsection{RKHash}
+\paragraph{}
+把字符串变成X进制数，可以完成O(1)比较, 有一定概率冲突, 调用init()初始化幂, mh(0)构造hash数组
+\begin{lstlisting}[language=C++]
+char s[N];
+ULL hash[N];
+int len;
+ULL pp[N];
+
+void init()
+{
+    pp[0] = 1;
+    for(int i = 1; i < N; i++) pp[i] = (pp[i - 1] * 26ULL) % MOD;
+}
+
+void mh(int p)
+{
+    if(!p) { hash[0] = (s[0] - 'a'); p++; }
+    for(int i = p; i < len; i++) hash[i] = ((hash[i - 1] * 26ULL) % MOD + (s[i] - 'a')) % MOD;
+}
+
+int cp(int x, int y, int l)
+{
+    if(x + l > len || y + l > len) return false;
+    x--; y--;
+    if((hash[x + l] - hash[x] * pp[l] % MOD + MOD) % MOD 
+	== (hash[y + l] - hash[y] * pp[l] % MOD + MOD) % MOD) return true;
+    return false;
+}
+\end{lstlisting}

@@ -1,0 +1,13 @@
+*.exe
+*.cpp~
+*.in
+*.out
+*.o
+test.*
+*.swp
+*~
+*.swo
+*.aux
+*.log
+*.toc
+
