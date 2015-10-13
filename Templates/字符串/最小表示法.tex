@@ -1,0 +1,43 @@
+﻿\subsection{最小表示法}
+\paragraph{}
+求一个字符串字典序最小的开头位置，注意要复制串两次
+\begin{lstlisting}[language=C++]
+int smallest(char *s) 
+{
+    int i = 0,j = 1,k = 0;
+    int len = strlen(s);
+    while(i<len&&j<len)
+    {
+        k=0;
+        while(k<len&&(s[i+k]==s[j+k]))
+            k++;
+        if(k>=len)
+            break;
+        if(s[i+k]>s[j+k])
+            i=max(i+k+1,j+1);
+        else
+            j=max(i+1,j+k+1);
+    }
+    return min(i,j);
+} 
+
+int biggest(char *s) 
+{
+    int i = 0,j = 1,k = 0;
+    int len = strlen(s);
+    while(i<len&&j<len)
+    {
+        k=0;
+        while(k<len&&(s[i+k]==s[j+k]))
+            k++;
+        if(k>=len)
+            break;
+        if(s[i+k]<s[j+k])
+            i=max(i+k+1,j+1);
+        else
+            j=max(i+1,j+k+1);
+    }
+    return min(i,j);
+} 
+
+\end{lstlisting}
