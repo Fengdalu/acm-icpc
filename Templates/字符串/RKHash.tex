@@ -10,13 +10,13 @@ ULL pp[N];
 void init()
 {
     pp[0] = 1;
-    for(int i = 1; i < N; i++) pp[i] = (pp[i - 1] * 26ULL) % MOD;
+    for(int i = 1; i < N; i++) pp[i] = (pp[i - 1] * 31ULL) % MOD;
 }
 
 void mh(int p)
 {
     if(!p) { hash[0] = (s[0] - 'a'); p++; }
-    for(int i = p; i < len; i++) hash[i] = ((hash[i - 1] * 26ULL) % MOD + (s[i] - 'a')) % MOD;
+    for(int i = p; i < len; i++) hash[i] = ((hash[i - 1] * 31ULL) % MOD + (s[i] - 'a')) % MOD;
 }
 
 int cp(int x, int y, int l)
