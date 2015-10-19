@@ -1,0 +1,88 @@
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <set>
+#include <map>
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <fstream>
+using namespace std;
+#define LL long long
+#define u32 usigned int
+#define AA first
+#define BB second
+typedef pair<int, int> PII;
+#define cmin(x, y) x = min(x, y)
+#define cmax(x, y) y = max(x, y)
+#define PB(x) push_back(x)
+#define SZ size()
+#define MP(a, b), make_pair(a, b)
+#define OP begin()
+#define ED end()
+#define CLR clear()
+#define INS(x) insert(x)
+#define FOR(i, n) for(int i = 0; i < (n); i++)
+#define FORR(i, n) for(int i = 1; i <= n; i++)
+#define REP(i, L, R) for(int i = L; i <= (R); i++)
+#define MEM(x) memset(a, 0, sizeof a);
+#define ECH(x) for(__typeof x.OP it = x.OP; it != x.ED; it++)
+#define ONES(x) __builtin_popcount(x)
+/*====================================*/
+#define N 10000000
+int n;
+struct node
+{
+    int l, r;
+    int a, b;
+    node(int l, int r): l(l), r(r) {}
+    node(){}
+}f[N]; int cnt;
+
+void pushup(int x)
+{
+    f[x].a = min(f[f[x].l].a, f[f[x].r].a);
+    f[x].b = max(f[f[x].l].b, f[f[x].r].b);
+}
+
+struct NODE
+{
+    int l, r;
+    int x;
+    NODE(int l, int r, int x): l(l), r(r), x(x) {}
+    NODE(){}
+}F[N]; int CNT;
+
+int build(int l, int r)
+{
+    int x = cnt++;
+    f[x] = node(l, r);
+    if(l < r)
+    {
+        int mid = (l + r) / 2;
+        f[x].l = build(l, mid);
+        f[x].r = build(mid + 1, r);
+        pushup(x);
+    }
+    return x;
+}
+
+int BUILD(int l, int r)
+{
+    int x = CNT++;
+    F[x] = NODE(l, r, build(1, n));
+    if(l < r)
+    {
+        int mid = (l + r) / 2;
+        f[x].l = BUILD(l, mid);
+        f[x].r = BUILD(mid + 1, r);
+
+    }
+}
+
+int main()
+{
+
+}
