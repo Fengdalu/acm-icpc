@@ -35,7 +35,7 @@ http://vjudge.net
 
 ### NEERC
 
-http://codeforces.com
+http://neerc.ifmo.ru
 
 ### ASC
 
