@@ -35,7 +35,7 @@ http://vjudge.net
 
 ### NEERC
 
-2008-2009 http://codeforces.com/gym/100623
+http://codeforces.com
 
 ### ASC
 
