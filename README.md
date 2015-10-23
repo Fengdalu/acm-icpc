@@ -39,11 +39,9 @@ http://neerc.ifmo.ru
 
 ### ASC
 
-40 http://codeforces.com/gym/100492
-
 ### Hdu MultiSchool 
 
-
+http://acm.hdu.edu.cn/contests/contest_list.php
 
 ## Others
 
