@@ -43,13 +43,6 @@ http://neerc.ifmo.ru
 
 http://acm.hdu.edu.cn/contests/contest_list.php
 
-## Others
-
-Topcoder
-
-http://neerc.ifmo.ru/
-
-Multi School Training
 
 ## Interesting!
 
