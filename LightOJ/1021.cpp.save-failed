@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <vector>
+using namespace std;
+#define PII pair<int, int>
+#define AA first
+#define BB second
+#define SZ size()
+#define PB(x) push_back(x)
+#define SZ size()
+#define CLR clear()
+
+#define LL long long
+#define N 16
+
+LL f[25][1 << N], g[25][1 << N];
+LL pp[25];
+char s[2 * N];
+LL b, K;
+int n;
+
+PII Q1[5 * (1 << N)], Q2[5 * (1 << N)];
+int cnt1, cnt2;
+
+LL trans(char s)
+{
+    if('0' <= s && s <= '9') return s - '0';
+    return s - 'A' + 10;
+}
+
+int main()
+{
+   int _T; scanf("%d", &_T);
+    for(int CAS = 1; CAS <= _T; CAS++)
+    {
+        scanf("%d%d", &b, &K);
+        scanf("%s", s);
+        n = strlen(s);
+        sort(s, s + n);
+        pp[0] = 1;
+        for(int i = 1; i <= n; i++) pp[i] = pp[i - 1] * (LL)b;
+
+        memset(f, 0, sizeof f);
+        memset(g, 0, sizeof g);
+        cnt1 = cnt2 = 0;
+
+        for(int i = 0; i < n; i++) { f[pp[i] * trans(s[0]) % K][1 << i] = 1; Q1[cnt1++] = PII(pp[i] * trans(s[0]) % K, 1 << i); }
+
+        for(int i = 1; i < n; i++)
+        {
+            swap(f, g);
+            swap(Q1, Q2);
+            swap(cnt1, cnt2);
+            cnt1 = 0;
+            for(int k = 0; k < cnt2; k++)
+            {
+                for(int j = 0; j < n; j++)
+                if(((1 << j) & Q2[k].BB) == 0)
+                {
+                    LL t = pp[j] * trans(s[i]);
+                    f[(t + Q2[k].AA) % K][Q2[k].BB | (1 << j)] += g[Q2[k].AA][Q2[k].BB];
+                }
+            }
+            for(int j = 0; j < K; j++) for(int k = 0; k < (1 << n); k++)
+            if(f[j][k]) Q1[cnt1++] = PII(j, k);
+        }
+        printf("Case %d: %lld\n", CAS, f[0][(1 << n) - 1]);
+    }
+    return 0;
+}
