@@ -1,51 +1,38 @@
-# Ceva's ACM Training Code Set
+# Cevaの魔法训练目录
 
+Cevaの魔法训练目录，收录Ceva(几乎)所有的训练题目以及三次组队的比赛
 
-## Online Judges
-
-http://acm.bjtu.edu.cn
-
-http://codeforces.com
+## 国内OJ
 
 http://acm.hdu.edu.cn
 
 http://poj.org
 
-http://acm.zju.edu.cn
-
 http://acm.bnu.edu.cn/
 
-http://acdream.info/
+http://acm.bjtu.edu.cn
 
-http://acm.timus.ru
-
-http://www.codechef.com/
+http://acm.zju.edu.cn
 
 http://hihocoder.com/
 
 http://code.bupt.edu.cn/
 
-http://ipsc.ksp.sk
-
-http://www.jisuanke.com/
-
 http://vjudge.net
 
-## Problem List
+http://acdream.info/
 
-### NEERC
+http://www.lydsy.com/JudgeOnline/
+
+## Russian OJ
+
+http://codeforces.com
+
+http://www.spoj.com/
+
+## Contests
 
 http://neerc.ifmo.ru
 
-### ASC
+http://icpc.iisf.or.jp/
 
-### Hdu MultiSchool 
-
-http://acm.hdu.edu.cn/contests/contest_list.php
-
-
-## Interesting!
-
-https://screeps.com
-
-http://dynalon.github.io/mdwiki/#!index.md
