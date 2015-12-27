@@ -42,8 +42,8 @@ int FourStrings::shortestLength(string a, string b, string c, string d) {
 	int pos[4] = {0, 1, 2, 3};
 	string ans = a + b + c + d;
 	do{
-		string tmp = q[0];
-		for(int i = 1; i < 4; i++) tmp = cp(tmp, q[i]);
+		string tmp = q[pos[0]];
+		for(int i = 1; i < 4; i++) tmp = cp(tmp, q[pos[i]]);
 		if(tmp.length() < ans.length()) ans = tmp;
 	}while(next_permutation(pos, pos + 4));
 	cout << ans << endl;
