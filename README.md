@@ -36,3 +36,6 @@ http://neerc.ifmo.ru
 
 http://icpc.iisf.or.jp/
 
+## Open Train
+
+http://opentrain.snarknews.info/
