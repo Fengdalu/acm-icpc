@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cstring>
 #include <vector>
+#include <algorithm>
 using namespace std;
 const int Maxn = 1000001;
 
@@ -27,10 +28,11 @@ int main() {
 	while(true) {
 		scanf("%d", &n);
 		if(!n) break;
-		int m = lower_bound(primes.begin(), primes.end(), n / 2) - primes.begin();
-		for(int i = m; i > 0; i--) {
+		for(int i = 0; i < primes.size(); i++) {
 			if(!prime[n - primes[i]]) {
-				printf("%d = %d + %d\n", n, primes[i], n - primes[i]);
+				int x = n - primes[i], y = primes[i];
+				if(x > y) swap(x, y);
+				printf("%d = %d + %d\n", n, x, y);
 				break;
 			}
 		}
