@@ -10,20 +10,53 @@ using namespace std;
 const int Maxn = 200;
 const long long Mod = 1e9 + 7;
 
-struct Matrix {
-	int row, col;
-	long long a[Maxn][Maxn];
-};
+long long A[Maxn][Maxn], B[Maxn][Maxn];
+long long C[Maxn][Maxn], ans[Maxn][Maxn];
+int n, b, K, x;
 
-Matrix& mul(const Matrix &a, const Matrix &b, Matrix &c) {
-	memset(c.a, 0, sizeof c.a);
-	for(int i = 0; i < a.row; i++)
-		for(int j = 0; j < b.col; j++) {
-			for(int k = 0; k < a.col; k++)
-				c.a[i][j] = (c.a[i][j] + a.a[i][k] * b.a[k][j] % Mod) % Mod;
+void mul(long long A[Maxn][Maxn], long long B[Maxn][Maxn], long long C[Maxn][Maxn]) {
+	for(int i = 0; i < K; i++)
+		for(int j = 0; j < K; j++)
+			C[i][j] = 0;
+	for(int i = 0; i < K; i++)
+		for(int j = 0; j < K; j++)
+			for(int k = 0; k < K; k++)
+				C[i][j] = (C[i][j] + (A[i][k] * B[k][j]) % Mod) % Mod;
+}
+
+long long temp[Maxn][Maxn];
+void pow(long long A[Maxn][Maxn], int p, long long ans[Maxn][Maxn]) {
+	for(int i = 0; i < K; i++)
+		for(int j = 0; j < K; j++)
+			if(i == j) ans[i][j] = 1;
+			else ans[i][j] = 0;
+	while(p) {
+		if(p & 1) {
+			mul(A, ans, temp);
+			for(int i = 0; i < K; i++)
+				for(int j = 0; j < K; j++)
+					ans[i][j] = temp[i][j];
 		}
-	return c;
+		p >>= 1;
+		mul(A, A, temp);
+		for(int i = 0; i < K; i++)
+			for(int j = 0; j < K; j++)
+				A[i][j] = temp[i][j];
+	}
 }
 
 int main() {
+	scanf("%d%d%d%d", &n, &b, &x, &K);
+	memset(A, 0, sizeof A);
+	memset(B, 0, sizeof B);
+	memset(C, 0, sizeof C);
+	for(int i = 0; i < n; i++) {
+		long long num; 
+		scanf("%lld", &num);
+		for(int k = 0; k < K; k++)
+			B[(k * 10 + num) % K][k]++;
+	}
+	pow(B, b, ans);
+	cout << ans[x][0] << endl;
+	return 0;	
 }
