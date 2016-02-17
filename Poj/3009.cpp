@@ -6,65 +6,70 @@ using namespace std;
 
 int vis[50][50][4];
 int g[50][50];
-struct pt {
-	int x, y;
-	pt(){}
-	pt(int x, int y): x(x), y(y) {}
-}S, T;
-struct state {
-	int x, y, d;
-	state() {}
-	state(int x, int y, int d): x(x), y(y), d(d) {}
-};
-queue<state>Q;
 int n, m;
-
+int sx, sy;
 const int V[4][2] = {
 	{1, 0},
 	{-1, 0},
-	{0, 1},
-	{0, -1}
+	{0, -1},
+	{0, 1}
 };
 
-void run() {
-	scanf("%d%d", &m, &n);
-	for(int i = 1; i <= n; i++) 
-		for(int j = 1; j <= m; j++)
-			scanf("%d", &g[i][j]);		
-	for(int i = 0; i <= n + 1; i++) g[i][m + 1] = g[i][0] = 4;
-	for(int i = 0; i <= m + 1; i++) g[0][i] = g[n + 1][i] = 4;
 
-	for(int i = 1; i <= n; i++)
-		for(int j = 1; j <= m; j++)  {
-			if(g[i][j] == 2) {
-				S = pt(i, j);
-			}
-			else if(g[i][j] == 3) 
-				T = pt(i, j);
+int ans;
+int cnt;
+void dfs(int x, int y, int d) {
+	if(x < 0 || x > n - 1 || y < 0 || y > m - 1) return;
+	if(cnt > 10) return;
+	if(g[x][y] == 3) ans = min(cnt, ans);
+	bool flag = false;
+	while(true) {
+		int dx = x + V[d][0];
+		int dy = y + V[d][1];
+		if(dx < 0 || dx > n - 1 || dy < 0 || dy > m - 1) return;
+		if(g[dx][dy] == 1) {
+			if(!flag) return;
+			g[dx][dy] = 0;
+			cnt++;
+			for(int i = 0; i < 4; i++) dfs(x, y, i);
+			g[dx][dy] = 1;
+			cnt--;
+			return;
 		}
-						
-	while(Q.size()) Q.pop();
-	for(int i = 1; i <= n; i++)
-		for(int j = 1; j <= m; j++)
-			for(int k = 0; k < 4; k++)
-				vis[i][j][k] = n * m;
-	for(int i = 0; i < 4; i++) Q.push(state(S.x, S.y, i));
-	for(int i = 0; i < 4; i++) vis[S.x][S.y][i] = 0;
-	while(Q.size()) {
-		state p = Q.front();
-		Q.pop();
-		int c = vis[p.x][p.y][p.d];
-		int d = g[p.x + V[p.d][0]][p.y + V[p.d][1]];
-		if(d == 1) {
-				
-		}
-		else if(d == 0) {
-
-		}
+		if(g[dx][dy] == 3) ans = min(cnt, ans);
+		x = dx;
+		y = dy;
+		flag = true;
 	}
 }
 
-int main() {
+int run() {
+	scanf("%d%d", &m, &n);
+	if(n == 0 && m == 0) return 1;
+	
+	memset(g, 0, sizeof g);
+	for(int i = 0; i < n; i++)
+		for(int j = 0; j < m; j++)
+			scanf("%d", &g[i][j]);
+	
+	int tx, ty;
+	ans = (int)1e7;
+	for(int i = 0; i < n; i++)
+		for(int j = 0; j < m; j++)
+		if(g[i][j] == 2) {
+			for(int k = 0; k < 4; k++) {
+				cnt = 1;
+				vis[i][j][k] = 1;
+				dfs(i, j, k);
+			}
+		}
 
+	if(ans != (int)1e7) printf("%d\n", ans);
+	else puts("-1");
+	return 0;
 }
 
+int main() {
+	while(!run());
+	return 0;
+}
