@@ -9,7 +9,7 @@ const int Maxn = 200010;
 int c[Maxn];
 int n;
 
-int main() {
+void run() {
     scanf("%d", &n);
     for(int i = 0; i < n; i++) scanf("%d", &c[i]);
     sort(c, c + n);
@@ -19,5 +19,9 @@ int main() {
         J = i;
     int ans = 1000000000;
     printf("%d", c[J + k] - c[J]);
-    return 0;
+}
+
+int main() {
+	run();
+	return 0;
 }
