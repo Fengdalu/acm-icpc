@@ -21,6 +21,12 @@ void run() {
 	init();
 	scanf("%s", s);
 	int len = strlen(s);
+	for(int i = 1; i < len; i++) {
+		if(s[i] <= s[i - 1]) {
+			puts("0");
+			return ;
+		}
+	}
 	LL ans = 0;
 	for(int i = 0; i < len - 1; i++)  ans += C[26][i + 1];
 	char m = 'a';
