@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+using namespace std;
+
+char s[20][100];
+char ans[100];
+char ans1[100];
+int m;
+
+int main() {
+	int CASE;	
+	scanf("%s", &CASE);
+	while(CASE--) {
+		scanf("%d", &m);
+		for(int i = 0; i < m; i++) scanf("%s", s[i]);
+
+		memset(ans, 0, sizeof ans);
+		for(int i = 0; i < 60; i++) 
+			for(int j = i; j < 60; j++) {
+				for(int k = i; k <= j; k++) ans[k - i] = s[0][k];
+				ans[j - k + 1] = 0;
+				bool flag = true;
+				for(int k = 1; k < m; k++) {
+					flag &= check(k);
+					if(!flag) break;
+				}
+				if(flag) {
+					if(strlen(ans) > strlen(ans1) || strcmp(ans, ans1) < 0)
+						swap(ans, ans1);
+				}
+			}
+		
+	}
+	return 0;
+}

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <queue>
 using namespace std;
 
 char s[10010][100];
@@ -16,13 +17,8 @@ int main() {
 	}
 	while(true) {
 		scanf("%s", c);
-		if(c[0] == '#') break;
-		for(int i = 0; i < cnt; i++) {
-			int l1 = strlen(s[i]), l2 = strlen(c);
-			if(l1 == l2)
-				
-			}
-		}
+		if(s[0] == '#') break;
+		queue<int>ans;
 	}
 	return 0;
 }
