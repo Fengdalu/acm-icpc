@@ -3,8 +3,7 @@
 #include <cstring>
 using namespace std;
 
-#define bf(x) ((x)<<1)
-#define bt(x) ((x)<<1|1)
+
 const int N = 30000;
 const int M = 1000000;
 int ind[N], id[N];
@@ -20,7 +19,6 @@ int v1[N], v2[N];
 
 void add(int i, int j)
 {
-	cout << i << " " << j << endl;
     cnt++;
     t[cnt] = j;
     nt[cnt] = ind[i];
@@ -81,8 +79,6 @@ int main() {
 		for(int i = 0; i < n; i++) v1[i]--;
 		for(int i = 0; i < n; i++) v2[i] = (v1[i] + 1) % 3;
 		for(int i = 0; i < n; i++) if(v1[i] > v2[i]) swap(v1[i], v2[i]);
-		for(int i = 0; i < n; i++)  cout << v1[i] << " " << v2[i] << endl;
-		cout << endl;
 
 		cnt = 0;
 		memset(ind, -1, sizeof ind);
@@ -90,27 +86,42 @@ int main() {
 			int s, t, p;
 			scanf("%d%d%d", &s, &t, &p);
 			s--; t--;
-			if(p == 0) {
-				if(v1[s] != v1[t]) {
-					add(bf(s), bt(t));
-					add(bt(s), bf(t));
+			if(p) {
+				if(v1[s] == v1[t]) {
+					add(2 * s, 2 * t + 1);
+					add(2 * t, 2 * s + 1);
 				}
-				else {
-					add(bf(s), bf(t));
-					add(bt(t), bt(s));
+				if(v1[s] == v2[t]) {
+					add(2 * s, 2 * t);
+					add(2 * t + 1, 2 * s + 1);
+				}
+				if(v2[s] == v1[t]) {
+					add(2 * s + 1, 2 * t + 1);
+					add(2 * t, 2 * s);
+				}
+				if(v2[s] == v2[t]) {
+					add(2 * s + 1, 2 * t);
+					add(2 * t + 1, 2 * s);
 				}
 			}
 			else {
-				if(v1[s] == v1[t]) {
-					add(bf(s), bt(t));
-					add(bt(s), bf(t));
+				if(v1[s] != v1[t]) {
+					add(2 * s, 2 * t + 1);
+					add(2 * t, 2 * s + 1);
 				}
-				else {
-					add(bf(s), bf(t));
-					add(bt(t), bt(s));
+				if(v1[s] != v2[t]) {
+					add(2 * s, 2 * t);
+					add(2 * t + 1, 2 * s + 1);
 				}
-			}
-			cout << endl;
+				if(v2[s] != v1[t]) {
+					add(2 * s + 1, 2 * t + 1);
+					add(2 * t, 2 * s);
+				}
+				if(v2[s] != v2[t]) {
+					add(2 * s + 1, 2 * t);
+					add(2 * t + 1, 2 * s);
+				}
+			} 
 		}
 		if(chk()) printf("Case #%d: yes\n", T);
 		else printf("Case #%d: no\n", T);

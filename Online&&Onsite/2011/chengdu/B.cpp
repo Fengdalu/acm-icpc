@@ -21,9 +21,9 @@ LL cal(LL x) {
 int main() {
 	int CASE;
 	scanf("%d", &CASE);
-	int n, m, k;
+	LL n, m, k;
 	for(int T = 1; T <= CASE; T++) {
-		scanf("%d%d%d", &n, &m, &k);
+		scanf("%I64d%I64d%I64d", &n, &m, &k);
 		LL ans = cal(n) + cal(m) + cal(k);
 		printf("Case #%d: %I64d %I64d\n", T, n * m * k - 1LL, ans);
 	}
