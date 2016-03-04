@@ -9,7 +9,7 @@ using namespace std;
 int a[300000];
 int n, m;
 int r[300000], t[300000];
-vector<int>s;
+int s[300000];
 struct node {
 	int r, t, w;
 	node(){}
@@ -35,14 +35,16 @@ int main() {
 	sort(q, q + m, cmp);
 	int mode = q[0].t;
 	
-	for(int i = 1; i <= q[0].r; i++) s.push_back(a[i]);
-	sort(s.begin(), s.end());	
+	int l = 0, r = 0;
+	for(int i = 1; i <= q[0].r; i++) s[r++] = a[i];
+	sort(s, s + r);	
+
 	int J = q[0].r;
 	int k = q[0].w;
 	for(int i = 1; i < m; i++) {
 		while(J > q[i].r) {
-			if(mode == 2) { a[J] = *s.begin(); s.erase(s.begin()); }
-			else { a[J] = *s.rbegin(); s.resize(s.size() - 1);  } 
+			if(mode == 2) { a[J] = s[l++]; }
+			else { a[J] = s[--r];  } 
 			J--;
 		}
 		if(q[i].w > k) {
@@ -52,8 +54,8 @@ int main() {
 	}
 
 	while(J > 0) {
-		if(mode == 2) { a[J] = *s.begin(); s.erase(s.begin()); }
-		else { a[J] = *s.rbegin(); s.resize(s.size() - 1);  } 
+		if(mode == 2) { a[J] = s[l++]; }
+		else { a[J] = s[--r];  } 
 		J--;
 	}
 
