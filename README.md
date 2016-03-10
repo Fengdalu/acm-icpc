@@ -1,8 +1,6 @@
-# Cevaの魔法训练目录
+# Ceva's Magical Training Index
 
-Cevaの魔法训练目录，收录Ceva(几乎)所有的训练题目以及三次组队的比赛
-
-## 国内OJ
+## OJ In Mainland China
 
 http://acm.hdu.edu.cn
 
