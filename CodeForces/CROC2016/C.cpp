@@ -8,33 +8,39 @@
 
 const int maxn = 100010;
 char buf[100];
-std::pair<unsigned long long, int>ans[maxn];
+std::pair<std::vector<int>, int >ans[maxn];
 std::pair<int, int>a[maxn];
 int J;
 int n;
-std::map<unsigned long long, int>dic;
+std::map<std::string, int>dic;
 std::string word[2 * maxn];
 int c[maxn];
 int cnt;
 int m;
 
 int get(std::string s) {
-    unsigned long long mask = 0;
-    for(int i = 0; i < s.size(); i++) {
-        unsigned long long cur;
-        if(s[i] == '#') cur = 63;
-        if(s[i] == '.') cur = 27;
-        else if(s[i] >= 'a') cur = 28 + s[i] - 'a';
-        else cur = s[i] - 'A' + 1;
-        mask = mask * 67 + cur;
-    }
-    std::map<unsigned long long, int>::iterator it = dic.find(mask);
+    std::map<std::string, int>::iterator it = dic.find(s);
     if(it == dic.end())  {
-        dic.insert(std::make_pair(mask, cnt));
+        dic.insert(std::make_pair(s, cnt));
         word[cnt] = s;
         return cnt++;
     }
     else return it->second;
+}
+
+int vcmp(std::vector<int>&a, std::vector<int>&b) {
+	if(a.size() < b.size()) return 0;
+	if(a.size() > b.size()) return 1;
+	for(int i = 0; i < a.size(); i++) 
+	if(a[i] < b[i]) return 0;
+	else if(a[i] > b[i]) return 1;
+	return -1;
+}
+
+bool cmp(std::pair< std::vector<int>, int> a, std::pair< std::vector<int>, int> b) {
+	int code = vcmp(a.first, b.first);
+	if(code == -1) return a.second < b.second;
+	else return code;
 }
 
 int main() {
@@ -58,14 +64,14 @@ int main() {
     for(int i = 0; i < m; i++) {
         c[q++] = a[i].second;
         if(i == m - 1 || a[i].first != a[i + 1].first) {
-            unsigned long long mask = 0;
-            for(int j = 0; j < q; j++)
-                mask = mask * (cnt + 17) + (c[j]);
-            ans[J++] = std::make_pair(mask, a[i].first);
+            for(int j = 0; j < q; j++) 
+				ans[J].first.push_back(c[j]);
+            ans[J].second = a[i].first;
+			J++;
             q = 0;
         }
     }
-    std::sort(ans, ans + J);
+    std::sort(ans, ans + J, cmp);
     int tot = 0;
     int pre = -1;
     for(int i = 0; i < J; i++)
@@ -76,7 +82,7 @@ int main() {
     printf("%d\n", tot);
     pre = -1;
     for(int i = 0; i < J; i++)
-        if(i == J - 1 || ans[i].first != ans[i + 1].first) {
+        if(i == J - 1 || -1 != vcmp(ans[i].first, ans[i + 1].first)) {
             if(i - pre > 1) {
                 for(int j = pre + 1; j < i + 1; j++) printf("http://%s ", word[ans[j].second].c_str());
                 puts("");
