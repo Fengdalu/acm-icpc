@@ -4,6 +4,7 @@
 #include <set>
 #include <map>
 #include <cstring>
+#include <bitset>
 #include <vector>
 int lowbit(int x) { return x & (-x); }
 const int maxn = 50010;
