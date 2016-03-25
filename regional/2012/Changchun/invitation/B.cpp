@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <set>
 #include <map>
+#include <vector>
 
 const int maxn = 200000;
 std::pair<int, int>a[maxn], b[maxn];
