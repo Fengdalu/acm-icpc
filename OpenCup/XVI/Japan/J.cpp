@@ -40,30 +40,28 @@ int main() {
 	for(int i = 0; i < m; i++) {
 		int x, y;
 		scanf("%d%d", &x, &y);
-		if(c[x] <= c[y]) v[x].push_back(std::make_pair(c[y], y));
-		else v[y].push_back(std::make_pair(c[x], x));
+		v[x].push_back(std::make_pair(c[y], y));
+		v[y].push_back(std::make_pair(c[x], x));
 	}
-	for(int i = 1; i <= n; i++)	
-	if(v[i].size()) {
+	for(int i = 1; i <= n; i++)	 {
+		v[i].push_back(std::make_pair(c[i], i));
 		std::sort(v[i].begin(), v[i].end());
-		if(c[i] == v[i][0].first) fa[find(i)] = find(v[i][0].second);
-
 		for(int j = 0; j < v[i].size() - 1; j++) 
 			if(v[i][j].first == v[i][j + 1].first)
 				fa[find(v[i][j].second)] = find(v[i][j + 1].second);
 	}
 	for(int i = 1; i <= n; i++)	
 	if(v[i].size()) {
-		if(c[i] != v[i][0].first)
-			add(find(i), find(v[i][0].second));
+		for(int j = 0; j < v[i].size(); j++) v[i][j].second = find(v[i][j].second);
+		std::sort(v[i].begin(), v[i].end());
+		v[i].resize(std::unique(v[i].begin(), v[i].end()) - v[i].begin());
 		for(int j = 0; j < v[i].size() - 1; j++) {
-			if(v[i][j].first != v[i][j + 1].first)
-				add(find(v[i][j].second), find(v[i][j + 1].second));
+			add(find(v[i][j].second), find(v[i][j + 1].second));
 		}
 	}
 	std::queue<int>q;
 	for(int i = 1; i <= n; i++) 
-	if(fa[i] == i && in[i] == 0) q.push(i);
+	if(find(i) == i && in[i] == 0) q.push(i);
 	memset(ans, 0, sizeof ans);
 	while(q.size()) {
 		int x = q.front();
