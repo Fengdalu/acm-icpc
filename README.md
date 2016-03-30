@@ -22,13 +22,13 @@ http://acdream.info/
 
 http://www.lydsy.com/JudgeOnline/
 
-## Russian OJ
+## Russian Online Judges
 
 http://codeforces.com
 
 http://www.spoj.com/
 
-## Contests
+## Others
 
 http://neerc.ifmo.ru
 
