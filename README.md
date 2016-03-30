@@ -1,6 +1,6 @@
 # Ceva's Magical Training Index
 
-## OJ In Mainland China
+## Online Judge In Mainland China
 
 http://acm.hdu.edu.cn
 
