@@ -28,7 +28,7 @@ http://codeforces.com
 
 http://www.spoj.com/
 
-## Others
+## Others Online Judges
 
 http://neerc.ifmo.ru
 
