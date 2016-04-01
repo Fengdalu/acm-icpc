@@ -18,9 +18,9 @@ int root;
 int cnt;
 
 void rot(int x, int t) {
-	int p = f[x].pre;	
+	int p = f[x].pre;
 	f[x].pre = f[p].pre;
-	f[p].ch[t] = f[x].ch[t ^ 1];	
+	f[p].ch[t] = f[x].ch[t ^ 1];
 	f[f[x].ch[t ^ 1]].pre = p;
 	f[x].ch[t ^ 1] = p;
 	f[p].pre = x;
@@ -63,7 +63,7 @@ void insert(int k, int p) {
 		root = cnt++;
 	}
 	else {
-		int r = root;		
+		int r = root;
 		int t;
 		while(true) {
 			cout << r << " " << f[r].k << " " << f[r].pre << endl;
@@ -84,9 +84,9 @@ void insert(int k, int p) {
 }
 
 int getmax(int root) {
-	int r = root;	
+	int r = root;
 	while(f[r].ch[1] != -1) {
-		r = f[r].ch[1];	
+		r = f[r].ch[1];
 	}
 	return r;
 }
@@ -106,6 +106,7 @@ void dfs(int x) {
 }
 
 int main() {
+	freopen("tree.in", "r", stdin);
 	root = -1;
 	while(true) {
 		int op, k, p;
@@ -120,7 +121,7 @@ int main() {
 				printf("0\n");
 				continue;
 			}
-			int p = getmax(root);	
+			int p = getmax(root);
 			printf("%d\n", f[p].k);
 			splay(p, -1);
 			if(f[p].ch[1] == -1) {
@@ -144,8 +145,8 @@ int main() {
 				printf("0\n");
 				continue;
 			}
-			int p = getmin(root);	
-			printf("%d\n", f[p].k);	
+			int p = getmin(root);
+			printf("%d\n", f[p].k);
 			splay(p, -1);
 			if(f[p].ch[0] == -1) {
 				root = f[p].ch[1];
