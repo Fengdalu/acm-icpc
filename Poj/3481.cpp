@@ -1,170 +1,146 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <algorithm>
 using namespace std;
 
-const int maxn = 2000000;
-struct node{
-	int ch[2];
+const int maxn = 2e6;
+struct node {
 	int k, p;
+	int ch[2];
 	int pre;
-	node(int k, int p): k(k), p(p) {
-		ch[0] = ch[1] = -1;
-		pre = -1;
-	}
-	node(){}
-}f[maxn];
+} f[maxn];
 int root;
 int cnt;
 
-void rot(int x, int t) {
-	int p = f[x].pre;
-	f[x].pre = f[p].pre;
-	f[p].ch[t] = f[x].ch[t ^ 1];
-	f[f[x].ch[t ^ 1]].pre = p;
-	f[x].ch[t ^ 1] = p;
-	f[p].pre = x;
+void dfs(int x) {
+	if(x == -1) return;
+	dfs(f[x].ch[0]);
+	cout << f[x].p << ' ';
+	dfs(f[x].ch[1]);
 }
 
-void splay(int x, int des) {
-	while(true) {
-		if(f[x].pre == des) break;
-		int p = f[x].pre, pp = f[p].pre;
-		if(pp == -1) {
-			if(f[p].ch[0] == x) rot(x, 0);
-			else rot(x, 1);
+void rot(int x, int t) {
+		int y = f[x].pre;
+		f[x].pre = f[y].pre;
+		if(f[y].pre != -1) {
+			if(f[f[y].pre].ch[0] == y) f[f[y].pre].ch[0] = x;
+			else f[f[y].pre].ch[1] = x;
 		}
-		if(f[pp].ch[0] == p) {
-			if(f[p].ch[0] == x) {
-				rot(p, 0);
-				rot(x, 0);
-			}
-			else {
-				rot(x, 1);
-				rot(x, 0);
-			}
+		if(f[x].ch[t ^ 1] != -1) {
+			f[f[x].ch[t ^ 1]].pre = y;
 		}
-		else {
-			if(f[pp].ch[1] == p) {
-				rot(p, 1);
-				rot(x, 1);
-			}
+		f[y].ch[t] = f[x].ch[t ^ 1];
+		f[x].ch[t ^ 1] = y;
+		f[y].pre = x;
+}
+
+void splay(int x, int target) {
+	while(f[x].pre != target) {
+		int y = f[x].pre, p = f[y].pre;
+		if(f[y].ch[0] == x) {
+				if(p == target) rot(x, 0);
+				else {
+						if(f[p].ch[0] == y) rot(y, 0), rot(x, 0);
+						else rot(x, 0), rot(x, 1);
+				}
+		}
+		else if(f[y].ch[1] == x) {
+			if(p == target) rot(x, 1);
 			else {
-				rot(x, 0);
-				rot(x, 1);
+					if(f[p].ch[1] == y) rot(y, 1), rot(x, 1);
+					else rot(x, 1), rot(x, 0);
 			}
 		}
 	}
+	if(target == -1) root = x;
+	dfs(root);
 }
 
 void insert(int k, int p) {
-	if(root == -1) {
-		f[cnt] = node(k, p);
-		root = cnt++;
+	int x = cnt++;
+	f[x].k = k;
+	f[x].p = p;
+	f[x].ch[0] = f[x].ch[1] = -1;
+	f[x].pre = -1;
+	int r = root;
+	if(r == -1) {
+			root = x;
+			return;
 	}
-	else {
-		int r = root;
+	while(true) {
 		int t;
-		while(true) {
-			cout << r << " " << f[r].k << " " << f[r].pre << endl;
-			if(p <= f[r].p) t = 0;
-			else t = 1;
-			if(f[r].ch[t] == -1) {
-				f[cnt] = node(k, p);
-				f[cnt].pre = r;
-				f[r].ch[t] = cnt;
-				splay(cnt, -1);
-				root = cnt;
-				cnt++;
-				break;
-			}
-			else r = f[r].ch[t];
+		if(p <= f[r].p) t = 0;
+		else t = 1;
+		if(f[r].ch[t] == -1) {
+			f[r].ch[t] = x;
+			f[x].pre = r;
+			break;
 		}
+		else r = f[r].ch[t];
 	}
+	splay(x, -1);
 }
 
-int getmax(int root) {
-	int r = root;
-	while(f[r].ch[1] != -1) {
-		r = f[r].ch[1];
-	}
-	return r;
-}
-
-int getmin(int root) {
-	int r = root;
-	while(f[r].ch[0] != -1) {
-		r = f[r].ch[0];
+int get(int src, int t) {
+	int r = src;
+	if(r == -1) return -1;
+	while(f[r].ch[t] != -1) {
+		r = f[r].ch[t];
 	}
 	return r;
 }
 
-void dfs(int x) {
-	if(x == -1) return;
-	cout << f[x].p << " ";
-
+void del(int x) {
+		if(f[x].ch[0] == -1 && f[x].ch[1] == -1) root = -1;
+		else {
+				splay(x, -1);
+				if(f[x].ch[0] == -1) {
+					root = f[x].ch[1];
+					f[root].pre = -1;
+				}
+				else if(f[x].ch[1] == -1) {
+					root = f[x].ch[0];
+					f[root].pre = -1;
+					x = root;
+				}
+				else {
+						int r = get(f[x].ch[1], 0);
+						splay(r, x);
+						f[r].ch[0] = f[x].ch[0];
+						f[f[r].ch[0]].pre = r;
+						f[r].pre = -1;
+						root = r;
+				}
+		}
 }
 
 int main() {
-	freopen("tree.in", "r", stdin);
-	root = -1;
-	while(true) {
-		int op, k, p;
-		scanf("%d", &op);
-		if(op == 0) break;
-		else if(op == 1) {
-			scanf("%d%d", &k, &p);
-			insert(k, p);
-		}
-		else if(op == 2) {
-			if(root == -1) {
-				printf("0\n");
-				continue;
+		freopen("tree.in", "r", stdin);
+		int op, x, y;
+		root = -1;
+		while(true) {
+			scanf("%d", &op);
+			if(op == 0) break;
+			if(op == 1) {
+				scanf("%d%d", &x, &y);
+				insert(x, y);
 			}
-			int p = getmax(root);
-			printf("%d\n", f[p].k);
-			splay(p, -1);
-			if(f[p].ch[1] == -1) {
-				root = f[p].ch[0];
-				if(root != -1) {
-					f[root].pre = -1;
+			else if(op == 2) {
+				int r = get(root, 1);
+				if(r == -1) puts("0");
+				else {
+					printf("%d\n", f[r].k);
+					del(r);
 				}
 			}
-			else {
-				int q = getmin(f[p].ch[1]);
-				splay(q, p);
-				int r = f[p].ch[0];
-				f[q].ch[0] = r;
-				if(r != -1) f[r].pre = q;
-				f[q].pre = -1;
-				root = q;
-			}
-		}
-		else if(op == 3) {
-			if(root == -1) {
-				printf("0\n");
-				continue;
-			}
-			int p = getmin(root);
-			printf("%d\n", f[p].k);
-			splay(p, -1);
-			if(f[p].ch[0] == -1) {
-				root = f[p].ch[1];
-				if(root != -1) {
-					f[root].pre = -1;
+			else{
+				int r = get(root, 0);
+				if(r == -1) puts("0");
+				else {
+					printf("%d\n", f[r].k);
+					del(r);
 				}
 			}
-			else {
-				int q = getmax(f[p].ch[0]);
-				splay(q, p);
-				int r = f[p].ch[1];
-				f[q].ch[1] = r;
-				if(r != -1) f[r].pre = q;
-				f[q].pre = -1;
-				root = q;
-			}
 		}
-		cout << op << endl;
-	}
-	return 0;
 }
