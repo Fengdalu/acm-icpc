@@ -8,3 +8,6 @@ test.*
 *~
 *.swo
 *.txt
+*.DS_Store
+*.swp
+*.swap
