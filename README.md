@@ -1,5 +1,7 @@
 # Ceva's Magical Training Index
 
+Magic exists!
+
 ## Online Judge In Mainland China
 
 http://acm.hdu.edu.cn
