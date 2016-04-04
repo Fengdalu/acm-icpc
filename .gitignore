@@ -11,3 +11,5 @@ test.*
 *.DS_Store
 *.swp
 *.swap
+*.test
+*.o
