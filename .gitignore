@@ -1,7 +1,5 @@
 *.exe
 *.cpp~
-*.in
-*.out
 *.o
 test.*
 *.swp
