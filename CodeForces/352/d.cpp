@@ -7,79 +7,51 @@
 #include <map>
 using namespace std;
 
-int a[1000000];
+long long a[1000000];
 int main() {
     int n, k;
     scanf("%d%d", &n, &k);
-    for(int i = 0; i < n; i++) scanf("%d", &a[i]);
-    if(n == 1) { cout << 0 << endl; return 0; }
-    if(n == 2) {
-        int x, y;
-        x = a[0]; y = a[1];
-        int p = abs(x - y);
-        if(2 * k >= p) {
-            if(p % 2 == 1) cout << 1;
-            else cout << 0;
-        }
-        else cout << p - 2 * k;
+    for(int i = 0; i < n; i++) scanf("%I64d", &a[i]);
+    sort(a, a + n);
+    reverse(a, a + n);
+    if(a[0] == a[n - 1]) {cout << 0; return 0;}
+    if(k == 0) { cout << a[0] - a[n - 1]; return 0; }
+    long long tot = 0;
+    for(int i = 0; i < n; i++) tot += (long long) a[i];
+    long long p = tot / n;
+    long long sum1 = 0;
+    for(int i = 0; i < tot % n; i++) if(a[i] > p + 1) sum1 += a[i] - p - 1;
+    for(int i = tot % n; i < n; i++) if(a[i] > p) sum1 += abs(a[i] - p);
+    if(k >= sum1) {
+        if(tot % (long long)n == 0) cout << 0;
+        else cout << 1;
         return 0;
     }
-    map<long long, int>f;
-    map<long long, int>::iterator op, ed;
-    for(int i = 0; i < n; i++) f[a[i]]++;
-    int K = k;
-    while(k) {
-        if(f.size() == 1 && f.begin()->first == 0) break;
-        ed = f.end();
-        ed--;
-        pair<long long, int>x = *ed;
-        f.erase(ed);
-        long long tot = k / x.second;
-        if(tot == 0) {
-            f[x.first - 1] = k;
-            f[x.first] = x.second - k;
+    long long sum = a[0];
+    long long L(0), R(0);
+    for(int i = 1; i < n; i++) {
+        long long change = sum - (long long)(a[i] * i);
+        if(change >= k) {
+            long long per = (sum - k) / i;
+            long long mod = (sum - k) % i;
+            if(mod) R = per + 1;
+            else R = per;
             break;
         }
-        else {
-            if(f.size() == 0) {
-                long long t = max(x.first, (long long)k / (long long)x.second);
-                k -= t * x.second;
-                f[x.first - t] = x.second;
-            }
-            else {
-                ed = f.end(); ed--;
-                long long w = x.first - ed->first;
-                long long t = min(w, (long long)k / (long long)x.second);
-                k -= t * x.second;
-                f[x.first - t] = x.second;
-            }
-        }
+        sum += a[i];
     }
-    k = K;
-    while(k) {
-        op = f.begin();
-        pair<long long, int>x = *op;
-        f.erase(f.begin());
-        long long tot = k / x.second;
-        if(tot == 0) {
-            f[x.first + 1] = k;
-            f[x.first] = x.second - k;
+    sort(a, a + n);
+    sum = a[0];
+    for(int i = 1; i < n; i++) {
+        long long change = (a[i] * i)  - sum;
+        if(change >= k) {
+            long long per = (sum + k) / i;
+            long long mod = (sum + k) % i;
+            L = per;
             break;
         }
-        else {
-            if(f.size() == 0) {
-                long long t = k / (long long)x.second;
-                k -= t * x.second;
-                f[x.first + t] = x.second;
-            }
-            else {
-                op = f.end();
-                long long w = op->first - x.first;
-                long long t = min(w, (long long)k / (long long)x.second);
-                k -= t * x.second;
-                f[x.first + t] = x.second;
-            }
-        }
+        sum += a[i];
     }
-    cout << f.rbegin()->first - f.begin()->first << endl;
+    sort(a, a + n);
+    cout << R - L << endl;
 }
