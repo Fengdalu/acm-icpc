@@ -1,6 +1,8 @@
 #include <cstdio>
 #include <cstring>
 #include <iostream>
+#include <algorithm>
+#include <string>
 using namespace std;
 
 int main() {
@@ -10,7 +12,7 @@ int main() {
     for(int i = 1; i <= n; i++) {
         long long m = max(max(a + b + i, b + d + i), max(a + c + i, c + d + i));
         long long g = min(min(a + b + i, b + d + i), min(a + c + i, c + d + i));
-        ans += n - (m - g);
+        ans += max((long long)0, n - (m - g));
     }
     cout << ans << endl;
 }
