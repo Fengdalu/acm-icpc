@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-const int maxn = 200000;
+const int maxn = 200010;
 const int inf = 1e9 + 7;
 int f[maxn * 4], g[maxn * 4], pls[maxn * 4];
 
@@ -45,6 +45,7 @@ void down(int x) {
 }
 
 void build(int x, int a, int b) {
+    pls[x] = 0;
     if(a < b) {
         int mid = (a + b) / 2;
         build(x * 2, a, mid);
@@ -101,26 +102,26 @@ void op3(int x, int l, int r, int a, int b, int w) {
         if(b <= mid) op3(x * 2, l, mid, a, b, w);
         else if(a > mid) op3(x * 2 + 1, mid + 1, r, a, b, w);
         else {
-            op1(x * 2, l, mid, a, b, w);
-            op1(x * 2 + 1, mid + 1, r, a, b, w);
+            op3(x * 2, l, mid, a, b, w);
+            op3(x * 2 + 1, mid + 1, r, a, b, w);
         }
         update(x);
     }
 }
 
-pair<int, int> cal(int x, int l, int r, int a, int b, int w) {
+pair<int, int> cal(int x, int l, int r, int a, int b) {
     if(a <= l && r <= b) {
         return make_pair(f[x], g[x]);
     }
     else {
         down(x);
         int mid = (l + r) / 2;
-        if(a <= mid) return cal(x * 2, l, mid, a, b, w);
-        else if(b > mid) return cal(x * 2 + 1, mid + 1, r, a, b, w);
+        if(a <= mid) return cal(x * 2, l, mid, a, b);
+        else if(b > mid) return cal(x * 2 + 1, mid + 1, r, a, b);
         else {
             pair<int, int>p, q;
-            p = cal(x * 2, l, mid, a, b, w);
-            q = cal(x * 2 + 1, mid + 1, r, a, b, w);
+            p = cal(x * 2, l, mid, a, b);
+            q = cal(x * 2 + 1, mid + 1, r, a, b);
             cmin(p.first, q.first);
             cmax(p.second, q.second);
             return p;
@@ -132,8 +133,31 @@ int main() {
     int T;
     scanf("%d", &T);
     while(T--) {
-        int n;
+        int n, q;
         scanf("%d", &n);
+        scanf("%d", &q);
+        build(1, 1, n);
+        while(q--) {
+            int op; scanf("%d", &op);
+            int l, r, c;
+            if(op == 1) {
+                scanf("%d%d%d", &l, &r, &c);
+                op1(1, 1, n, l, r, c);
+            }
+            else if(op == 3) {
+                scanf("%d%d%d", &l, &r, &c);
+                op2(1, 1, n, l, r, c);
+            }
+            else if(op == 2) {
+                scanf("%d%d%d", &l, &r, &c);
+                op3(1, 1, n, l, r, c);
+            }
+            else {
+                scanf("%d%d", &l, &r);
+                pair<int, int>t = cal(1, 1, n, l, r);
+                printf("%d %d\n", t.first, t.second);
+            }
+        }
     }
     return 0;
 }
