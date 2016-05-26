@@ -22,14 +22,14 @@ void cmin(int &a, int b) {
 }
 
 void add(int x, int w) {
+    if(w == 0) return;
     f[x] += w;
     g[x] += w;
     pls[x] += w;
 }
 
-
 void down(int x) {
-    int l = x * 2, r = l + 1;
+    int l = x * 2, r = x * 2 + 1;
     add(l, pls[x]);
     add(r, pls[x]);
     pls[x] = 0;
@@ -116,14 +116,15 @@ pair<int, int> cal(int x, int l, int r, int a, int b) {
     else {
         down(x);
         int mid = (l + r) / 2;
-        if(a <= mid) return cal(x * 2, l, mid, a, b);
-        else if(b > mid) return cal(x * 2 + 1, mid + 1, r, a, b);
+        if(b <= mid) return cal(x * 2, l, mid, a, b);
+        else if(a > mid) return cal(x * 2 + 1, mid + 1, r, a, b);
         else {
             pair<int, int>p, q;
             p = cal(x * 2, l, mid, a, b);
             q = cal(x * 2 + 1, mid + 1, r, a, b);
             cmin(p.first, q.first);
             cmax(p.second, q.second);
+            update(x);
             return p;
         }
     }
