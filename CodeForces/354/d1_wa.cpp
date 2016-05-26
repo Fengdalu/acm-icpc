@@ -2,53 +2,30 @@
 #include <cstring>
 #include <iostream>
 #include <algorithm>
-#include <queue>
-#include <stack>
 using namespace std;
 
 const int maxn = 1010;
-struct state { int a, b, c; state(int a, int b, int c): a(a), b(b), c(c){}; state(){}};
 bool g[maxn][maxn][4][4];
 int dp[maxn][maxn][4];
-state pre[maxn][maxn][4];
 char s[maxn];
 int n, m;
 const int inf = 1e9;
 int xx, yy;
 
 void cmin(int &a, int b) { a = min(a, b); }
-const int vx[4] = {-1, 0, 1, 0};
-const int vy[4] = {0, 1, 0, -1};
 
 int dfs(int x, int y, int d) {
-    dp[x][y][d] = 0;
-    queue<state>q;
-    q.push(state(x, y, d));
-    while(q.size()) {
-        state s = q.front();
-        if(s.a < 1 || s.a > n || s.b < 1 || s.b > m) continue;
-        int w = dp[s.a][s.b][s.c];
-        q.pop();
-        if(s.a == xx && s.b == yy) {
-            return w;
-        }
-        for(int i = 0; i < 4; i++)
-        if(g[s.a][s.b][i][s.c]) {
-            int x = s.a + vx[i];
-            int y = s.b + vy[i];
-            if(x < 1 || x > n || y < 1 || y > m) continue;
-            if(g[x][y][(i + 2) % 4][s.c] == false) continue;
-            if(dp[x][y][s.c] != -1) continue;
-            dp[x][y][s.c] = w + 1;
-            q.push(state(x, y, s.c));
-            pre[x][y][s.c] = s;
-        }
-        if(dp[s.a][s.b][(s.c + 1) % 4] != -1) continue;
-        dp[s.a][s.b][(s.c + 1) % 4]  = w + 1;
-        q.push(state(s.a, s.b, (s.c + 1) % 4));
-        pre[s.a][s.b][(s.c + 1) % 4] = s;
-    }
-    return inf;
+    if(x == xx && y == yy) return 0;
+    if(x < 1 || x > n || y < 1 || y > m) return inf;
+    if(dp[x][y][d] != -1) return dp[x][y][d];
+    dp[x][y][d] = inf;
+
+    cmin(dp[x][y][d], dfs(x, y, (d + 1) % 4) + 1);
+    if(x > 1 && g[x][y][0][d] && g[x - 1][y][2][d]) cmin(dp[x][y][d], dfs(x - 1, y, d) + 1);
+    if(y < m && g[x][y][1][d] && g[x][y + 1][3][d]) cmin(dp[x][y][d], dfs(x, y + 1, d) + 1);
+    if(x < n && g[x][y][2][d] && g[x + 1][0][d]) cmin(dp[x][y][d], dfs(x + 1, y, d) + 1);
+    if(y > 0 && g[x][y][3][d] && g[x][y][1][d]) cmin(dp[x][y][d], dfs(x, y - 1, d) + 1);
+    return dp[x][y][d];
 }
 
 int main() {
@@ -67,7 +44,7 @@ int main() {
                 g[i][j][0][0] = g[i][j][2][0] = true;
             }
             else if(s[j] == '^') {
-                 g[i][j][0][0] = true;
+                g[i][j][0][0] = true;
             }
             else if(s[j] == '>') {
                 g[i][j][1][0] = true;
