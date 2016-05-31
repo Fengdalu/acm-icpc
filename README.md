@@ -41,3 +41,40 @@ http://icpc.iisf.or.jp/
 http://opentrain.snarknews.info/
 
 http://topcoder.com
+
+
+
+## 补题列表
+
+百度之星R3，1002
+
+Topcoder 590，500
+
+20xx年，图dp
+
+Google Code Jam，R3，A
+
+
+
+---
+
+
+
+OpenCup XV Amarica H
+
+OpenCup XV Ekaterinburg F
+
+OpenCup XVI Peterhof F
+
+OpenCup XVI Japan I
+
+OpenCup Siberia 8
+
+OpenCup XV Japan B
+
+OpenCup XV Udmurtia B
+
+
+
+
+
