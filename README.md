@@ -54,12 +54,6 @@ HDU4114
 
 Google Code Jam，R3，A
 
-
-
----
-
-
-
 OpenCup XV Amarica H
 
 OpenCup XV Ekaterinburg F
