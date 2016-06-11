@@ -74,7 +74,6 @@ int main() {
                 sub = (sub - 1) & msub;
             } while(sub != msub);
         }
-        for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= n; j++) assert(j < maxn);
         for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= n; j++) dp[i][j] = -1;
         int mask = (1 << n); mask --;
         cout << "Case #" << _ << ":" << endl;
