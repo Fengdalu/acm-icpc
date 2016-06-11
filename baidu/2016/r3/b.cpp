@@ -6,13 +6,13 @@
 #include <set>
 using namespace std;
 
-const int maxn = 15;
+const int maxn = 16;
 typedef long long ll;
 const ll mod = 1e9 + 9;
 
 ll two[1000];
-ll f[1 << maxn], g[1 << maxn];
-ll dp[1 << maxn][maxn];
+ll f[1 << 20], g[1 << 20];
+ll dp[1 << 20][maxn];
 int n, m, k;
 
 inline int ones(int x) { return __builtin_popcount(x); }
@@ -52,12 +52,14 @@ int main() {
             scanf("%d%d", &x, &y);
             x--; y--;
             if(x == y) {  loop++; continue; }
-            for(int mk = 0; mk < (1 << n); mk++)
-                if((1 << x) & mk && (1 << y) & mk)  {
-                    g[mk]++;
-                }
+            int mk = ((1 << n) - 1) ^ (1 << x) ^ (1 << y);
+            int sub = mk;
+            do {
+                g[sub | (1 << x) | (1 << y)]++;
+                sub = (sub - 1) & mk;
+            }while(sub != mk);
         }
-        for(int mk = 1; mk < (1 << mk); mk++) {
+        for(int mk = 1; mk < (1 << n); mk++) {
             f[mk] = two[g[mk]];
             int id;
             for(id = 0; ; id++) if(1 << id & mk) break;
@@ -65,13 +67,12 @@ int main() {
             int msub = sub;
             do {
                 int now = sub | (1 << id);
-                if(now != mk)
+                if(now != mk) {
                     f[mk] = ((f[mk] - f[now] * two[g[mk ^ now]]) % mod + mod) % mod;
+                }
                 sub = (sub - 1) & msub;
-            } while(sub);
+            } while(sub != msub);
         }
-        for(int i = 0; i < (1 << n); i++) cout << g[i] << " ";
-        cout << endl;
         for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= n; j++) dp[i][j] = -1;
         int mask = (1 << n); mask --;
         cout << "Case #" << _ << ":" << endl;
