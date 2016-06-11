@@ -4,6 +4,7 @@
 #include <cstring>
 #include <vector>
 #include <set>
+#include <cassert>
 using namespace std;
 
 const int maxn = 16;
@@ -18,6 +19,9 @@ int n, m, k;
 inline int ones(int x) { return __builtin_popcount(x); }
 
 ll dfs(int mask, int cnt) {
+    assert(cnt <= 14);
+    assert(cnt <= k);
+    assert(mask < (1 << n));
     if(ones(mask) == cnt) return 1;
     if(ones(mask) < cnt) return 0;
     if(dp[mask][cnt] != -1) return dp[mask][cnt];
