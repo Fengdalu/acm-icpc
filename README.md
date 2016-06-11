@@ -46,8 +46,6 @@ http://topcoder.com
 
 ## 补题列表
 
-百度之星R3，1002
-
 Topcoder 590，500
 
 HDU4114
