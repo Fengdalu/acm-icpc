@@ -7,7 +7,7 @@
 #include <cassert>
 using namespace std;
 
-const int maxn = 16;
+const int maxn = 15;
 typedef long long ll;
 const ll mod = 1e9 + 9;
 
@@ -77,7 +77,7 @@ int main() {
                 sub = (sub - 1) & msub;
             } while(sub != msub);
         }
-        for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= n; j++) dp[i][j] = -1;
+        for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= k; j++) dp[i][j] = -1;
         int mask = (1 << n); mask --;
         cout << "Case #" << _ << ":" << endl;
         cout << dfs(mask, k) * two[loop] % mod << endl;
