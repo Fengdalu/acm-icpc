@@ -11,17 +11,14 @@ const int maxn = 15;
 typedef long long ll;
 const ll mod = 1e9 + 9;
 
+int n, m, k;
 ll two[1000];
 ll f[1 << 20], g[1 << 20];
 ll dp[1 << 20][maxn];
-int n, m, k;
 
 inline int ones(int x) { return __builtin_popcount(x); }
 
 ll dfs(int mask, int cnt) {
-    assert(cnt <= 14);
-    assert(cnt <= k);
-    assert(mask < (1 << n));
     if(ones(mask) == cnt) return 1;
     if(ones(mask) < cnt) return 0;
     if(dp[mask][cnt] != -1) return dp[mask][cnt];
@@ -77,7 +74,8 @@ int main() {
                 sub = (sub - 1) & msub;
             } while(sub != msub);
         }
-        for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= k; j++) dp[i][j] = -1;
+        for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= n; j++) assert(j < maxn);
+        for(int i = 0; i < (1 << n); i++) for(int j = 0; j <= n; j++) dp[i][j] = -1;
         int mask = (1 << n); mask --;
         cout << "Case #" << _ << ":" << endl;
         cout << dfs(mask, k) * two[loop] % mod << endl;
