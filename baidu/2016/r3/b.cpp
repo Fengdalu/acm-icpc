@@ -11,14 +11,15 @@ const int maxn = 15;
 typedef long long ll;
 const ll mod = 1e9 + 9;
 
-int n, m, k;
 ll two[1000];
 ll f[1 << 20], g[1 << 20];
 ll dp[1 << 20][maxn];
+int n, m, k;
 
 inline int ones(int x) { return __builtin_popcount(x); }
 
 ll dfs(int mask, int cnt) {
+    if(cnt == -1) return 0;
     if(ones(mask) == cnt) return 1;
     if(ones(mask) < cnt) return 0;
     if(dp[mask][cnt] != -1) return dp[mask][cnt];
