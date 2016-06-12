@@ -46,8 +46,6 @@ http://topcoder.com
 
 ## 补题列表
 
-Topcoder 590，500
-
 HDU4114
 
 Google Code Jam，R3，A
