@@ -66,5 +66,17 @@ OpenCup XV Udmurtia B
 
 POJ 2065
 
+====
+
+填坑：
+
+CDQ分治
+
+网络流24题
+
+FFT
+
+斜率优化
+
 
 
