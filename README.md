@@ -50,6 +50,8 @@ CF EDU 13 F
 
 HDU4114
 
+HDU3842
+
 Google Code Jam，R3，A
 
 OpenCup XV Amarica H
