@@ -14,13 +14,14 @@ const int maxn = 300010;
 ll q[maxn];
 int op[maxn], ed[maxn];
 pii e[maxn];
-pii g[maxn * 4];
-int nt[maxn * 2], ind[maxn * 2];
+pii g[maxn * 20];
+int nt[maxn * 20], ind[maxn * 4];
 int qry[maxn];
 ll ans[maxn];
 int n, m, cnt;
 pii buf[maxn];
-int tot;
+pii stk[maxn];
+int tot, tot1;
 
 void insert(int x, int l, int r, int a, int b, pii t) {
     if(a <= l && r <= b) {
@@ -37,24 +38,25 @@ void insert(int x, int l, int r, int a, int b, pii t) {
 
 
 int cmp(pii a, pii b) {
-    if(a.first == b.first) return a.second > b.second;
-    return (ll)a.second * b.first - (ll)a.first * b.second > 0;
+    if(a.first == b.first) return a.second < b.second;
+    return a.first < b.first;
 }
 
 ll f(pii v, ll q) { return v.first * q + v.second; }
 
 void cal(int pos) {
     ll v = q[pos];
-    int l = 0, r = tot - 1;
-    while(l < r - 2) {
+    int l = 0, r = tot1 - 1;
+    while(l < r - 3) {
         int mid = (l + r) / 2;
         int midmid = (l + mid) / 2;
-        ll a = f(buf[midmid], v), b = f(buf[mid], v);
+        ll a = f(stk[midmid], v), b = f(stk[mid], v);
         if(a < b) l = midmid;
-        else r = mid;
+        else if(b < a) r = mid;
+        else { l = midmid; r = mid; }
     }
     for(int i = l; i <= r; i++)
-        cmax(ans[pos], f(buf[i], v));
+        cmax(ans[pos], f(stk[i], v));
 }
 
 
@@ -69,7 +71,18 @@ void dfs(int x, int l, int r) {
         buf[tot++] = g[k];
     }
     sort(buf, buf + tot, cmp);
-    if(tot == 0) return;
+    tot1 = 0;
+    for(int i = 0; i < tot; i++) {
+        pii &t = buf[i];
+        while(tot1 > 1) {
+            pii &a = stk[tot1 - 2]; pii &b = stk[tot1 - 1];
+            if((ll)(b.second - a.second) * (ll)(t.first - b.first) <= (ll)(t.second - b.second) * (ll)(b.first - a.first))
+                tot1--;
+            else break;
+        }
+        stk[tot1++] = t;
+    }
+    if(tot1 == 0) return;
     for(int i = l; i <= r; i++) {
         cal(i);
     }
