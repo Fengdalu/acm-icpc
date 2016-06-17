@@ -2,62 +2,69 @@
 #include <cstdio>
 #include <cstring>
 #include <queue>
+#include <vector>
+#include <stack>
 using namespace std;
 
 const int maxn = 100010;
-int ind[maxn];
-int to[maxn * 2], nt[maxn * 2];
-int d[maxn];
-int wish[maxn];
-int f[maxn];
-bool vis[maxn];
+vector<int>g[maxn], p[maxn];
+int to[maxn];
+int vis[maxn];
 int in[maxn];
-int list[maxn];
-int tot;
-int n, m;
+int ans[maxn];
+int id[maxn];
 int cnt;
-
-void add(int a, int b) {
-    in[b]++;
-    to[cnt] = b;
-    nt[cnt] = ind[a];
-    ind[a] = cnt++;
-}
+int n, m;
 
 void dfs(int x) {
-    for(int k = ind[x]; k != -1; k = nt[k]) {
-        d[to[k]] = d[x] + 1;
-        f[to[k]] += f[x];
-        dfs(to[k]);
+    for(int i = 0; i < g[x].size(); i++)
+        dfs(g[x][i]);
+    if(to[x]) {
+        vis[x] = cnt;
+        ans[cnt++] = x;
     }
 }
 
-void dfs1(int x) {
-    for(int k = ind[x]; k != -1; k = nt[k]) {
-        dfs(to[k]);
+bool check(int x, int pre) {
+    if(vis[x] != -1) { pre = x; }
+    if(id[x] != pre) return false;
+    for(int i = 0; i < g[x].size(); i++) {
+        int v = g[x][i];
+        bool flag = check(v, pre);
+        if(!flag) return flag;
     }
-    if(!vis[wish[x]]) {
-        list[tot++] = x;
-        vis[wish[x]] = true;
-    }
+    return true;
 }
-int main()  {
+
+int main() {
     scanf("%d%d", &n, &m);
-    memset(ind, -1, sizeof ind);
-    while(m--) {
-        int p, q;
-        scanf("%d%d", &p, &q);
-        add(p, q);
+    for(int i = 0; i < m; i++) {
+        int a, b;
+        scanf("%d%d", &a, &b);
+        g[a].push_back(b);
+        in[b]++;
     }
-    for(int i = 1; i <= n; i++) scanf("%d", &wish[i]);
-    for(int i = 1; i <= n; i++) f[i] += 1;
-    for(int i = 1; i <= n; i++) if(in[i] == 0) dfs(i);
-    for(int i = 1; i <= n; i++) if(f[i] > d[i] + 1) {
-        cout << -1 << endl;
-        return 0;
+    for(int i = 1; i <= n; i++) {
+        int x;
+        scanf("%d", &x);
+        id[i] = x;
+        to[x] = true;
     }
-    tot = 0;
-    for(int i = 1; i <= n; i++) if(in[i] == 0)  dfs1(i);
-    for(int i = 0; i < tot; i++)
-        printf("%d\n", list[i]);
+    memset(vis, -1, sizeof vis);
+    for(int i = 1; i <= n; i++)
+    if(in[i] == 0)
+        dfs(i);
+    bool flag = true;
+    for(int i = 1; i <= n; i++)
+    if(in[i] == 0)
+        flag &= check(i, i);
+    if(flag) {
+        printf("%d\n", cnt);
+        for(int i = 0; i < cnt; i++)
+            printf("%d\n", ans[i]);
+    }
+    else printf("-1\n");
+    return 0;
 }
+
+
