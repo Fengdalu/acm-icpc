@@ -46,8 +46,6 @@ http://topcoder.com
 
 ## 补题列表
 
-BZOJ 2118 
-
 HDU4114
 
 HDU3842
