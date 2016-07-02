@@ -1,93 +1,81 @@
 #include <iostream>
 #include <cstdio>
-#include <algorithm>
+#include <cstring>
+#include <string>
 #include <cmath>
+#include <algorithm>
 using namespace std;
 
-const int maxn =  100010;
-struct point { double x, y; point(){} point(double x, double y):x(x), y(y){} };
-struct circle {
-    point o;
-    double r;
-}c[maxn];
-struct obj {
-    point a;
-    int add;
-    obj(){}
-    obj(point x, int pls) {
-        a = x;
-        add = pls;
+typedef pair<double, double> obj;
+#define mp(x, y) make_pair(x, y)
+int cnt;
+obj f[200010];
+
+const double eps = 1e-9;
+const double pi = acos(-1.0);
+double trans(double x) {
+    return x / (2 * pi) * 360;
+}
+inline int sign(double x) {
+    return x < -eps ? -1 : 1;
+}
+
+inline void insert(double l, double r) {
+    if(l < 0 && r > 0) {
+        f[cnt++] = mp(2 * pi + l, 2 * pi);
+        f[cnt++] = mp(0, r);
     }
-}f[maxn * 2];
-point o;
-double v, T;
-double r;
-int n;
-inline double mul(point a, point b) {
-    return a.y * b.x - a.x * b.y;
-}
-
-inline double sqr(double x) { return x * x; }
-double dis(point a, point b) {
-    return sqrt(sqr(a.x - b.x) + sqr(a.y - b.y));
-}
-
-inline int cmp(circle a, circle b) {
-    return mul(point(a.o.x - o.x, a.o.y - o.y), point(b.o.x - o.x, b.o.y - o.y)) < 0;
-}
-
-inline int cmp2(obj a, obj b) {
-    return mul(a.a, b.a) < 0;
-}
-
-point rotate(point v, double a) {
-    return point(v.x * cos(a) + v.y * sin(a), v.x * -sin(a) + v.y * cos(a));
-}
-
-double length(point a) {
-    return sqrt(a.x * a.x + a.y * a.y);
+    else if(l < 2 * pi && r > 2 * pi) {
+        f[cnt++] = mp(l, 2 * pi);
+        f[cnt++] = mp(0, r - 2 * pi);
+    }
+    else {
+        f[cnt++] = mp(l, r);
+    }
 }
 
 int main() {
-    scanf("%lf%lf%lf%lf", &o.x, &o.y, &v, &T);
-    r = v * T;
+    double x, y, v, T;
+    scanf("%lf%lf%lf%lf", &x, &y, &v, &T);
+    int n;
+    double d = 1.0 * v * T;
     scanf("%d", &n);
-    for(int i = 0; i < n; i++) {
-        scanf("%lf%lf%lf", &c[i].o.x, &c[i].o.y, &c[i].r);
-    }
-    sort(c, c + n, cmp);
-    int l = -1, r = -1;
-    int cnt = 0;
     bool flag = false;
-    for(int i = 0; i < n; i++) {
-        double d = dis(o, c[i].o);
-        if(d > r + c[i].r) continue;
-        if(d < abs(r - c[i].r)) {
-            if(c[i].r >= r) {
-                flag = true;
-                break;
-            }
-            point v = point(c[i].o.x - o.x, c[i].o.y - o.y);
-            double a = asin(c[i].r / d);
-            f[cnt++] = obj(rotate(v, a), 1);
-            f[cnt++] = obj(rotate(v, -a), 1);
+    while(n--) {
+        double a, b, r;
+        scanf("%lf%lf%lf", &a, &b, &r);
+        a -= x; b -= y;
+        double alpha = atan2(b, a);
+        if(alpha < 0) alpha += 2 * pi;
+        double len = sqrt(a * a + b * b);
+        double s = sqrt(a * a + b * b - r * r);
+        if(r * r >= a * a + b * b) {
+            flag = true;
         }
-        else {
-            double a = acos((sqr(d) + sqr(r) - sqr(c[i].r)) / 2 * d * r);
-            point v = point(c[i].o.x - o.x, c[i].o.y - o.y);
-            f[cnt++] = obj(rotate(v, a), 1);
-            f[cnt++] = obj(rotate(v, -a), -1);
+        else if(sign(d - s) >= 0) {
+            double beta = atan2(r, s);
+            insert(alpha - beta, alpha + beta);
         }
-    }
-    sort(f, f + cnt, cmp2);
-    int cover = 0;
-    int i = 0;
-    while(i < cnt && f[i].add < 0) i++;
-
-        cover += f[i].add;
-        if(i != 0 && cover != 0) {
-
+        else if(sign((r + d) - len) >= 0) {
+            double beta = acos((len * len + d * d - r * r) / (2.0 * d * len));
+            insert(alpha - beta, alpha + beta);
         }
     }
+    sort(f, f + cnt);
+    double cover = 0;
+    double l = f[0].first, r = f[0].second;
+    for(int i = 0; i < cnt; i++) {
+        if(sign(r - f[i].first) > 0) {
+            r = max(r, f[i].second);
+        }
+        else  {
+            cover += (r - l);
+            l = f[i].first;
+            r = f[i].second;
+        }
+    }
+    cover += (r - l);
+    if(flag) puts("1");
+    else printf("%.16f", cover / (2. * pi));
     return 0;
 }

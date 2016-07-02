@@ -46,8 +46,6 @@ http://topcoder.com
 
 ## 补题列表
 
-CF EDU 13 F
-
 BZOJ 2118 
 
 HDU4114
