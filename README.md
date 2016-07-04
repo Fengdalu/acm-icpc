@@ -68,6 +68,8 @@ OpenCup XV Udmurtia B
 
 POJ 2065
 
+2012 tianjin g
+
 ====
 
 填坑：
@@ -98,3 +100,5 @@ dp：数位dp，斜率优化，四边形不等式，CDQ，连通性dp
 字符串：hash，后缀数组，kmp，exkmp，manacher，SAM
 
 博弈论
+
+
