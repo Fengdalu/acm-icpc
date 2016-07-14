@@ -50,29 +50,27 @@ int main() {
                 for(int k = 0; k < tot; k++)
                     dp[i][j][k] = inf;
         dp[0][0][0] = 0;
-        for(int mk1 = 0; mk1 < tot; mk1++)
-            for(int mk2 = 0; mk2 < tot; mk2++) {
+        int ans = 2e9;
+        for(int mk2 = 0; mk2 < tot; mk2++)
+            for(int mk1 = 0; mk1 < tot; mk1++) {
 
                 for(int i = 0; i < n; i++) {
                     int now = dp[i][mk1][mk2];
                     if(now == inf) { continue; }
+                    if(mk1 == tot - 1)  cmin(ans, now + dis[i][0]);
                     for(int j = 0; j < n; j++) {
                         cmin(dp[j][mk1][mk2 | mask[i] | mask[j]], now + dis[i][j]);
                     }
                     for(int j = 0; j < K; j++) if((1 << j & mk1) == 0){
                         int v = p[j];
                         if(1 << j & mk2)
-                            cmin(dp[v][mk1 | (1 << j)][mk2], now + dis[i][v] + min(f[j], ft[j]));
+                            cmin(dp[v][mk1 | (1 << j)][mk2 | mask[v]], now + dis[i][v] + min(f[j], ft[j]));
                         else
-                            cmin(dp[v][mk1 | (1 << j)][mk2], now + dis[i][v] + f[j]);
+                            cmin(dp[v][mk1 | (1 << j)][mk2 | mask[v]], now + dis[i][v] + f[j]);
                     }
                 }
             }
 
-        int ans = 2e9;
-        for(int i = 0; i < n; i++)
-            for(int mk = 0; mk < tot; mk++)
-                cmin(ans, dp[i][tot - 1][mk] + dis[i][0]);
         printf("Case #%d: %d\n", __++, ans);
     }
     return 0;

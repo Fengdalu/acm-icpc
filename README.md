@@ -46,10 +46,6 @@ http://topcoder.com
 
 ## 补题列表
 
-HDU4114
-
-HDU3842
-
 Google Code Jam，R3，A
 
 OpenCup XV Amarica H
@@ -71,6 +67,8 @@ POJ 2065
 2012 tianjin g
 
 2013 Nanjing K
+
+HDU3842
 
 ====
 
