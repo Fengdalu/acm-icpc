@@ -54,9 +54,6 @@ POJ 2065
 
 HDU3842
 
-===
-
-AtCoder 001 D
 
 ## 补题列表(Open Cup And Camp)
 
