@@ -56,6 +56,8 @@ HDU3842
 
 ==
 
+bc 2nd d
+
 Atcoder 001 E, F
 
 ## 补题列表(Open Cup And Camp)
