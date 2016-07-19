@@ -46,6 +46,14 @@ http://topcoder.com
 
 ## 补题列表
 
+### Multi 2016
+
+hdu 5727
+
+hdu 5729
+
+===
+
 POJ 2065
 
 2012 tianjin g
