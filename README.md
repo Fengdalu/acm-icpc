@@ -50,13 +50,11 @@ http://topcoder.com
 
 hdu 5727
 
-hdu 5729
-
 tc 695 b
 
 hdu 5735
 
-hdu 4739
+hdu 5739
 
 hdu 5741
 
