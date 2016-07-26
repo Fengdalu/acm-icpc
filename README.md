@@ -42,8 +42,6 @@ http://opentrain.snarknews.info/
 
 http://topcoder.com
 
-
-
 ## 补题列表
 
 ### Multi 2016
