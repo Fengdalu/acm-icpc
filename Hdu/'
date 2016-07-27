@@ -27,7 +27,7 @@ void add_edge(int u,int v) {
     g[etot].v = v; g[etot].next = head[u]; head[u] = etot ++;
 }
 
-void tarjan(int u, int fa, int root,int tim) {
+void tarjan(int u,int root,int tim) {
     dfn[u] = low[u] = tim;
     visited[u] = true;
     int child_count = 0;
@@ -37,12 +37,13 @@ void tarjan(int u, int fa, int root,int tim) {
         stk.push(i);
         g[i].visited = g[i^1].visited = true;
         if (visited[e.v]) {
-            if(fa != e.v) low[u] = std::min(low[u],dfn[e.v]);
+            low[u] = std::min(low[u],dfn[e.v]);
             continue;
         }
-        tarjan(e.v,u,root,tim+1);
-
-        if (low[e.v]>=dfn[u]) {
+        tarjan(e.v,root,tim+1);
+        g[i].is_cut = g[i^1].is_cut = (low[e.v]>dfn[u] || g[i].is_cut);
+        if (u!=root) is_cut[u] |= (low[e.v]>=dfn[u]);
+        if (low[e.v]>=dfn[u] || u==root) {
             while (true) {
                 int id = stk.top(); stk.pop();
                 g[id].belong = g[id^1].belong = btot;
@@ -65,7 +66,7 @@ void bcc() {
     btot = 0;
     for (int i = 0; i < n; ++ i) {
         if (!visited[i]) {
-            tarjan(i,i,i,1);
+            tarjan(i,i,1);
         }
     }
 }
@@ -77,8 +78,7 @@ int find(int x) {
 
 int main() {
     int cas = 1;
-    while(~scanf("%d%d%d", &n, &m, &nq)) {
-        if(!n && !m && !nq) break;
+    while(~scanf("%d%d%d", &n, &m, &nq) && n && m && nq) {
         etot = 0;
         for(int i = 0; i < n; i++) head[i] = -1;
         for(int i = 0; i < n; i++) fa[i] = i;
@@ -86,7 +86,7 @@ int main() {
             int x, y; scanf("%d%d", &x, &y);
             uu[i] = x; vv[i] = y;
             add_edge(x, y), add_edge(y, x);
-            if(find(x) != find(y))fa[find(x)] = find(y);
+            fa[find(x)] = find(y);
         }
         bcc();
         for(int i = 0; i < n; i++) color[i].clear();
@@ -104,9 +104,8 @@ int main() {
         for(int i = 0; i < n; i++) num[i] = 0;
         for(int i = 0; i < m; i++) {
             int u = uu[i], v = vv[i];
-            bool flag = false;
-            for(auto &a: color[u]) if(!flag)
-                for(auto &b: color[v]) if(!flag)
+            for(auto &a: color[u])
+                for(auto &b: color[v])
                     if(a == b) num[a]++;
         }
         printf("Case %d:\n", cas++);

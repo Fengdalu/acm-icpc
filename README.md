@@ -46,8 +46,6 @@ http://topcoder.com
 
 ### Multi 2016
 
-hdu 3749
-
 tc 695 b
 
 hdu 5739
