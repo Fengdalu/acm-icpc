@@ -48,8 +48,6 @@ http://topcoder.com
 
 tc 695 b
 
-hdu 5739
-
 hdu 5760
 
 ===
