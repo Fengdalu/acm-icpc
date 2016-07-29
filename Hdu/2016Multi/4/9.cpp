@@ -65,6 +65,7 @@ struct SAP{
 SAP s;
 char ch[200];
 int a[11], b[11];
+int w[200][200];
 int main() {
     int _T, cas = 1; scanf("%d", &_T);
     while(_T--) {
@@ -72,29 +73,32 @@ int main() {
         scanf("%d", &n);
         scanf("%s", ch);
         int op = 0, ed = 1;
-        s.init(op, ed, n * n + 3 * n + 10);
-        for(int i = 0; i < 10; i++) scanf("%d%d", &a[i], &b[i]);
-        int st = 3 * n;
+        s.init(op, ed, n * n * n);
+        for(int i = 0; i < 10; i++) {
+            scanf("%d%d", a + i, b + i);
+        }
+        int len = strlen(ch);
+       for(int i = 0; i < n; i++)
+            for(int j = 0; j < n; j++) scanf("%d", &w[i][j]);
+
+         for(int i = 0; i < n; i++) {
+            int num = ch[i] - '0';
+            s.add(2 + i, 2 + n + n * n + num, inf);
+            s.add(2 + i, ed, a[num]);
+        }
+        int tot = 0;
         for(int i = 0; i < n; i++)
             for(int j = 0; j < n; j++) if(i != j) {
-                int w; scanf("%d", &w);
-                int cur = st + i * n + j;
-                s.add(op, cur, w);
-                s.add(cur, i + 12, inf);
-                s.add(cur, j + 12, inf);
+                int cur = 2 + n + i * n + j;
+                tot += w[i][j];
+                s.add(op, cur, w[i][j]);
+                s.add(cur, 2 + i, inf);
+                s.add(cur, 2 + j, inf);
             }
-        for(int i = 0; i < n; i++) {
-            int num = ch[i] - '0';
-            s.add(12 + i, 12 + i + n, inf);
-            s.add(12 + i + n, ed, a[i]);
-            s.add(12 + i + n, 2 + num, inf);
-        }
         for(int i = 0; i < 10; i++) {
-            int q = b[i] - a[i];
-            if(q >= 0) s.add(op, 2 + i, q);
-            else s.add(2 + i, ed, -q);
+            s.add(2 + n + n * n + i, ed, b[i] - a[i]);
         }
-        cout << "Case #" << cas++ << ": " << s.sap() << endl;
+        cout << "Case #" << cas++ << ": " << tot - s.sap() << endl;
     }
     return 0;
 }
