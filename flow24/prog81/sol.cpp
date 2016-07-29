@@ -1,6 +1,4 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define cmin(x, y) x = min(x, y)
@@ -18,9 +16,10 @@ struct SAP{
         memset(dis, 0, sizeof(int) * tn);
         S=s;T=t;Tn=tn;
     }
-    void add(int u,int v,ft c1,ft c2=0){
+    int add(int u,int v,ft c1,ft c2=0){
         tot++;y[tot]=v;f[tot]=c1;nxt[tot]=fst[u];fst[u]=tot;
         tot++;y[tot]=u;f[tot]=c2;nxt[tot]=fst[v];fst[v]=tot;
+        return tot;
     }
     ft sap(){
         int u=S,t=1;ft flow=0;
@@ -61,7 +60,32 @@ struct SAP{
     }
 };
 
-
 int main() {
-
+    int n, m;
+    scanf("%d%d", &m, &n);
+    SAP s;
+    int op = 0, ed = 1;
+    s.init(0, 1, ed + n + m);
+    while(true) {
+        int a, b; scanf("%d%d", &a, &b);
+        if(a == -1 && b == -1) break;
+        s.add(ed + a, ed + b + m, 1);
+    }
+    for(int i = 1; i <= m; i++) s.add(op, ed + i, 1);
+    for(int i = 1; i <= n; i++) s.add(ed + m + i, ed, 1);
+    printf("%d\n", s.sap());
+    vector<int>match(m + 1, -1);
+    for(int i = 1; i <= m; i++) {
+        for(int k = s.fst[i + ed]; k; k = s.nxt[k]) {
+            int v = s.y[k];
+                if(!s.f[k] && v != op) {
+                    match[i] = v - ed - m;
+                }
+        }
+    }
+    for(int i = 1; i <= m; i++) if(~match[i]) {
+        printf("%d %d\n", i + 1, match[i]);
+    }
+    return 0;
 }
+
