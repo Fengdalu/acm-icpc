@@ -48,8 +48,7 @@ http://topcoder.com
 
 tc 695 b
 
-cf edu 15 
-
+cf edu 15
 
 hdu 5760
 
