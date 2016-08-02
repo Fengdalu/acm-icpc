@@ -46,11 +46,18 @@ http://topcoder.com
 
 ### Multi 2016
 
+hdu 5782
+
+hdu 5787
+
+see hdu 1003
+
 tc 695 b
 
 cf edu 15
 
 hdu 5760
+
 
 ===
 
@@ -93,7 +100,7 @@ CDQ分治
 
 网络流24题
 
-FFT
+// FFT
 
 斜率优化
 
