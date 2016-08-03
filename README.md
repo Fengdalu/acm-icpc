@@ -46,7 +46,6 @@ http://topcoder.com
 
 ### Multi 2016
 
-hdu 5782
 
 hdu 5787
 
