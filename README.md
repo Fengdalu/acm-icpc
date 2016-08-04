@@ -46,9 +46,6 @@ http://topcoder.com
 
 ### Multi 2016
 
-
-hdu 5787
-
 see hdu 1003
 
 tc 695 b
