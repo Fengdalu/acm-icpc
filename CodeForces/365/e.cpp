@@ -8,12 +8,19 @@ typedef pair<ll, ll> PII;
 #define BB second
 #define MP make_pair
 PII a[1010];
+ll p[1010];
 int dp[1010][10100];
-PII pre[1010][10100];
+ll sum[1010][10100];
+pair<pair<int, int>, int> pre[1010][10100];
 ll k;
-unordered_map<int, int>pos;
-int f[10100], prime[100100], np[100100], cnt1;
-int q[10010];
+unordered_map<ll, int>pos;
+ll data[10100];
+int tot;
+
+int get(ll g) {
+    if(pos.find(g) == pos.end()) pos[g] = ++tot, data[tot] = g;
+    return pos[g];
+}
 
 ll qpow(ll a, ll b) {
     ll ans = 1;
@@ -24,75 +31,63 @@ ll qpow(ll a, ll b) {
     return ans;
 }
 
-int cc(ll a, ll b) {
-    int cnt = 0;
-    while(a % b == 0) cnt++, a /= b;
-    return cnt;
-}
-
 ll cal(ll a, ll b) {
-    cout << "cal " << a << " " << b;
-    ll ans = 1;
-    for(int i = 0; i < cnt1; i++) {
-        int c = cc(a, prime[i]) + cc(b, prime[i]);
-        ans *= qpow(prime[i], min(c, np[i]));
-    }
-    cout << " " << ans << endl;
-    return ans;
+    return __gcd(k / b, a) * b;
 }
 
-void update(PII p, PII b) {
+void update(PII p, PII b, int v, ll s, int pos) {
     int &now = dp[p.AA][p.BB];
-    int w = dp[b.AA][b.BB];
-    if(now == -1 || now >= w + 1) {
-        now = w + 1;
-        pre[p.AA][p.BB] = b;
+    ll &ss = sum[p.AA][p.BB];
+    if(now == -1 || now > v || (now == v && s <= ss)) {
+        now = v;
+        pre[p.AA][p.BB].BB = pos;
+        pre[p.AA][p.BB].AA = b;
+        ss = s;
     }
 }
 
 int main() {
     ll n;
-    cin >> n >> k;
+    scanf("%I64d%I64d", &n, &k);
     for(int i = 0; i < n; i++) {
-        cin >> a[i].AA;
+        scanf("%I64d", &a[i].AA);
+        p[i] = a[i].AA;
+        a[i].AA = __gcd(a[i].AA, k);
         a[i].BB = i;
     }
-    sort(a, a + n);
-    int cnt = 0;
-    f[cnt++] = 1;
-    for(ll i = 2; i * i <= k; i++) if(k % i == 0) f[cnt++] = i, f[cnt++] = k / i;
-    f[cnt++] = k;
-    sort(f, f + cnt);
-    cnt = unique(f, f + cnt) - f;
-    cnt1 = 0; ll tmp = k;
-    for(ll i = 2; i * i <= k; i++) if(tmp % i == 0) {
-        prime[cnt1++] = i;
-        while(tmp % i == 0) {
-            tmp /= i;
-        }
-    } if(tmp != 1) prime[cnt1++] = tmp;
-    for(int i = 0; i < cnt1; i++) {
-        int tmp = k, v = prime[i];
-        while(tmp % v == 0) {
-            tmp /= v;
-            np[i] ++;
-        }
-    }
-    for(int i = 0; i < cnt; i++) cout << f[i] << " "; cout << endl;
-    for(int i = 0; i < cnt; i++) pos[f[i]] = i;
-    for(int i = 0; i < cnt1; i++) cout << prime[i] << " "; cout << endl;
-    for(int i = 0; i < cnt1; i++) cout << np[i] << " "; cout << endl;
     memset(dp, -1, sizeof dp);
-    dp[0][0] = 0;
+    if(k == 1) {
+        for(int i = 0; i < n; i++) a[i].AA = p[i];
+        sort(a, a + n);
+        printf("1\n%I64d", a[0].BB + 1);
+        return 0;
+    }
+
+    tot = 0;
+    pos.clear();
+    dp[0][get(1)] = 0;
     for(int i = 0; i < n; i++) {
-        PII q = a[i + 1];
-        for(int j = 0; j < cnt; j++) {
+        PII q = a[i];
+        for(int j = 1; j <= tot; j++) {
             int now = dp[i][j];
+            ll tmp = sum[i][j];
             if(now == -1) continue;
-            cout << i << " " << f[j] << endl;
-            update(MP(i + 1, pos[cal(f[j], q.AA)]), PII(i, j));
+            update(MP(i + 1, get(cal(data[j], q.AA))), PII(i, j), now + 1, tmp + p[i], q.BB);
+            update(MP(i + 1, j), PII(i, j), now, tmp, -1);
         }
     }
-    cout << dp[n][f[k]] << endl;
+    int &now = dp[n][get(k)];
+    if(~now) {
+        queue<int>q;
+        int i = n, j = get(k);
+        while(i != 0) {
+            if(pre[i][j].BB != -1) q.push(pre[i][j].BB + 1);
+            pair<pair<int, int>, int> &g = pre[i][j]; i = g.AA.AA; j = g.AA.BB;
+        }
+        printf("%d\n", q.size());
+        while(!q.empty()) { printf("%d ", q.front()); q.pop(); }
+    } else {
+        puts("-1");
+    }
     return 0;
 }
