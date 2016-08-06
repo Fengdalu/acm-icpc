@@ -94,11 +94,15 @@ OpenCup XV Udmurtia B
 
 填坑：
 
+CRT
+
+原根
+
 CDQ分治
 
 网络流24题
 
-// FFT
+FFT
 
 斜率优化
 
