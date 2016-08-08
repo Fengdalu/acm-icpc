@@ -1,0 +1,14 @@
+﻿\subsection{最小路径覆盖最小点覆盖最大独立集}
+	\subsubsection{定义}
+		对于图G=(V,E)中的一个点覆盖是一个集合S⊆V使得每一条边至少有一个端点在S中
+	\subsubsection{算法}
+		对于任意边 $ (i, j) $，建立 $ (i, j'),  (j, i') $  两条边求最大匹配，最后答案为 ans / 2 + ans mod 2
+	\subsubsection{其他问题}
+		\paragraph{}
+			对于二分图
+				\subparagraph{} 					
+					最小路径覆盖 = | P | - 最大匹配数
+				\subparagraph{}
+					最小点覆盖数 = 最大匹配数
+				\subparagraph{}
+					最大独立顶点集 = 总顶点数 - 最大匹配数
