@@ -46,8 +46,6 @@ http://topcoder.com
 
 ### Multi 2016
 
-see hdu 1003
-
 tc 695 b
 
 cf edu 15
@@ -58,6 +56,8 @@ hdu 4878
 
 
 ===
+
+CF 366 D,E
 
 POJ 2065
 
