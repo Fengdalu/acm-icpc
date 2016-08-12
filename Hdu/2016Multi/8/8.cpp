@@ -8,29 +8,30 @@ typedef long long ll;
 const int N = 100020;
 ll eq[N << 2], sum[N << 2], add[N << 2];
 
-void update(int rt) {
+inline void update(int rt) {
     sum[rt] = sum[rt << 1 | 1] + sum[rt << 1];
     eq[rt] = (eq[rt << 1] == eq[rt << 1 | 1]) ? eq[rt << 1] : -1;
 }
 
-void deal(int rt, int a, int b, ll c) {
+inline void deal(int rt, int a, int b, ll c) {
     sum[rt] += 1ll * (b - a + 1) * c;
     add[rt] += c;
     if(eq[rt] != -1) eq[rt] += c;
 }
 
-void down(int rt, int a, int b) {
+inline void down(int rt, int a, int b) {
     int l = rt << 1, r = rt << 1 | 1;
     int mid = (a + b) >> 1;
-    if(add[rt]) {
-        deal(l, a, mid, add[rt]);
-        deal(r, mid + 1, b, add[rt]);
-        add[rt] = 0;
-    }
     if(~eq[rt]) {
         sum[l] = eq[rt] * (mid - a + 1); sum[r] = sum[rt] - sum[l];
         add[l] = add[r] = 0;
         eq[l] = eq[r] = eq[rt];
+        return;
+    }
+    if(add[rt]) {
+        deal(l, a, mid, add[rt]);
+        deal(r, mid + 1, b, add[rt]);
+        add[rt] = 0;
     }
 }
 
