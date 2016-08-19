@@ -224,7 +224,7 @@ namespace fastIO{
     #undef OUT_SIZE
     #undef BUF_SIZE
 };
-using namespace fastIO;
+//using namespace fastIO;
 
 const int N = 100005;
 struct E {
@@ -307,7 +307,7 @@ inline void run() {
 }
 
 int main() {
-    int _T; scanf("%d", &_T);
+    int _T; read(_T);
     while(_T--) {
         run();
     }
