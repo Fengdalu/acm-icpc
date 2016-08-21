@@ -1,8 +1,8 @@
 ﻿#include <vector>
 using namespace std;
-const int POW = 18;
-const int N = 1e5;
-void dfs(int u, int fa, int p[N][POW], int d[], vector<int>edge[] ){
+//const int POW = 18;
+//const int N = 1e5;
+void dfs(int u, int fa, int* p[], int d[], vector<int>edge[], int POW){
     d[u] = d[fa]+1;
     p[u][0] = fa;
     for(int i = 1; i < POW; i++) p[u][i] = p[p[u][i - 1]][i - 1];
@@ -10,10 +10,11 @@ void dfs(int u, int fa, int p[N][POW], int d[], vector<int>edge[] ){
     for(int i=0;i<sz;i++){
         int v = edge[u][i];
         if(v == fa) continue;
-        dfs(v, u, p, d, edge);
+        dfs(v, u, p, d, edge, POW);
     }
 }
-int lca(int a, int b, int d[], int p[N][POW]){
+
+int lca(int a, int b, int d[], int* p[], int POW) {
     if(d[a] > d[b]) a ^= b, b ^= a, a ^= b;
     if(d[a] < d[b]) {
         int del = d[b] - d[a];
