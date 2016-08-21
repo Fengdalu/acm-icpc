@@ -3,7 +3,7 @@
  */
 // n: 方阵大小
 typedef long long ll;
-const int N = 1000;
+//const int N = 1000;
 void matrixMul(ll *a[], ll *b[], ll *c[], int n)
 {
     for(int i = 0; i < n; i++)
