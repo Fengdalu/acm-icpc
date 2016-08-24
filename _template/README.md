@@ -32,7 +32,7 @@
 ## 修补
 
 + [ ] ./DataStructure/RMQ.tex
-+ [ ] ./DataStructure/trie.tex
++ [X] ./DataStructure/trie.tex
 + [ ] ./DataStructure/二维线段树.tex
 + [ ] ./DataStructure/区间第k大.tex
 + [ ] ./DataStructure/树链剖分.tex
