@@ -20,7 +20,7 @@ int main() {
     }
     if(l == -1){
         int len = strlen(s);
-        s[len-1]--;
+        s[len-1]='z';
         printf("%s", s);
         return 0;
     }
