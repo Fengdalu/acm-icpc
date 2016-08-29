@@ -14,6 +14,8 @@ typedef long long ll;
 #define AA first
 #define BB second
 #define PB push_back
-#define SZ size()
+#define SZ size
+#define OP begin()
+#define ED end()
 typedef pair<int, int> PII;
 /*===========================================================*/

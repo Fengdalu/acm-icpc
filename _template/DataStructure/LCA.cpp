@@ -1,8 +1,18 @@
 ﻿#include <vector>
 using namespace std;
-//const int POW = 18;
-//const int N = 1e5;
-void dfs(int u, int fa, int* p[], int d[], vector<int>edge[], int POW){
+const int POW = 18;
+const int N = 1e5;
+/*
+ * p[i][j]: i的第j倍祖先
+ * d[i]: i在树中的深度
+ * edge[N]: 边集合
+ * dfs(u, fa): 求出p, d
+ * lca(a, b): 求出(a, b) 的最近公共祖先
+ */
+int p[N][POW];
+int d[N];
+vector<int>edge[N];
+void dfs(int u, int fa){
     d[u] = d[fa]+1;
     p[u][0] = fa;
     for(int i = 1; i < POW; i++) p[u][i] = p[p[u][i - 1]][i - 1];
@@ -10,11 +20,11 @@ void dfs(int u, int fa, int* p[], int d[], vector<int>edge[], int POW){
     for(int i=0;i<sz;i++){
         int v = edge[u][i];
         if(v == fa) continue;
-        dfs(v, u, p, d, edge, POW);
+        dfs(v, u);
     }
 }
 
-int lca(int a, int b, int d[], int* p[], int POW) {
+int lca(int a, int b) {
     if(d[a] > d[b]) a ^= b, b ^= a, a ^= b;
     if(d[a] < d[b]) {
         int del = d[b] - d[a];

@@ -1,4 +1,7 @@
-﻿int to[2000][4]; // `节点指针`
+﻿#include <queue>
+#include <string>
+using namespace std;
+int to[2000][4]; // `节点指针`
 char w['Z']; // `字母下标`
 int word[1100]; // `节点标记`
 int fail[1100]; // `失配指针`

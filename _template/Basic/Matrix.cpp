@@ -1,11 +1,10 @@
 ﻿/*
- * 稀疏矩阵乘法
+ * MatrixMul: 稀疏矩阵乘法
+ * n: 方阵大小
  */
-// n: 方阵大小
 typedef long long ll;
-//const int N = 1000;
-void matrixMul(ll *a[], ll *b[], ll *c[], int n)
-{
+const int N = 1000;
+void matrixMul(ll a[][N], ll b[][N], ll c[][N], int n) {
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
             c[i][j] = 0;

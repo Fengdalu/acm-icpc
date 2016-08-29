@@ -30,8 +30,8 @@
 
 
 ## 修补
-
-+ [ ] ./DataStructure/RMQ.tex
++ [X] 勒让德定理
++ [X] ./DataStructure/RMQ.tex
 + [X] ./DataStructure/trie.tex
 + [ ] ./DataStructure/二维线段树.tex
 + [ ] ./DataStructure/区间第k大.tex
