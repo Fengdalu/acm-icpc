@@ -1,0 +1,579 @@
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.7.18)  11 MAY 2016 03:56
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**积分表.tex
+(./积分表.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+
+! LaTeX Error: Environment footnotesize undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{footnotesize}
+                        
+? q
+OK, entering \batchmode...
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.373 }
+       
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 373.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 373.
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+! Undefined control sequence.
+<argument> ...{1}{b-a}\ln \frac {a+x}{b+x}, \text 
+                                                  { } a\ne b $} }
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \vbox (2.49994pt too high) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \vbox (0.50009pt too high) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \vbox (0.50009pt too high) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \vbox (0.50009pt too high) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \vbox (0.50009pt too high) detected at line 373
+ []
+
+
+Overfull \vbox (0.50009pt too high) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+! Undefined control sequence.
+<argument> ...ln ( x^2 + a^2 )\hspace {.5ex}\text 
+                                                  {dx} = x \ln (x^2 + a^2 ) ...
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+! Undefined control sequence.
+<argument> ...ln ( x^2 - a^2 )\hspace {.5ex}\text 
+                                                  {dx} = x \ln (x^2 - a^2 ) ...
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \vbox (0.50008pt too high) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \vbox (0.50008pt too high) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+! Undefined control sequence.
+<argument> ...$ \int x^n e^{ax}\hspace {1pt}\text 
+                                                  {d}x = \dfrac {x^n e^{ax}}...
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...ax}\hspace {1pt}\text {d}x = \dfrac 
+                                                  {x^n e^{ax}}{a} - \dfrac {...
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...x = \dfrac {x^n e^{ax}}{a} - \dfrac 
+                                                  {n}{a}\int x^{n-1}e^{ax}\h...
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...int x^{n-1}e^{ax}\hspace {1pt}\text 
+                                                  {d}x $} }
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+! Undefined control sequence.
+<argument> ...t{ \hbox {$ \int x e^{-ax^2}\ \text 
+                                                  {dx} = -\dfrac {1}{2a}e^{-...
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...t x e^{-ax^2}\ \text {dx} = -\dfrac 
+                                                  {1}{2a}e^{-ax^2} $} }
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+! Undefined control sequence.
+<argument> ...$ \int \sec ^3 x \hspace {2pt}\text 
+                                                  {dx} = \frac {1}{2} \sec x...
+l.373 }
+       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 373
+ []
+
+
+Overfull \hbox (153.91124pt too wide) in paragraph at lines 373--373
+[][]  []  []  []  []  []  []
+ []
+
+
+Overfull \hbox (40.52356pt too wide) in paragraph at lines 373--373
+[]  []  [] []  []
+ []
+
+
+Overfull \hbox (23.01434pt too wide) in paragraph at lines 373--373
+[]  []  []  []
+ []
+
+
+Overfull \hbox (181.25107pt too wide) in paragraph at lines 373--373
+[]  []  []
+ []
+
+
+Overfull \hbox (37.78998pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []
+ []
+
+
+Overfull \hbox (293.3861pt too wide) in paragraph at lines 373--373
+[]  []  []
+ []
+
+
+Overfull \hbox (59.14586pt too wide) in paragraph at lines 373--373
+[]  []  []  []
+ []
+
+
+Overfull \hbox (212.19643pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []
+ []
+
+
+Overfull \hbox (21.77411pt too wide) in paragraph at lines 373--373
+[]  []  []
+ []
+
+
+Overfull \hbox (113.86038pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []  []
+ []
+
+
+Overfull \hbox (42.83835pt too wide) in paragraph at lines 373--373
+[]  []  []  []
+ []
+
+
+Overfull \hbox (70.26701pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []
+ []
+
+
+Overfull \hbox (29.78755pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []
+ []
+
+
+Overfull \hbox (26.37967pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []
+ []
+
+
+Overfull \hbox (63.49872pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []
+ []
+
+
+Overfull \hbox (32.13525pt too wide) in paragraph at lines 373--373
+[]  []  []  []  []
+ []
+
+
+Overfull \hbox (41.7477pt too wide) in paragraph at lines 373--373
+[]  []  []  []
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{footnotesize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.374 \end{footnotesize}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> 积分表.tex
+                 
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 12 strings out of 493710
+ 103 string characters out of 6145916
+ 95654 words of memory out of 5000000
+ 3452 multiletter control sequences out of 15000+600000
+ 3948 words of font info for 15 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 25i,10n,21p,118b,132s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

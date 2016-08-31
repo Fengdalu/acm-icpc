@@ -1,0 +1,58 @@
+\contentsline {section}{二维几何}{2}
+\contentsline {subsection}{二维几何基本操作}{2}
+\contentsline {subsection}{$n\qopname \relax o{log}n$ 半平面交}{3}
+\contentsline {subsection}{三角形的心}{4}
+\contentsline {subsection}{圆与多边形面积交}{4}
+\contentsline {subsection}{圆的面积模板 ($n^2\qopname \relax o{log}n$)}{4}
+\contentsline {subsection}{凸包快速询问}{5}
+\contentsline {subsection}{Delaunay 三角剖分}{6}
+\contentsline {section}{三维几何}{7}
+\contentsline {subsection}{三维几何基本操作}{7}
+\contentsline {subsection}{三维凸包求重心}{8}
+\contentsline {subsection}{求四点外界球}{9}
+\contentsline {section}{图论}{9}
+\contentsline {subsection}{Hungarian}{9}
+\contentsline {subsection}{Hopcroft}{9}
+\contentsline {subsection}{最大团}{10}
+\contentsline {subsection}{最小树形图}{11}
+\contentsline {subsection}{带花树}{11}
+\contentsline {subsection}{Dominator Tree}{12}
+\contentsline {subsection}{主流}{13}
+\contentsline {subsection}{无向图最小割}{13}
+\contentsline {section}{数论}{13}
+\contentsline {subsection}{素数判定}{13}
+\contentsline {subsection}{启发式分解}{14}
+\contentsline {subsection}{直线下整点个数}{14}
+\contentsline {subsection}{二次剩余}{14}
+\contentsline {subsection}{Pell 方程}{14}
+\contentsline {section}{代数}{15}
+\contentsline {subsection}{FFT}{15}
+\contentsline {subsection}{线性规划}{15}
+\contentsline {subsection}{Schreier-Sims}{16}
+\contentsline {section}{字符串}{16}
+\contentsline {subsection}{后缀数组 ( 倍增 )}{16}
+\contentsline {subsection}{后缀自动机}{17}
+\contentsline {subsection}{Manacher/ 扩展 KMP}{17}
+\contentsline {subsection}{字符串最小表示}{18}
+\contentsline {subsection}{后缀树 (With Pop Front)}{18}
+\contentsline {section}{数据结构}{19}
+\contentsline {subsection}{Splay Tree}{19}
+\contentsline {subsection}{Link Cut Tree}{20}
+\contentsline {subsection}{轻重链剖分}{20}
+\contentsline {section}{综合}{21}
+\contentsline {subsection}{DancingLinks}{21}
+\contentsline {subsection}{日期公式}{21}
+\contentsline {subsection}{环状最长公共子序列}{21}
+\contentsline {subsection}{经纬度球面距离}{22}
+\contentsline {subsection}{长方体表面两点最短距离}{22}
+\contentsline {section}{其他}{22}
+\contentsline {subsection}{简易积分表}{22}
+\contentsline {subsection}{常用结论}{22}
+\contentsline {subsection}{弦图}{22}
+\contentsline {subsection}{五边形数}{22}
+\contentsline {subsection}{重心}{23}
+\contentsline {subsection}{第二类 Bernoulli number}{23}
+\contentsline {subsection}{Stirling 数}{23}
+\contentsline {subsection}{三角公式}{23}
+\contentsline {subsection}{Java 读入优化}{23}
+\contentsline {subsection}{Vimrc}{23}
