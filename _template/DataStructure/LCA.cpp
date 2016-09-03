@@ -1,13 +1,13 @@
-﻿#include <vector>
+#include <vector>
 using namespace std;
 const int POW = 18;
 const int N = 1e5;
 /*
- * p[i][j]: i的第j倍祖先
- * d[i]: i在树中的深度
+ * p[i][j]: $i$的第$j$倍祖先
+ * d[i]: $i$在树中的深度
  * edge[N]: 边集合
- * dfs(u, fa): 求出p, d
- * lca(a, b): 求出(a, b) 的最近公共祖先
+ * dfs(u, fa): 求出$p, d$
+ * lca(a, b): 求出$(a, b)$的最近公共祖先
  */
 int p[N][POW];
 int d[N];

@@ -1,8 +1,8 @@
-﻿// __builtin_clz  `前导0`
-// __builtin_ctz `后缀0`
-#define ONES(x) __builtin_popcount(x) // `1数目`
+// __builtin_clz  前导 0
+// __builtin_ctz 后缀 0
+#define ONES(x) __builtin_popcount(x) // 1 数目
 
-//枚举C(n, k)所有可能, 复杂度O(C(n, k))
+// 枚举 C(n, k) 所有可能, 复杂度 O(C(n, k))
 int next_combination(int n, int k) {
     int ret, b = k & -k, t = (k + b);
     ret = (((t ^ k) >> 2) / b) | t;

@@ -1,4 +1,4 @@
-﻿//必须有的头文件
+// 必须有的头文件
 #include <iostream>
 #include <cstdio>
 #include <cstring>
@@ -6,7 +6,7 @@
 #include <map>
 #include <set>
 #include <algorithm>
-// 测试bits/stdc++.h
+// 测试 bits/stdc++
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -18,4 +18,4 @@ typedef long long ll;
 #define OP begin()
 #define ED end()
 typedef pair<int, int> PII;
-/*===========================================================*/
+/* =========================================================== */
