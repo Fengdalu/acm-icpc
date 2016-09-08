@@ -14,9 +14,7 @@ typedef long long ll;
 struct BIT {
     int _[MX+20][MX+20];
     void init() {
-        for(int i = 0; i < MX; i++)
-            for(int j = 0; j < MX; j++)
-                _[i][j] = 0;
+        memset(_, 0, sizeof _);
     }
     int lowbit(int x) {
         return x & (-x);
@@ -59,11 +57,6 @@ struct state {
     }
 } f[N];
 
-void massert(bool flg) {
-    if(!flg) {
-        exit(1);
-    }
-}
 int me[N];
 int c[N];
 inline void run(int MXT) {
@@ -75,10 +68,6 @@ inline void run(int MXT) {
     for(int i = 0; i < n; i++) {
         int a, b;
         scanf("%d%d", &a, &b);
-        massert(a >= 1);
-        massert(a <= 1e5);
-        massert(b >= 1);
-        massert(b <= 1e5);
 
         if(a > me[b]) {
             me[b] = a;
@@ -92,13 +81,6 @@ inline void run(int MXT) {
         scanf("%d%d%d", &c, &d, &e);
         if(me[e] == -1) continue;
         f[cnt++] = state(c, d, me[e], e);
-        massert(c <= 1e5);
-        massert(d <= 1e3);
-        massert(e <= 1e3);
-
-        massert(c >= 1);
-        massert(d >= 1);
-        massert(e >= 1);
     }
     T.init();
     sort(f, f + cnt);
@@ -111,16 +93,15 @@ inline void run(int MXT) {
             if(pre) ans += 1ll * c[f[i].e];
         }
         else {
-            //int cover = t.cal(mx, mx) - t.cal(mx, y) - t.cal(x, mx) + t.cal(x, y);
-            ll cover = T.cal(MX - X, MX - Y);
+            int cover = T.cal(MX, MX) - T.cal(MX, Y) - T.cal(X, MX) + T.cal(X, Y);
+            //ll cover = T.cal(MX - X, MX - Y);
             if(cover == 0) { ans += 1ll * c[f[i].e]; pre = 1; }
             else pre = 0;
         }
-        T.add(MX - X, MX - Y);
-        //t.add(x + 1, y + 1);
+        //T.add(MX - X, MX - Y);
+        T.add(X + 1, Y + 1);
     }
-    printf("Case #%d: ", ++_t);
-    cout << ans << endl;
+    printf("Case #%d: %lld\n", ++_t, ans);
 }
 
 int main() {
