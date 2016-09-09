@@ -4,31 +4,25 @@
 #include <cstring>
 #include <string>
 #include <vector>
+#include <unordered_map>
 const int MASK = (1<<20);
 const int STATE = 2e6;
 const int N = 13;
 typedef long long ll;
 
 struct HashMap {
-    ll head[MASK];
-    ll state[STATE];
-    int nt[STATE];
+    std::unordered_map<int, int>f;
     int tot;
 
     void init() {
         tot = 0;
-        memset(head, -1, sizeof head);
+        f = std::unordered_map<int, int>();
     }
 
     ll get(int st) {
-        for(int k = head[st&(MASK-1)]; k != -1; k = nt[k]) {
-            if(state[k] == st) return k;
-        }
-        state[tot] = st;
-        nt[tot] = head[st&(MASK-1)];
-        head[st&(MASK-1)] = tot++;
-        if(tot >= STATE) exit(2);
-        return tot - 1;
+        int &a = f[st];
+        if(a == 0) return a = ++tot;
+        return a;
     }
 } hm[2];
 
@@ -74,9 +68,10 @@ inline void solve() {
             }
             memset(dp[next], 0, sizeof dp[next]);
             hm[next].init();
-            for(int p = 0; p < hm[cur].tot; p++) {
-                ll state = hm[cur].state[p];
+            for(auto &t: hm[cur].f) {
                 std::vector<int> f(m + 1);
+                int p = t.second;
+                int state = t.first;
                 ll now = dp[cur][p];
                 //std::cout << i << " " << j << " " << now << ": ";
                 for(int k = 0; k < m + 1; k++) {
