@@ -8,7 +8,6 @@
 #include <algorithm>
 // 测试 bits/stdc++
 #include <bits/stdc++.h>
-using namespace std;
 typedef long long ll;
 #define MP make_pair
 #define AA first
@@ -17,5 +16,5 @@ typedef long long ll;
 #define SZ size
 #define OP begin()
 #define ED end()
-typedef pair<int, int> PII;
+typedef std::pair<int, int> PII;
 /* =========================================================== */

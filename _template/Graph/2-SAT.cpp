@@ -5,7 +5,6 @@
 #include <cstring>
 #include <algorithm>
 #include <cstring>
-using namespace std;
 
 const int N = 500;
 const int M = 2e6;
@@ -20,7 +19,7 @@ int color[N];
 bool vis[N];
 int cnt, num, idn;
 int ncnt;
-stack<int>s;
+std::stack<int>s;
 
 void add(int i, int j) {
     cnt++;
@@ -36,7 +35,7 @@ void tarjan(int x) {
     s.push(x);
     for(int k = ind[x]; k != -1; k = nt[k]) {
         tarjan(to[k]);
-        if(vis[to[k]]) low[x] = min(low[x], low[to[k]]);
+        if(vis[to[k]]) low[x] = std::min(low[x], low[to[k]]);
     }
     if(dfn[x] == low[x]) {
         ncnt++;

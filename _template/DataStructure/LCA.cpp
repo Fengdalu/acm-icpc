@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 const int POW = 18;
 const int N = 1e5;
 /*
@@ -11,7 +10,7 @@ const int N = 1e5;
  */
 int p[N][POW];
 int d[N];
-vector<int>edge[N];
+std::vector<int>edge[N];
 void dfs(int u, int fa){
     d[u] = d[fa]+1;
     p[u][0] = fa;

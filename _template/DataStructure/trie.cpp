@@ -1,6 +1,5 @@
 ﻿#include <queue>
 #include <string>
-using namespace std;
 int to[2000][4]; // 节点指针
 char w['Z']; // 字母下标
 int word[1100]; // 节点标记
@@ -13,38 +12,38 @@ void init() {
 }
 
 void insert(char *a, int mask) {
-   int p = 0;
-   while(*a) {
-      int v = w[*a];
-      if(!to[p][v]) {
-         to[p][v] = ++cnt;
-         memset(to[cnt], 0, sizeof to[cnt]);
-         word[cnt] = 0;
-      }
-      p = to[p][v];
-      a++;
-   }
-   word[p] |= mask;
+    int p = 0;
+    while(*a) {
+        int v = w[*a];
+        if(!to[p][v]) {
+            to[p][v] = ++cnt;
+            memset(to[cnt], 0, sizeof to[cnt]);
+            word[cnt] = 0;
+        }
+        p = to[p][v];
+        a++;
+    }
+    word[p] |= mask;
 }
 
 void ac() {
-   queue<int>q;
-   memset(fail, 0, sizeof fail);
-   for(int i = 0; i < 4; i++) if(to[0][i]) {
-      q.push(to[0][i]);
-   }
-   while(q.size()) {
-      int p = q.front();
-      q.pop();
-      for(int i = 0; i < 4; i++) {
-         int v = to[p][i];
-         if(v) {
-            fail[v] = to[fail[p]][i];
-            word[v] |= word[fail[v]];
-            q.push(v);
-         }
-         else
-            to[p][i] =  to[fail[p]][i];
-      }
-   }
+    std::queue<int>q;
+    memset(fail, 0, sizeof fail);
+    for(int i = 0; i < 4; i++) if(to[0][i]) {
+        q.push(to[0][i]);
+    }
+    while(q.size()) {
+        int p = q.front();
+        q.pop();
+        for(int i = 0; i < 4; i++) {
+            int v = to[p][i];
+            if(v) {
+                fail[v] = to[fail[p]][i];
+                word[v] |= word[fail[v]];
+                q.push(v);
+            }
+            else
+                to[p][i] =  to[fail[p]][i];
+        }
+    }
 }

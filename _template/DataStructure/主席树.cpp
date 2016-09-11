@@ -6,9 +6,8 @@
 #include <map>
 #include <vector>
 #include <queue>
-using namespace std;
 
-typedef pair<int, int> PII;
+typedef std::pair<int, int> PII;
 #define PB(x) push_back(x)
 #define SZ size()
 #define AA first
