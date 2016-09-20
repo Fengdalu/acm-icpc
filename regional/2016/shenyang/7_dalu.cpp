@@ -3,7 +3,7 @@
 typedef long long ll;
 
 int buf[1<<5];
-ll dp[20][2][2][2];
+ll dp[1<<5][2][2][2];
 ll cal(ll _) {
     int cnt = 0;
     while(_) {
