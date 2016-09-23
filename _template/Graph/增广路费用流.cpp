@@ -1,12 +1,12 @@
-﻿\subsection{增广路版}
-	增广路版费用流，复杂度$ O(n^{2}m) $
-    \begin{lstlisting}[language=C++]
-/*
-*	`调用之前需要清空ind并令cnt = 1`
+﻿/*
+* 增广路版费用流，复杂度$ O(n^{2}m) $
+* 调用之前需要清空ind并令$ cnt = 1 $
 */
+#include <bits/stdc++.h>
 #define N 3000
 #define M 100000
 #define INF 0x7fffffff
+typedef long long ll;
 
 int ind[N], pre[N], f[N];
 bool vis[N];
@@ -14,8 +14,7 @@ int bg[M], t[M], nt[M], c[M], op[M], v[M];
 int cnt;
 int S, T;
 
-int add(int a, int b, int C, int V) //	`不要直接调用`
-{
+int add(int a, int b, int C, int V) { //  不要直接调用
     bg[cnt] = a;
     t[cnt] = b;
     v[cnt] = V;
@@ -25,8 +24,7 @@ int add(int a, int b, int C, int V) //	`不要直接调用`
     return cnt++;
 }
 
-int ADD(int a, int b, int c, int v) //`添加边, 容量C, 价值V`
-{
+int ADD(int a, int b, int c, int v) {
     int x = add(a, b, c, v);
     int y = add(b, a, 0, -v);
     op[x] = y; op[y] = x;
@@ -35,8 +33,7 @@ int ADD(int a, int b, int c, int v) //`添加边, 容量C, 价值V`
 
 int h[N], q[N];
 
-bool spfa()
-{
+bool spfa() {
     memset(vis, 0, sizeof vis);
     for(int i = S; i <= T; i++) f[i] = INF;
     for(int i = S; i <= T; i++) pre[i] = -1;
@@ -69,7 +66,7 @@ int dfs()
     int k = pre[T];
     while(k != -1)
     {
-        ans = min(ans, c[k]);
+        ans = std::min(ans, c[k]);
         k = pre[bg[k]];
     }
     k = pre[T];
@@ -82,14 +79,11 @@ int dfs()
     return ans;
 }
 
-LL dinic() // `程序入口`
-{
-    LL ans = 0, tmp;
+ll dinic() {// 程序入口
+    ll ans = 0, tmp;
     while(spfa())
     {
-        ans += (LL)f[T] * dfs();
+        ans += (ll)f[T] * dfs();
     }
     return ans;
 }
-
-\end{lstlisting}

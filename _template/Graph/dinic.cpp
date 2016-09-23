@@ -1,5 +1,11 @@
-﻿\subsection{DINIC}
-    \begin{lstlisting}[language=C++]
+﻿/*
+* dinic 模板
+*
+*/
+#include <bits/stdc++.h>
+const int N = 1e3;
+const int M = 1e4;
+const int INF = 1e9+7;
 int f[N];
 int q[N];
 bool vis[N];
@@ -81,4 +87,3 @@ int dinic()
     }
     return ans;
 }
-\end{lstlisting}

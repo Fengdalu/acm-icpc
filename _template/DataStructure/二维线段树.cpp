@@ -1,6 +1,8 @@
-﻿\subsection{二维线段树}
-	\subsubsection{点修改区间查询}
-	\begin{lstlisting}[language=C++]
+﻿/*
+ * 点修改区间查询
+ */
+#include <bits/stdc++.h>
+const int N = 5000;
 int c[N][N];
 int lx[N], ly[N];
 int n, Q;
@@ -15,8 +17,8 @@ struct Node
 
     void update(int x)
     {
-        f[x].Min = min(f[x << 1].Min, f[x << 1 | 1].Min);
-        f[x].Max = max(f[x << 1].Max, f[x << 1 | 1].Max);
+        f[x].Min = std::min(f[x << 1].Min, f[x << 1 | 1].Min);
+        f[x].Max = std::max(f[x << 1].Max, f[x << 1 | 1].Max);
     }
 
     void build(int x, int a, int b)
@@ -39,7 +41,7 @@ struct Node
             int mid = (f[x].a + f[x].b) / 2;
             if(b <= mid) return queryMin(x << 1, a, b);
             else if(a > mid) return queryMin(x << 1 | 1, a, b);
-            else return min(queryMin(x << 1, a, b), queryMin(x << 1 | 1, a, b));
+            else return std::min(queryMin(x << 1, a, b), queryMin(x << 1 | 1, a, b));
         }
     }
 
@@ -51,7 +53,7 @@ struct Node
             int mid = (f[x].a + f[x].b) / 2;
             if(b <= mid) return queryMax(x << 1, a, b);
             else if(a > mid) return queryMax(x << 1 | 1, a, b);
-            else return max(queryMax(x << 1, a, b), queryMax(x << 1 | 1, a, b));
+            else return std::max(queryMax(x << 1, a, b), queryMax(x << 1 | 1, a, b));
         }
     }
 }f[N];
@@ -83,8 +85,8 @@ void update(int x, int y, int c)
                 }
                 else
                 {
-                    f[X].f[Y].Min = min(f[X << 1].f[Y].Min, f[X << 1 | 1].f[Y].Min);
-                    f[X].f[Y].Max = max(f[X << 1].f[Y].Max, f[X << 1 | 1].f[Y].Max);
+                    f[X].f[Y].Min = std::min(f[X << 1].f[Y].Min, f[X << 1 | 1].f[Y].Min);
+                    f[X].f[Y].Max = std::max(f[X << 1].f[Y].Max, f[X << 1 | 1].f[Y].Max);
                 }
             }
             else { f[X].update(Y); }
@@ -99,7 +101,7 @@ int queryMin(int x, int a, int b, int p, int q)
         int mid = (f[x].a + f[x].b) / 2;
         if(b <= mid) return queryMin(x << 1, a, b, p, q);
         else if(a > mid) return queryMin(x << 1 | 1, a, b, p, q);
-        else return min(queryMin(x << 1, a, b, p, q), queryMin(x << 1 | 1, a, b, p, q));
+        else return std::min(queryMin(x << 1, a, b, p, q), queryMin(x << 1 | 1, a, b, p, q));
     }
 }
 
@@ -111,8 +113,7 @@ int queryMax(int x, int a, int b, int p, int q)
         int mid = (f[x].a + f[x].b) / 2;
         if(b <= mid) return queryMax(x << 1, a, b, p, q);
         else if(a > mid) return queryMax(x << 1 | 1, a, b, p, q);
-        else return max(queryMax(x << 1, a, b, p, q), queryMax(x << 1 | 1, a, b, p, q));
+        else return std::max(queryMax(x << 1, a, b, p, q), queryMax(x << 1 | 1, a, b, p, q));
     }
 }
 
-\end{lstlisting}

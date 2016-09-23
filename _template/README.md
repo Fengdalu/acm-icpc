@@ -27,27 +27,25 @@
 	+ [ ] 半平面交
 	+ [ ] Simpson积分
 	
-
-
 ## 修补
 + [X] 勒让德定理
 + [X] ./DataStructure/RMQ.tex
 + [X] ./DataStructure/trie.tex
-+ [ ] ./DataStructure/二维线段树.tex
-+ [ ] ./DataStructure/区间第k大.tex
-+ [ ] ./DataStructure/树链剖分.tex
-+ [ ] ./Graph/dinic.tex
-+ [ ] ./Graph/ISAP.tex
-+ [ ] ./Graph/MinCostFlow.tex
-+ [ ] ./Graph/SAP.tex
++ [X] ./DataStructure/二维线段树.tex
++ [X] ./DataStructure/树链剖分.tex
++ [X] ./DataStructure/树链剖分.tex
++ [X] ./Graph/dinic.tex
++ [X] ./Graph/ISAP.tex
++ [X] ./Graph/MinCostFlow.tex
++ [X] ./Graph/SAP.tex
 + [ ] ./Graph/tarjan.tex
-+ [ ] ./Graph/zkw费用流.tex
-+ [ ] ./Graph/匈牙利算法.tex
-+ [ ] ./Graph/哈密尔顿回路.tex
-+ [ ] ./Graph/增广路费用流.tex
-+ [ ] ./Graph/带花树.tex
++ [X] ./Graph/zkw费用流.tex
++ [X] ./Graph/匈牙利算法.tex
++ [X] ./Graph/哈密尔顿回路.tex
++ [X] ./Graph/增广路费用流.tex
++ [X] ./Graph/带花树.tex
 + [ ] ./Graph/最小树形图.tex
-+ [ ] ./Graph/最小路径覆盖最小点覆盖最大独立集.tex
++ [X] ./Graph/最小路径覆盖最小点覆盖最大独立集.tex
 + [ ] ./Graph/欧拉回路.tex
 + [ ] ./NumberTheory/康托展开.tex
 + [ ] ./NumberTheory/欧拉函数.tex
@@ -66,3 +64,4 @@
 + [X] ./Basic/Matrix.cpp
 + [X] ./DataStructure/LCA.cpp
 + [X] ./IO/fastio.cpp
++ [ ] KM

@@ -1,7 +1,8 @@
-﻿\subsection{ISAP}
-	\paragraph{}
-	用于边数较多的情况, 调用$ ISAP(int st, int ed, int n) $, $ n $要稍大
-    \begin{lstlisting}[language=C++]
+﻿/*
+ * 用于边数较多的情况, 调用$ ISAP(int st, int ed, int n) $, $ n $要稍大
+*/
+
+#include <bits/stdc++.h>
 const int Maxn = 1000;
 const int Maxm = Maxn * Maxn;
 struct node {
@@ -65,4 +66,3 @@ int ISAP(int s, int t, int n) {
     }
     return maxflow;
 }
-\end{lstlisting}

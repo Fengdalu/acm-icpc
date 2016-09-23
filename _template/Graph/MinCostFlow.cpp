@@ -1,11 +1,10 @@
-\subsection{zkw费用流}
-	\paragraph{}
-		使用前需要给$ src, des $赋值, 调用$ zkw(src, des, n) $中的$n$为节点数目，要稍大于总数目
-\begin{lstlisting}[language=C++]
-
+/*
+* dijkstra 费用流
+*/
+#include <bits/stdc++.h>
 typedef long long LL;
-typedef pair<int, int> PII;
-#define MP(x, y) make_pair(x, y)
+typedef std::pair<int, int> PII;
+#define MP(x, y) std::make_pair(x, y)
 #define COST_INF 1e9
 #define AA first
 #define BB second
@@ -17,14 +16,14 @@ template <typename T> class MinCostFlow{
     struct edge{int to;LL cap;T cost;int rev;};
 
     int V;
-    vector<vector<edge> >adj;
-    vector<T>pot;
+    std::vector<std::vector<edge> >adj;
+    std::vector<T>pot;
 
-    pair<LL,T>dijkstra(int s,int t,LL FLOW_BOUND){
-        vector<int>used(V,0);
-        vector<T>dist(V,COST_INF);
-        vector<PII>path(V,MP(-1,-1));
-        priority_queue<pair<T,int> >Q;
+    std::pair<LL,T>dijkstra(int s,int t,LL FLOW_BOUND){
+        std::vector<int>used(V,0);
+        std::vector<T>dist(V,COST_INF);
+        std::vector<PII>path(V,MP(-1,-1));
+        std::priority_queue<std::pair<T,int> >Q;
         dist[s]=0;
         Q.push(MP(0,s));
         while(!Q.empty()){
@@ -71,7 +70,7 @@ template <typename T> class MinCostFlow{
     public:
     MinCostFlow(int n){//[0,n)
         V=n;
-        adj.resize(V,vector<edge>(0));
+        adj.resize(V,std::vector<edge>(0));
         pot.resize(V,0);
     }
     void add_edge(int s,int t,LL f,T c){
@@ -80,10 +79,10 @@ template <typename T> class MinCostFlow{
         adj[s].PB(e1);
         adj[t].PB(e2);
     }
-    pair<LL,T>mincostflow(int s,int t,LL FLOW_BOUND=(1LL<<48)){
-        pair<LL,T>ans=MP(0LL,0);
+    std::pair<LL,T>mincostflow(int s,int t,LL FLOW_BOUND=(1LL<<48)){
+        std::pair<LL,T>ans=MP(0LL,0);
         while(FLOW_BOUND>0){
-            pair<LL,T>tmp=dijkstra(s,t,FLOW_BOUND);
+            std::pair<LL,T>tmp=dijkstra(s,t,FLOW_BOUND);
             if(tmp.AA==0)break;
             ans.AA+=tmp.AA;
             ans.BB+=tmp.BB;
@@ -92,5 +91,3 @@ template <typename T> class MinCostFlow{
         return ans;
     }
 };
-
-\end{lstlisting}}

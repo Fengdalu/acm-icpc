@@ -1,8 +1,5 @@
-\subsection{ISAP}
-    \paragraph{}
-    \begin{lstlisting}[language=C++]
-
-#define cmin(x, y) x = min(x, y)
+#include <bits/stdc++.h>
+#define cmin(x, y) x = std::min(x, y)
 typedef int ft;
 const ft inf = 0x3f3f3f;
 const int M = 500000+5,N = 20000+5;
@@ -59,7 +56,4 @@ struct SAP{
         return flow;
     }
 };
-
-\end{lstlisting}
-
 

@@ -1,17 +1,17 @@
-﻿\subsection{带花树}
-	\paragraph{}
-		求一般图的最大匹配, 复杂度$O(n^3)$
-\begin{lstlisting}[language=C++]
-deque<int> Q;
-//`g[i][j]存放关系图：i,j是否有边,match[i]存放i所匹配的点`
-//`建图开始初始化g`
-//`最终匹配方案为match`
-//`复杂度$O(n^3)$`
-//`点是从1到n的`
+﻿#include <bits/stdc++.h>
+/* 求一般图的最大匹配 , 复杂度$O(n^3)$ .
+* $ g[i][j] $ 存放关系图 : $i,j$ 否有边 , $match[ i ]$ 存放$i$所匹配的点
+* 建图开始初始化$g$ .
+* 最终匹配方案为$match$ .
+* 复杂度$O(n^3)$
+* 点是从$1$到$n$的
+*/
+const int MAXN = 500;
+std::deque<int> Q;
 bool g[MAXN][MAXN],inque[MAXN],inblossom[MAXN],inpath[MAXN];
 int match[MAXN],pre[MAXN],base[MAXN];
 
-//找公共祖先
+// 找公共祖先
 int findancestor(int u,int v)
 {
     memset(inpath,false,sizeof(inpath));
@@ -30,7 +30,7 @@ int findancestor(int u,int v)
     }
 }
 
-// `压缩花`
+// 压缩花
 void reset(int u,int anc)
 {
     while(u!=anc)
@@ -108,4 +108,3 @@ int solve(int n)
             ans++;
     return ans;
 }
-\end{lstlisting}

@@ -1,7 +1,9 @@
-\subsection{zkw费用流}
-	\paragraph{}
-		使用前需要给$ src, des $赋值, 调用$ zkw(src, des, n) $中的$n$为节点数目，要稍大于总数目
-\begin{lstlisting}[language=C++]
+/*
+ * luoshiying 版本
+ * 使用前需要给$src, des$赋值
+ * 调用$zkw(src, des, n)$中的$tn$为节点数目，要稍大于总数目
+ */
+#include <bits/stdc++.h>
 #define MOD 0x3f3f3f3f
 const int Maxn = 3000;
 const int Maxm = 100000;
@@ -13,7 +15,7 @@ int last[Maxn];
 int tot;
 int flow, cost, value;
 int dist[Maxn], visit[Maxn], src, des;
-deque<int> Q;
+std::deque<int> Q;
 int n, m;
 
 void adde(int u, int v, int c, int w) {
@@ -79,5 +81,3 @@ void zkw(int src, int des, int n) {
        }while(Aug(src, MOD));
    }
 }
-
-\end{lstlisting}
