@@ -1,7 +1,10 @@
-﻿\subsection{EXKMP}
-\begin{lstlisting}[language=C++]
-// Hdu 4300
-// `S为主串， T为子串，LS为S长度，LT为T长度，B[i]表示S[i]匹配了B[i]长度的T`
+﻿/* Hdu 4300
+* S 为主串 ， T 为子串 ，
+* LS 为 S 长度 ，LT 为 T 长度 ，
+* B[i] 表示 S[i] 匹配了 B[i] 长度的 T
+*/
+#include <bits/stdc++.h>
+const int Maxn = 1e5;
 char S[Maxn], T[Maxn];
 int Next[Maxn], B[Maxn];
 
@@ -14,7 +17,7 @@ void preExKmp(char T[], int LT, int next[]) {
         if(i <= k + next[k] - 1 && next[i - k] + i < k + next[k])
             next[i] = next[i - k];
         else {
-            ind = max(0, k + next[k] - i);
+            ind = std::max(0, k + next[k] - i);
             while(ind + i < LT && T[ind + i] == T[ind]) ind++;
             next[i] = ind; k = i;
         }
@@ -31,12 +34,10 @@ void exKmp(char S[], int LS, char T[], int LT, int next[], int B[]) {
         if((i - 1) + L < p)
             B[i] = L;
         else {
-            ind = max(0, p - i + 1);
+            ind = std::max(0, p - i + 1);
             while(ind + i < LS && ind < LT && S[ind + i] == T[ind]) ind++;
             B[i] = ind;
             k = i;
         }
     }
 }
-	
-\end{lstlisting}

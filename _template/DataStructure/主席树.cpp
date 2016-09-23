@@ -15,11 +15,11 @@ typedef std::pair<int, int> PII;
 #define MP(x, y) make_pair(x, y)
 namespace ST {
     /*
-     * e: 线段树节点数组
-     *    l, r: 左右节点指针
-     *    sum: 区间和
-     * rt: 主席树根节点
-     * tot: 总节点个数
+     *     e:    线段树节点数组
+     *  l, r:    左右节点指针
+     *   sum:    区间和
+     *    rt:    主席树根节点
+     *   tot:    总节点个数
      */
     struct E {
         int l, r;
@@ -29,7 +29,7 @@ namespace ST {
     int tot;
 
     /*
-     * 建树，初始化调用，建立一颗空树
+     * 建树 , 初始化调用 , 建立一颗空树
      */
     void build(int &rt, int l, int r) {
         rt = tot++;

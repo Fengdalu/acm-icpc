@@ -10,6 +10,7 @@
 + [ ] Miller素数测试
 + [ ] 模同余方程组
 + [ ] 离散对数
++ [ ] DLX
 + [ ] Mobius反演
 + [ ] SAM
 + [ ] Treap
@@ -28,40 +29,17 @@
 	+ [ ] Simpson积分
 	
 ## 修补
-+ [X] 勒让德定理
-+ [X] ./DataStructure/RMQ.tex
-+ [X] ./DataStructure/trie.tex
-+ [X] ./DataStructure/二维线段树.tex
-+ [X] ./DataStructure/树链剖分.tex
-+ [X] ./DataStructure/树链剖分.tex
-+ [X] ./Graph/dinic.tex
-+ [X] ./Graph/ISAP.tex
-+ [X] ./Graph/MinCostFlow.tex
-+ [X] ./Graph/SAP.tex
-+ [ ] ./Graph/tarjan.tex
-+ [X] ./Graph/zkw费用流.tex
-+ [X] ./Graph/匈牙利算法.tex
-+ [X] ./Graph/哈密尔顿回路.tex
-+ [X] ./Graph/增广路费用流.tex
-+ [X] ./Graph/带花树.tex
-+ [ ] ./Graph/最小树形图.tex
-+ [X] ./Graph/最小路径覆盖最小点覆盖最大独立集.tex
-+ [ ] ./Graph/欧拉回路.tex
-+ [ ] ./NumberTheory/康托展开.tex
-+ [ ] ./NumberTheory/欧拉函数.tex
-+ [ ] ./NumberTheory/线性逆元.tex
-+ [ ] ./NumberTheory/高阶等差数列.tex
-+ [ ] ./Strings/BKDRHash.tex
-+ [ ] ./Strings/EXKMP.tex
-+ [ ] ./Strings/KnowMP.tex
-+ [ ] ./Strings/Manacher.tex
-+ [ ] ./Strings/SA.tex
-+ [ ] ./Strings/最小表示法.tex
++ [X] 二维线段树
++ [ ] 带花树.tex
++ [ ] 最小树形图.tex
++ [ ] 无向图最小割
 + [ ] ./Tables/数据范围.tex
 + [ ] ./Tables/时间复杂度.tex
-+ [X] ./Basic/binary.cpp
-+ [X] ./Basic/headers.cpp
-+ [X] ./Basic/Matrix.cpp
-+ [X] ./DataStructure/LCA.cpp
-+ [X] ./IO/fastio.cpp
 + [ ] KM
+
+==
+
++ [ ] Java模板
++ [ ] Matraix-Tree，n个点生成树
++ [ ] ORE Theory
++ [ ] BIT 各种用法
