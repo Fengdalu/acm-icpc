@@ -1,7 +1,7 @@
 ﻿/*
-* 求一个字符串字典序最小的开头位置 ,
-* 复制串两次 , len = 原长度
-*/
+ * 求一个字符串字典序最小的开头位置 ,
+ * 复制串两次 , len = 原长度
+ */
 #include <bits/stdc++.h>
 int smallest(char *s, int len) {
     int i = 0, j = 1, k = 0;

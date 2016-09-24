@@ -1,5 +1,6 @@
-// __builtin_clz  前导 0
-// __builtin_ctz 后缀 0
+/* __builtin_clz  前导 0
+ * __builtin_ctz 后缀 0
+ */
 #define ONES(x) __builtin_popcount(x) // 1 数目
 
 // 枚举 C(n, k) 所有可能, 复杂度 O(C(n, k))

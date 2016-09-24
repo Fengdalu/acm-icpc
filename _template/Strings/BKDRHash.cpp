@@ -1,10 +1,10 @@
 ﻿/*
-* 把字符串变成X进制数，可以完成$ O(1) $比较 ,
-* 调用 Init() 初始化幂 ,
-* 调用 Init(u64* Hash, int len) 初始化 Hash 数组 ,
-* Get(u64* Hash, int p, int L) 表示获得以 p 开头长度为 L 的字符串 Hash 。
-* Base 需要选用质数
-*/
+ * 把字符串变成X进制数，可以完成$ O(1) $比较 ,
+ * 调用 Init() 初始化幂 ,
+ * 调用 Init(u64* Hash, int len) 初始化 Hash 数组 ,
+ * Get(u64* Hash, int p, int L) 表示获得以 p 开头长度为 L 的字符串 Hash 。
+ * Base 需要选用质数
+ */
 
 typedef unsigned long long u64;
 const u64 Base = 31;

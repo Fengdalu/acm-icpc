@@ -1,12 +1,3 @@
-// 必须有的头文件
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <vector>
-#include <map>
-#include <set>
-#include <algorithm>
-// 测试 bits/stdc++
 #include <bits/stdc++.h>
 typedef long long ll;
 #define MP make_pair

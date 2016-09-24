@@ -1,8 +1,8 @@
 ﻿/* Hdu 4300
-* S 为主串 ， T 为子串 ，
-* LS 为 S 长度 ，LT 为 T 长度 ，
-* B[i] 表示 S[i] 匹配了 B[i] 长度的 T
-*/
+ * S 为主串 , T 为子串 ,
+ * LS 为 S 长度 , LT 为 T 长度 ,
+ * B[i] 表示 S[i] 匹配了 B[i] 长度的 T
+ */
 #include <bits/stdc++.h>
 const int Maxn = 1e5;
 char S[Maxn], T[Maxn];

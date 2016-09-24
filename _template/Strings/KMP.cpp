@@ -1,5 +1,6 @@
-﻿/* Hdu 1711
-*/
+﻿/*
+ * Hdu 1711
+ */
 const int N = 2000000;
 
 int Next[N];

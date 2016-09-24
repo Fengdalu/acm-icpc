@@ -1,21 +1,22 @@
 // 二进制版本 , hdu5833
 #include <bits/stdc++.h>
 const int N = 1000;
-std::bitset<N>a[N];
+
+double a[N][N];
 int gauss(int eq, int var) {
     int line = 0, ret = 0;
     for(int i = 0; i < var; i++) {
         int target = line;
         while(target < eq && a[target][i] == 0) target++;
         if(target == eq) { ret++; continue; }
-        swap(a[target], a[line]);
+        std::swap(a[target], a[line]);
         for(int j = 0; j < eq; j++) if(j != line && a[j][i]) a[j] ^= a[line];
         line++;
     }
     return ret;
 }
 
-// Mod 2 版本 , hdu 5833
+// 数值版本
 int Gauss(int equ, int var) {
     int i, j, k;
     int max_r; // 当前这列绝对值最大的行 .
@@ -43,7 +44,7 @@ int Gauss(int equ, int var) {
             // 枚举要删去的行 .
             if((a[i][col]) > 0) {
                 for(j = var; j >= col; j--) {
-                    a[i][j] ^= a[k][j] * (a[i][col] / a[k][col]);
+                    a[i][j] -= a[k][j] * (a[i][col] / a[k][col]);
                 }
             }
         }
