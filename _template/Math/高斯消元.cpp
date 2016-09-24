@@ -15,7 +15,7 @@ int gauss(int eq, int var) {
     return ret;
 }
 
-// 小数版本 , hdu 5833
+// Mod 2 版本 , hdu 5833
 int Gauss(int equ, int var) {
     int i, j, k;
     int max_r; // 当前这列绝对值最大的行 .
