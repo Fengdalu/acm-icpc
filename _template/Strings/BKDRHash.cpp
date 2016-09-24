@@ -19,7 +19,8 @@ void Init() {
 
 void Init(u64* Hash, int len) {
     Hash[len] = 0;
-    for(int i = len - 1; i >= 0; i--) Hash[i] = (u64)Hash[i + 1] * Base + (s[i] - 'a' + 1);
+    for(int i = len - 1; i >= 0; i--)
+        Hash[i] = (u64)Hash[i + 1] * Base + (s[i] - 'a' + 1);
 }
 
 u64 Get(u64* Hash, int p, int L) {
