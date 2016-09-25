@@ -1,0 +1,1456 @@
+125 125
+#########..#######.#........#..#########.#..#########.........................#.#......########.......#######......#.#######.
+#.#.............#..#..#########.#........#..........#.#.#..#.#....#########.########........#........#...#...####..#....#.#..
+#.#.........#.#########.#...#..#########.#..#########.##########.....#..#.....#.#..####.....#..########..#.#....#.#######.#..
+#.#.#.....#.#...#..#..####.####.#.....#.####........#.#.#..#.#..#..#########..#.#..#...#..#.#...#....#..#######.#..#..#.#.#.#
+#.#########.###.#.....#.#.#.#..#########.#..#########.#.#..#....#....#..#.....#.#..#.########..########..#.#....#..#.####.#.#
+#.#.#..#..#.#..#########..#.#...#...#.#..#..........#.#.#.##########....#########..#...#..#.#.#.#....#...#.#..#######.#.#.#.#
+#.#.#..#..#.#...#.#...#.#.###...#.#########...#######.#.#..#..#.#.....#.#.....#.#..#.#.#..#.#.#.#..#.#.###.#.#..#..#..#.#.#.#
+#.#.#..#..#.#.#...#########.#...#.#.#.#..#...#..#...#.#.#..#..#.#...#.#.#.#...#.#..#.#.#..#.#.#.#..#.#....#######...#.#.....#
+#.#.#.###.#########...#.#.#..#..#.#.#.#...#.#########.#.##########.#########.......#.#.#..#...#.#.########.#.#...####.#######
+....#..#..#.#.#...#...#.#.#..#.#..#.#.#...#..#..#.....#.#..#..#.#...#.#.#.#...#......#.#.########..#....#....#....#.#....#..#
+...#########..#.#.#..#..#########.#########..#..#.##########..#########...#...#.########..#...#....########.#######.#....#...
+#...#..#..#...#.####.#..#.#..#.#..#.#.....#..#..#........#....#...#.#.#.#########....#...#..########....#....#....#.#.#..#...
+#.#..#####....#.#.#..#..#.#..#.#..#.########.#########.##########.#.#.#.#.#...#.#..########...#....#....#..#.#.#.#######.#..#
+#.#...........#.#########..#########..#...#..#..#........#..#.#.#.#.#.#.#.#.#######..#...#.#....####..########.#..#.#.#..#..#
+#.#.#######.#.#.#....#..#.#..#.#..#.#.#..##########..##########.#..#########..#.#.......########....#.#.#..#...#..#...#######
+#.#....#...#########.#...#########.#####..#..#.#...#.#...#..#...#...#...#.#..########..#.#.#.....#..#.#.#.######...#..#.....#
+#########...#...#....#....#..#.#.#..#.#...#....#..##########.#..#.#....#......#.#......#.#.#.....#..#.#....#...#..#######...#
+#.#....#....#.####.#..#...#...#######..#.......#...#.#...#.#.#..#.#...#########.#.#..########..########...#######..#..#..####
+#.#.#########...#..#..#.#.#......#....##########.#######.#.#.#....#..#.#..........#..#.#.#.#...#.#..#.#....#...#...#...#....#
+#.#..#.#....#......#.#########.####.#..#..#..#.#.....#...#.#.#..##########.########..#.#...#.#.#.#..#.#.#....#..#.#######....
+.#########..#.####.#..#.#.#......#..#.######.##########....#.#.#..#..#.#..........#.########.#.#.####.#.#..#######.#...#..#..
+.....#.#.#..#..#..#########..#########.#..#..#.#.....#.#...#.#.##########......#..#..#.#.....#.#.#..#...###..#..#..#.#######.
+######.#.#####.#.#.#..#.#.#..#...#..#..#..#..#.#..#..#.#...#.#.#..#..#.#.#.#..########.#..########....#.#....#..#......#..#.#
+...#.#...#.....#.#.#..#.#..####..##########.##########.#..##########...#.#.#.#.#..#..#..#....#.#..########.#.#.#######.#..#.#
+.#########....#########.#....#.#....#..#..#..#....#....#...#.#.#..#..#.#.#.#.#######.#..########......#.#..#.#..#.#..#.#..#.#
+...#.#...#.....#.#.#..#.#...#.#####.##########.#########.#.#..##########.#.#.#.#........#....#..#..#..#.#.#######.#..#....#.#
+..#########.######......#...#..#....#..#..#..#....#....#.#.....#.#...#...#####.#........#.#..#..#.########.#......#..#..#####
+...#...#.#.#...#.######.....#########.....#..##########.#####..#.#########.#.#.#.#.#.#..#.#...####.#..#....#.....#######...#.
+#####..#########.#....#...###..#.......#..........#......#.#.#.#.#...#...#.#.#.#.#.########...#.#..#.#######..#...#..#.....#.
+...#...#...#.....#.#..#..#..#..#...######.#########...##########.#.#.#.#########.#.#.#..#.#.########..#....#.#######.#...#.#.
+.#.#..#########..#.#..#.##########..#..#......#...#.#..#.#.#.#..#######..#.#.#...#.#.#..#.#...#.#..#.#........#..#.....#.#.#.
+.#.....#...#.......#..#..#..#..#.#####.#.#....#.##########.#.#...#.#.#..#...########.#.#..#...#.#.########..#######.#######..
+.#######.#.#.......#.#########.#.#..#.#########.....#..#.#.#.#..###########......#.#.#.#.########..#.#.....#..#..#.....#.#...
+.#.....#########...#..#..#..#....#.....#.#....#..##########..#.#.#.#.#..#.#...########.#..#.#.#..#...#...#######.#...#######.
+#####..#.#.#......#########...#######.#..#..#..#....#..#.#...#.#.#.#....#.#......#.#.#.#.#..#.########.#.#.#..#..#..#..#.#.#.
+.#..#....#########.#..#..#...#...#..#.#..#..#.########.#...#.#.#...#..#.#.#..#..#......#.#..#....#...#.#.#.#.....#..#..#.#.#.
+########.#......#..#...#########.#.##########..#....#..#...#.#.#......#.#########.########..########.#.#.#.#...#..#######..#.
+.#..#....#.#########.....#...#...#..#.#..#..#..#..#.#..##########.#.#.#.#.#..#..#......#.#..#....#...#.#.#.#.#.#....#......#.
+.#########...#..#...##########..##########..##########.#...#...#..#.#.#.#.#..#..#..#.#.#.#..#..#...#..########.#....#.#######
+....#.#..#.#.#..#.#.#.#......#....#.#.#..#..#..#..#.#.....#########.#.#.#.#..#.########..########..#.#.#.#.#.#.#######.....#.
+...#########.#..#.#.##########.#..#.#.#.....#..#..#..#.#...#...#..#.#.#.#.#..#..#..#.#.#.#.....#..########...#.#.#..#..####.#
+#.#.#.#....#.#..#.#.#.#...#..##########.##########...##########.############.#..#.########..######.#.#.#.....#.#.#.#......#.#
+#######.#..#.#..#.##########.#.#..#.#.#.....#..#...#.#.#...#....#.#.#.#...#..#..#..#.#.#.....#.#...#.#.....#######.#..#######
+#.#...#.#..#.#..#.#.#.#...#..#.#....#.##########...#.#.#.##########.#.#.#...#.#####..#.#.########.#######....#...#.#.#..#.#.#
+#.#...#.#..#.#....#.#.#....#########.........#.....#.#.#.#.#....#.#.#.#.#...#.#....#.#.#.....#.#...#.#.....#..######.#######.
+#.#...#.#..#..####.#####.......#.....#.#..####.#########.#......#.#.#.#.#...#.########.#.#..########.#.#######...#.#.#..#.#..
+#.#...#########...#.#.#..#.....#.#########...#.....#.#...#.############.#...#.#....#...#.#...#...#...#.#...#.#..#..#.#######.
+#.####..#..#..#..##########....#.#...#.#.....#...#.#.#..........#.#.#...#...#.#....########.########...#...#.#######.#..#...#
+........#...#####.#....#.#.#...#.#...#.#.#..#..#####.#..###########.#.#########....#.....#...#...#...#######.#..#....#..#...#
+...#########..#...#...#########..#...##########..#.#....#.......#.......#...#.#.#..#.....#..#.#........#...####.#######...#.#
+....#...#..#.#########.#.#.#.....#.#.....#..#....#.#.#########..#.#.....#.#.#.#.#.########.######.########.#.#..#......######
+....#......#..#...#..#.#.#.##########.#.#######..#..#...#....#.#############..####.#.....#..#.#.....#..#.....#######.#.#..#.#
+.#########.#..#...#..#.#.#.#..#..#.#..#..#..#..#.#..#.#.#..#.#..#.#.......#.....#....#...########.########..#...#.#..#######.
+.#..#......#########.#.#.#.#..#.##########..#..#.#.###########....#######.#.#.#.#...####....#.#.#.#.#...#...#.....#..#.#..#.#
+.#..#.#....#.#....#.######.#..#..#.#..#..##########.#.#.#..#.#....#...#.#.#.#.#.#..#.#..#..####.#.#.#..#######.#######.#..#.#
+#####.#########...#..#.#...#.##########..#..#..#.#..#.#.#..#.#...##########.#.#.#.########..#.#.#.#.#.#.#.#.#.#...#..#.#.####
+.#..#.#....#.#.#.....#..#..#..#....#..#..#.##########.#.#..#......#.#.#.#.#.#.#.#..#.#..#...#.#.#...#.#.#.#.#.#..#######.#..#
+.#..#.#..#########...#..#...#...#..#..#..#..#..#....#.#.#..#.##########.#########..#.#.#####...########.#.#.#.#.#.#..#...#...
+####..#......#.#....#########.##########......###########..#......#.#.#.#.#.#.#....#.#..#.......#.....#######.#.#..#...#.#...
+.#...#########.#...#....#...#...#..#..#..#.....#....#.#....#.##########.#.#.#.########..#..########.#.#.#.#...#.#.#######..#.
+.#....#......#.#..########..#.#.#.....#..#.##########.#.#..#........#.#.#.#.#.#....#....#....#.#..#.#.#...#######..#...#...#.
+..#..#########.#...#....#...#.########...#.....#..#...#.#..#..#..#....#...#.#.#..########..########.#.#.#...#.#.#..#...#...#.
+#.#...#........#..#########.#.#.#....#.#########.#########....#############.....#........#...#.#..#.#.#.#.#.#..#######.#.#.#.
+######.#########.#.#....#.#.#.#.#....#...#......#.#.....#.#...#..#............#.#.....########.#..#.#...#.#.#...#..#.#.#.#.#.
+#.#....#.#..#..#.#.#.########.#.########.######.#.#.#..#####..#..#....#.#.########.#...#.#...#.########.#.#.#....#.#.#######.
+#.########..#....#.#...#......#....#.#...#.....########.#.#..########.#.#.....#.#.########...#....#.#...#.#.#######..#...#.#.
+#.#....#.#..########.#.#.########..########.#.#.#.#.#...#.#.#.#..#....#.#.#.######.#...#.########.#.#.#######....#.#.#.#.#...
+.########...#....#...#.#......#....#.#.#...########.#.########.########.#.#...#..#.#.#.#.#......#.....#.#.#..#######.#.#.####
+#.#..#.#..#.#.########.#.#.#.......#.#.#..#.#.#.#....#....#.#.#..#....#.#.#.########.#.#.#.#....#...#.#...#.#....#.###.#.#...
+#..#.#.#..#.#.#..#...#.#.#.#.########..#..#.#.#.#....#....#.#.#....########.#.#..#.#.#.#.#.#.########.#..#..#..#.#.#...#...#.
+########..#.####.#..########..#....#.######.#.#.#..########.#.#####...#.#.########.#.#.#...#....#...#.#..#.#######.#...#...#.
+#..#.#....#...#...#..#.#.#.#.########..#..#.#.#..#...#.#....#.#.......#.#.#.#....#.#.#...#.#....#.########..#..#..#######..#.
+#######.########..#..#...#.#..#........#..#.#.#..#...#.#.########....#....#.#..#.#...#.########.#...#.#..#..#..#...#...#...#.
+#..#.#....#...#...#.########..#..########..########..#.#....#.#..#.########.#.########...#.#...####.#.#######..#..#......#.#.
+#..#.#.########...#....#.#.#..#.......#..........#.#.#.#......#..#...#......#..#..#..########.#...#.#....#..#.#######..#.#.#.
+#..#....#.#...#...########....#######.#....#..########.#...########..########..#..#........#.########....#.....#..#..#######.
+........#.........#....#...#.#...#..#.#..#.#.....#.#...#.#.....#.#.#.#.#...#...#..#######.#...#...#.......#...#...#....#.#..#
+........#######.#.#######.######.#.#######.######..#.....#..#..#.#.#.#.#...#...#..#..#...#######.#######.#######.#######.#..#
+........#....#..#......#...#.#.#.#..#.#..#.#..#..#######.#..#..#.#######.#######..#######.#...#...#.#.....#...#...#....#.#..#
+..#.#.#.#....#..#..#######.#.#######..#######.#.#..#.....#.#######.#...#.#.#......#..#...#######..#######.#.#######.#.#######
+#.#######.#######.#..#.....#.#.#.#.#.#...#.#..#.#..#######..#..#...#...#.#######......#.#.#.#.#..#..#.....#.#.#..#..#..#....#
+#.#.#.#......#..#.#..#..#..#.#.#.#.#.#..#.#######........#..#..#######.#.#.#..#.#.#...#.#.#.#...#######..#######.#..#.#.....#
+#.#.#.#.#######.#.#..#.#######.#...#######....#.#..#######..#......#..#..#....#.#.#.#######.#....#..#.....#.#.#..#..#.#######
+#######....#.#..#######.#......#.#.#.#..#..#######.#...#..#######....#######.#######..#.#...#.#.#######.....#...#####.#.#....
+#.#.#.#....#......#..#..#####.#..#.#.#..#......#...#...#......#....#..#..#..#.#.#.#.#.#.#.#.#.#..#.....#######...#..#.#######
+#.#.#.#.#######.#######.#....#######...#######.#.#######..#######.#######.#######.#.#.#######.#.#######.#...#...#######.#...#
+#....#...#.#....#.#.....#..#..#..#...#..#......#...#...#......#..#.#..#...#.#.#.#.#.#...#.#...#..#.#.#..#.......#.....#.#...#
+..#####..#.#....#..######..#..#......#######.#####.#...#.#######.#######..#.#....#######..#######..#.#.#######..#..#######..#
+..#..#..#######.#.........#######..#.#.......#.#..#######.#...#..#.#..#.#######.#...#.....#.#.#....#.#..#.......#.......#...#
+#.#..#...#..#..#######...#.#..#.#..#.#...#######......#..#######.#.#.....#..#...#..######.#.#.#..#.#.#..#######.#..#.#....#.#
+#.#.#######.#.#.#.#.....#######.#######.#....#..#.######..#.....######...#.#######..#.....#.#...#######.#.#..#.#######.######
+#.#..#...#..#.#.#.######.#.#....#..#.#..#..######.....#...#...#..#...#...#......#........#..#..#.#.#.#....#..#..#..#.#....#..
+######..#...#.#...#.....#######.#.#######..#.#..#....######.#######..#...#..#...#.#..#..######.#.#......#.######...######.#.#
+#......######.#...######.#....#.#..#....#..#..######..#.......#...#..#..######..#######..#..#.######....#.#..#.#...#.#....#.#
+#...#...#...#######....#.######.....#.#.#..#.#..#.#.######.######.#..#.#.#..#...#.#..#.#.#.#...#.#...#..######.#####.#.######
+...######.....#..#..#..#......#.#..######..#.#..#.#.#....#....#...######....#.#...######.####..#..#..#..#......#............#
+....#...#.......######.#.######.#.#.#.#...######..#.#..#.#.######.#.#..#.######...#..#.#.#.#..######.#..#..######..#.#..#...#
+.#.######..#.....#..#..#....#.#.#.#.####.#...#....#.#..#.#......#.#.#..#....#.#.######.#...#.#..#.#.######.....#.#####.######
+.#..#....######.######.######...#.#.#.#..#...#..######.#.#.#.####...#..#.#....#........#.######.#.#..#....#####....#.#..#..#.
+######.....#.....#..#.......#..######.######.#..#...#..######...#.#.#.######.######.######.#.#..#.#..######........######..#.
+.#......######......#..######...#.#......#......#......#...#...######....#....#...#......#...#.######...#.#...#..#...#..####.
+######.#...#.........#..#...#.....######.#.#...######.######....#.#....######....######..######.#..#.#..#.######.#.######..#.
+.#.#..######.......######.#..........#...######.#.#........#.#.#..#......#....#...#..#...#.#.#.#...######.#...#..#.#...#.#.#.
+..####.#..#....#...#.#..#.#.#.#......#.....#...######.######.#.#..#....######.######.#.#.#.#..######.#..#.######.#.#.#.#.#...
+#..#.#.#..#.#.######.#..#.#.#.#...######.######...#....#.....######....#......#...#..#.#...#...#...#.#..#...#.#.######.######
+#..#.#.######..#...#.#.######.#...#..#..#..#....#.#.######...#.#.....######...#.#..#.#.######.######.#....#.#.#..#.#.#.#.#.#.
+#.######..#.#..#.#.#.#.#..#.#.#...#.######.#.######....#.#.######....#.#......#.#..#.#.#...#.#.#.#...######.#.....######.#.#.
+#....#....#.#.######...#..######..#.....#....#..#..#...#.#...#.#...######.#.######.#...#.#..######......#.#.#..#..#..#.....#.
+######.#....#..#.#.....#....#.#...#..#..######..#.######.#..#....#...#.#..#.....#.######.#...#...#..#.#.######.#..#.######.#.
+#......######....#..######......######..#....#..#..#.#..######...#...#....#.######.#.#...#.#.######.#.#.#.#....#####.....#.#.
+.......#.........#.....#.######.#....#..#..######..#.#...#..#...######..#####...#..#####.#.#.#...#.######.######..#..######..
+....######...#..######...#....#.#....#.#...#.#.#..######..######.#....#...#.#.....#..#..######..#.#.#.#.#...#..######..#.#...
+.......#...#.#..#..#..######..#.#..######..#...#...#.#..#...#....######..#..#...######...#.#....#.#.#.#..#..#..#.#.....#.#...
+....######.#.#..#..#.....#...######..#.#.#.#.#####..######..######..#.#.######....#..#.....#.#.######.#..#..#.#..#..######...
+......#....#.#####.#.######...#.#..#...#.#.#...#........#....#......#.#..#..#..#####.....######.#.#.....#####.#..#.....#.....
+....#.#..#####..#..#...#...#####.#####..######..........#....#..#.#####..#.....#..#..........#..#.#......#..######..#####....
+...#####.#.#...#..#..#.#...#...#.#.#...#.#..#.......#####.#####.#.#.#..#####.#####........#..#........#####...#.....#.#......
+..#.#.#..#....#####..#.#...#.#####.#####.#####..#####.....#..#..#.#..#.#.....#.#.........#####....#.#..#..#..#####..#.#####.#
+.#####.#####...#..#.#####..#...#.#.#.#.#....#....#..#..#####....#.#..#.#...#####..........#.....#####..#..#.....#...#.#.#...#
+..#.#....#...####.#..#..#..#.#####..####..#####..#..#.....#...#####.#####....#.........#####...#..#.#..#.####...#.#####.#####
+..#..........#...#####..#............#....#......#..#..####..........#.#.#####.......#.#..#....#..#.#####.#..#####......#...#
+####.......#.#........####.......#####..#.#..#####.....#.............#...#..........####......#####.#.#.........#...#####....
+..........####.........................####.........####...............####..........#.#.......#......#.............#........
+...........#............................#..............#.................#........####.............####...........####.......
+.........####........................####...........................................................................#........
+664
+0 0 Chemical element with atomic number 40
+0 11 Pokemon which evolves from Machoke
+0 31 Pokemon with number #58
+0 44 Pokemon with number #(((68-12)/(14+14))*((12+13)+(55-27)))
+0 87 Chemical element with atomic number 13
+0 102 Chemical element with atomic number 67
+0 117 Chemical element with atomic number (((1+1)*(1628/44))-((232*4)/(71-39)))
+1 22 Chemical element with atomic number 93
+1 66 Last name of the President of the United States who held the office in 1807
+1 76 Pokemon with number #75
+1 109 Chemical element with atomic number (((28+975)-(546/42))/(43-(470/47)))
+2 14 Pokemon with number #(((24480/32)/(2160/48))+((42-38)*7))
+2 31 Pokemon which evolves from Poliwag
+2 44 Pokemon which evolves from Squirtle
+2 54 Pokemon with number #(((3445-6)+(30043/13))/(2*(46-23)))
+2 83 Color with RGB values [0,255,255]
+2 95 Chemical element with the symbol Ac
+2 114 Pokemon with number #60
+3 22 Last name of the President of the United States who held the office in 1849
+3 27 First name of the previous President of the United States before Thomas Jefferson
+3 40 First name of the President of the United States who held the office in 1995
+3 67 Chemical element with the symbol Zr
+3 104 Chemical element with atomic number 107
+4 2 Pokemon with number #102
+4 12 Color with RGB values #FF0000
+4 31 Last name of the President of the United States who held the office in 1805
+4 44 Pokemon with number #108
+4 85 Pokemon which evolves into Golem
+4 95 First name of the previous President of the United States before Grover Cleveland
+4 117 Color with RGB values #0000FF
+5 15 Chemical element with the symbol Nd
+5 58 Pokemon with number #39
+5 72 Chemical element with atomic number (((28*17)/(23+5))+((870/29)-(63/7)))
+5 110 Pokemon which evolves into Butterfree
+6 26 Chemical element with the symbol Sn
+6 34 Last name of the President of the United States who held the office in 1940
+6 46 First name of the President of the United States who held the office in 1930
+6 103 Pokemon with number #89
+7 18 Chemical element with atomic number 95
+7 106 Pokemon with number #137
+8 6 Do you like this problem?
+8 10 Pokemon with number #(((3*2)*(8+3))+((29-27)*(231/11)))
+8 44 Pokemon with number #148
+8 56 Pokemon with number #73
+8 67 Chemical element with the symbol Mg
+8 98 Pokemon with number #57
+8 113 Pokemon with number #((5*(16+3))-((98-37)-(7+22)))
+8 118 Pokemon with number #(53+((30-28)+(6*2)))
+9 89 Pokemon with number #(((1+360)+(198-6))/(19-(3*4)))
+10 3 Pokemon which evolves into Ivysaur
+10 24 Pokemon which evolves from Poliwhirl
+10 34 Pokemon with number #(((3143+118)-(61-32))/((1327-15)/41))
+10 50 Pokemon which evolves into Charizard
+10 62 Pokemon with number #38
+10 80 First name of the President of the United States who held the office in 1941
+10 99 Chemical element with atomic number 21
+10 108 Pokemon with number #(((1855-34)+3581)/((6*259)/(1512/36)))
+11 16 Pokemon with number #95
+11 72 Pokemon which evolves from Exeggcute
+11 92 First name of the President of the United States who held the office in 1906
+12 5 Pokemon which evolves into Dodrio
+12 36 Chemical element with atomic number (((34-29)*(190/10))-((790-34)/(40-4)))
+12 45 Pokemon with number #((1+(28/28))+((76/38)*(2*9)))
+12 55 Chemical element with atomic number (((2/1)*(9*11))/((6*6)/(2*6)))
+12 83 Chemical element with atomic number 13
+12 113 Pokemon with number #(((7*7)-(2*16))*((891/33)-(576/24)))
+13 16 Chemical element with atomic number (((1+3)+(750/50))*((159-39)/(912/38)))
+13 27 Chemical element with atomic number 70
+13 76 Chemical element with the symbol As
+13 96 Last name of the President of the United States who held the office in 1910
+13 102 First name of the President of the United States who held the office in 1935
+14 4 Chemical element with atomic number 36
+14 41 Last name of the President of the United States who held the office in 1790
+14 53 Chemical element with atomic number (((1150+2597)-41)/((272*4)/(42-10)))
+14 67 Chemical element with atomic number ((17*(6-2))-((11+63)-(25*2)))
+14 88 Pokemon with number #(((1150/10)-(43-18))/((210/15)/(10+4)))
+14 118 Chemical element with atomic number (((10780*7)/(82-33))/((124/2)-(12+6)))
+15 11 Chemical element with atomic number 12
+15 25 Chemical element with atomic number (((166-45)-(15+11))-((36/36)+1))
+15 35 Last name of the President of the United States who held the office in 1974
+15 77 Last name of the President of the United States who held the office in 1850
+15 106 First name of the President of the United States who held the office in 1832
+16 0 Last name of the President of the United States who held the office in 1945
+16 50 Pokemon with number #69
+16 114 Chemical element with atomic number (((5461/43)-(55-11))-((26-24)+(31-30)))
+17 14 Color with RGB values [0,0,255]
+17 30 Pokemon with number #(((50-7)-(33-7))+(11*11))
+17 70 Chemical element with atomic number (((30002-2)/(48+2))/((6+3)+1))
+17 85 First name of the President of the United States who held the office in 1892
+17 95 Chemical element with atomic number (((28*4)+(24-14))-((3*205)/(345/23)))
+17 106 Pokemon with number #(((110+39)-(378/27))-((39-11)+(5+2)))
+17 121 First name of the President of the United States who held the office in 1798
+18 4 Pokemon which evolves into Arcanine
+18 38 Pokemon with number #71
+18 49 Pokemon with number #64
+19 21 Chemical element with the symbol Te
+19 31 Color with RGB values [0,128,128]
+19 64 Pokemon with number #142
+19 75 Chemical element with atomic number 17
+19 114 Chemical element with atomic number (((67*14)/(55-48))-((1426/31)-(240/20)))
+20 1 Pokemon which evolves from Dragonair
+20 14 Pokemon which evolves into Kadabra
+20 38 Pokemon with number #(((470-2)/(70-34))+((2*26)-(35-22)))
+20 45 Pokemon which evolves from Tentacool
+20 84 Chemical element with atomic number 24
+20 97 Chemical element with atomic number (((7+16)-(15+6))+((72/18)*(51-45)))
+20 107 First name of the President of the United States who held the office in 1916
+21 18 Pokemon with number #17
+21 29 Last name of the President of the United States who held the office in 1806
+21 63 Last name of the President of the United States who held the office in 1954
+21 104 Chemical element with atomic number (((10*17)+(239+491))/((9-3)*(6-3)))
+21 117 Pokemon which evolves into Venomoth
+22 0 First name of the President of the United States who held the office in 2003
+22 9 Pokemon which evolves into Flareon
+22 78 Last name of the next President of the United States after Grover Cleveland
+22 90 Chemical element with atomic number 34
+23 27 First name of the President of the United States who held the office in 1962
+23 33 Last name of the President of the United States who held the office in 1959
+23 44 Chemical element with atomic number 61
+23 58 Last name of the next President of the United States after Harry S. Truman
+23 98 Pokemon with number #130
+23 111 Pokemon which evolves into Golduck
+24 1 Last name of the President of the United States who held the office in 1906
+24 14 Last name of the President of the United States who held the office in 1809
+24 77 Last name of the President of the United States who held the office in 1864
+24 88 Chemical element with the symbol Eu
+25 30 Pokemon which evolves from Oddish
+25 36 Last name of the President of the United States who held the office in 1957
+25 47 Last name of the President of the United States who held the office in 1908
+25 62 Chemical element with the symbol Mt
+25 106 Last name of the President of the United States who held the office in 1967
+26 2 Pokemon with number #72
+26 12 Chemical element with atomic number 53
+26 73 Last name of the next President of the United States after James Monroe
+26 98 Pokemon with number #(((74-49)+(868/28))-((40-18)+1))
+26 120 First name of the previous President of the United States before Zachary Taylor
+27 17 Last name of the next President of the United States after Jimmy Carter
+27 28 Last name of the President of the United States who held the office in 1941
+27 45 Last name of the President of the United States who held the office in 1958
+27 56 Pokemon with number #46
+27 65 Last name of the President of the United States who held the office in 1894
+27 94 Last name of the next President of the United States after Richard Nixon
+27 113 Chemical element with the symbol Tb
+28 0 First name of the President of the United States who held the office in 1810
+28 7 Chemical element with the symbol Am
+28 26 Pokemon with number #(((112-36)-(13*3))+((1+41)+(7+3)))
+28 83 Pokemon with number #(((33+903)/(35+4))+((1241/17)-(86-48)))
+28 101 Pokemon which evolves into Raichu
+29 35 Chemical element with atomic number 47
+29 42 Pokemon with number #1
+29 54 Chemical element with atomic number (((504/36)+(1323/49))+((175/35)+(8+7)))
+29 71 Chemical element with atomic number (((4*42)/(3/1))+((803-5)/(15+6)))
+29 92 Chemical element with the symbol Pt
+29 109 Chemical element with the symbol Bi
+30 6 Pokemon which evolves into Pidgeot
+30 24 Chemical element with atomic number (((3*31)-1)-((20-16)*(56-49)))
+30 64 Pokemon which evolves from Caterpie
+31 33 Pokemon which evolves from Ekans
+31 48 Last name of the President of the United States who held the office in 1797
+31 76 Pokemon with number #3
+31 98 First name of the President of the United States who held the office in 1939
+31 108 First name of the President of the United States who held the office in 1897
+31 116 First name of the President of the United States who held the office in 1972
+32 1 Pokemon which evolves into Raticate
+32 21 Chemical element with the symbol La
+32 38 Chemical element with atomic number 19
+32 64 Chemical element with atomic number 99
+32 89 First name of the President of the United States who held the office in 1938
+33 7 Last name of the next President of the United States after Herbert Clark Hoover
+33 49 Pokemon which evolves from Weepinbell
+33 78 Chemical element with atomic number 85
+33 105 Pokemon with number #(((4426800/40)/(340/10))/31)
+33 117 Chemical element with atomic number 108
+34 0 First name of the President of the United States who held the office in 1859
+34 18 Last name of the President of the United States who held the office in 1895
+34 30 Pokemon which evolves into Fearow
+34 94 Chemical element with the symbol No
+35 9 Pokemon which evolves from Sandshrew
+35 46 Pokemon with number #(((67998+18252)/(184/4))/((56+7)-(79-41)))
+36 0 Pokemon which evolves into Nidoqueen
+36 23 Chemical element with the symbol Yb
+36 35 Pokemon with number #(((165-9)-(25+20))-((32-26)*(2+5)))
+36 72 Pokemon with number #(((147-19)-(65-22))+(1+(29-13)))
+36 82 First name of the President of the United States who held the office in 1937
+36 92 Pokemon with number #141
+36 114 Pokemon with number #100
+37 11 Chemical element with atomic number 25
+37 55 First name of the President of the United States who held the office in 1878
+38 1 Pokemon which evolves into Magneton
+38 20 Chemical element with atomic number 103
+38 32 Pokemon which evolves from Bellsprout
+38 44 Last name of the President of the United States who held the office in 1955
+38 102 Chemical element with the symbol V
+38 118 Pokemon which evolves from Abra
+39 58 Pokemon with number #(((33/33)+(4*11))-((323-15)/(6+5)))
+39 79 Pokemon with number #35
+39 89 Chemical element with atomic number 74
+39 111 First name of the President of the United States who held the office in 1921
+40 3 Pokemon which evolves from Pidgey
+40 20 Last name of the President of the United States who held the office in 1791
+40 98 Pokemon with number #129
+40 119 Last name of the President of the United States who held the office in 1976
+41 29 Pokemon which evolves from Charmander
+41 40 Chemical element with the symbol Dy
+41 53 Pokemon with number #125
+41 64 Chemical element with the symbol Pr
+41 82 First name of the President of the United States who held the office in 1853
+41 92 Pokemon with number #(((56350/50)/(437/19))-((2+6)+(3*9)))
+42 0 Pokemon with number #(((3+9)*(85+36))/((67-26)-(2+27)))
+42 18 Pokemon which evolves into Victreebel
+42 107 Pokemon with number #(((590*5)/(5+20))+((10/2)+(9+4)))
+42 118 Pokemon with number #(3+((1+1)*67))
+43 38 Chemical element with atomic number (((53-35)+(23-8))+((3*81)/(3*9)))
+43 57 Pokemon which evolves into Weepinbell
+43 78 First name of the President of the United States who held the office in 1979
+43 89 Last name of the President of the United States who held the office in 1857
+43 98 Last name of the President of the United States who held the office in 2001
+44 27 Pokemon with number #(((6*2)*(51-33))/((15+10)-(34-12)))
+44 110 First name of the President of the United States who held the office in 1841
+44 117 Pokemon which evolves into Electrode
+45 14 Last name of the President of the United States who held the office in 2007
+45 19 Pokemon with number #132
+45 42 Pokemon with number #(((91676/13)/(9+32))-((2+2)+(1012/23)))
+45 47 Pokemon with number #27
+45 78 First name of the previous President of the United States before James Buchanan
+45 92 Last name of the President of the United States who held the office in 1890
+45 103 Chemical element with atomic number 69
+46 6 Pokemon which evolves from Voltorb
+46 33 Chemical element with atomic number 4
+46 59 Chemical element with atomic number 91
+46 117 Pokemon with number #21
+47 2 Chemical element with atomic number (((1080/30)-(66/22))-23)
+47 17 Pokemon with number #107
+47 83 Chemical element with the symbol F
+47 92 Last name of the President of the United States who held the office in 1881
+47 109 Last name of the President of the United States who held the office in 1996
+48 12 Last name of the President of the United States who held the office in 1879
+48 47 Color with RGB values [128,128,0]
+48 56 Chemical element with the symbol Cf
+48 70 Pokemon with number #(((6-3)*3)-((1+3)+(46-42)))
+48 101 Pokemon which evolves into Graveler
+49 3 Pokemon with number #(((59-19)-1)-((210*5)/(1400/40)))
+49 22 Chemical element with atomic number (((222*2)/(3+3))-((2016/32)-(12+34)))
+49 37 Pokemon with number #(((72/36)+(777/37))*(3+(49-47)))
+49 107 Color with RGB values #008080
+49 112 First name of the President of the United States who held the office in 1969
+50 13 Last name of the President of the United States who held the office in 1896
+50 53 Chemical element with atomic number 52
+50 82 Pokemon with number #(((1432+3444)/(9+37))-((23370/19)/(690/23)))
+50 91 Pokemon which evolves from Pikachu
+50 98 First name of the President of the United States who held the office in 1908
+50 119 Chemical element with the symbol Na
+51 27 Chemical element with atomic number 66
+51 40 Pokemon with number #113
+51 63 Chemical element with atomic number 104
+51 78 Chemical element with atomic number 10
+51 109 Pokemon with number #(23+2)
+52 1 Chemical element with atomic number 94
+52 89 Pokemon with number #34
+52 98 Pokemon with number #(((2700/50)-(19-7))+((6-5)+(1+3)))
+52 117 Pokemon which evolves from Omanyte
+53 11 Chemical element with the symbol Ge
+53 32 Last name of the President of the United States who held the office in 1793
+53 51 Chemical element with atomic number 98
+53 66 Chemical element with atomic number (((90/18)+(6+24))-((22+11)-(20-8)))
+53 84 First name of the President of the United States who held the office in 1827
+54 20 Last name of the President of the United States who held the office in 1819
+54 41 Chemical element with atomic number 64
+54 91 Pokemon with number #86
+54 103 Last name of the President of the United States who held the office in 1962
+54 111 Last name of the President of the United States who held the office in 1866
+55 0 Last name of the President of the United States who held the office in 1973
+55 6 Pokemon with number #(((53*3)-(96/3))-((8832/8)/(1472/32)))
+55 29 Pokemon with number #(((2862-6)-(4+5))/(17+(14+8)))
+55 65 Pokemon which evolves into Charmeleon
+55 82 Chemical element with atomic number 81
+55 121 Last name of the President of the United States who held the office in 2004
+56 43 Pokemon with number #12
+56 113 Pokemon with number #87
+57 9 Last name of the next President of the United States after Chester A. Arthur
+57 61 Chemical element with atomic number (((56-6)+(124-20))-((108-11)-(1127/23)))
+57 72 Last name of the President of the United States who held the office in 1909
+57 87 Chemical element with the symbol B
+57 95 First name of the President of the United States who held the office in 1891
+58 0 Last name of the next President of the United States after Theodore Roosevelt
+58 20 Pokemon with number #(((13*2)+(62-43))+((2129+2863)/(48/1)))
+58 30 Chemical element with atomic number 106
+58 46 Chemical element with atomic number (149-((4320/9)/(5*2)))
+58 102 Chemical element with atomic number 65
+59 5 Pokemon with number #(((840/42)+(38-3))+((220/10)-(64-45)))
+59 61 Pokemon with number #115
+59 78 Chemical element with atomic number ((29-(41-29))*((47-43)+1))
+59 91 Pokemon with number #(((197-16)-(54/6))-((4284/34)/(1+2)))
+59 114 Last name of the President of the United States who held the office in 1865
+60 18 Pokemon with number #90
+60 43 Last name of the President of the United States who held the office in 1795
+60 106 First name of the President of the United States who held the office in 1852
+61 5 Last name of the President of the United States who held the office in 1943
+61 30 Chemical element with atomic number 71
+61 81 Chemical element with atomic number 62
+61 91 Chemical element with atomic number 71
+62 18 Last name of the President of the United States who held the office in 1903
+62 39 Chemical element with atomic number 32
+62 49 Chemical element with atomic number 60
+62 62 Chemical element with atomic number ((3*(390*4))/((122-49)-(2*14)))
+62 111 Chemical element with the symbol Ho
+63 0 Last name of the President of the United States who held the office in 1885
+63 7 Pokemon with number #61
+63 86 Last name of the President of the United States who held the office in 1892
+64 21 Chemical element with atomic number (((25610-26)/(7+1))/((68-13)-(392/28)))
+64 32 Chemical element with atomic number (((16/16)+(182/7))+((51-9)-7))
+64 41 Color with RGB values [192,192,192]
+64 55 Color with RGB values [0,128,0]
+64 74 Last name of the next President of the United States after Franklin Pierce
+64 95 Pokemon with number #(((30-27)*(65-48))-31)
+64 117 Pokemon with number #(((2*4)-(4+2))*((47+8)+(1+1)))
+65 2 Chemical element with the symbol Ta
+65 47 Chemical element with the symbol Po
+65 61 Pokemon with number #(((2+17)+(2+9))-((4+19)-(1+2)))
+65 82 Pokemon with number #(((89*28)+(107+353))/((4*3)+(52-28)))
+65 108 First name of the President of the United States who held the office in 1870
+66 12 Chemical element with atomic number (((898-5)+(13*11))/(7*(2*2)))
+66 25 Pokemon which evolves from Mankey
+66 35 Chemical element with the symbol Cl
+66 76 Last name of the President of the United States who held the office in 1947
+66 89 Chemical element with the symbol Cr
+66 102 Chemical element with atomic number 75
+67 1 Chemical element with atomic number (17*((25+2)-(8*3)))
+67 43 Chemical element with atomic number (((860+256)/(40-36))/((45-5)-(270/30)))
+67 54 Pokemon which evolves into Clefable
+67 63 Chemical element with atomic number (((3+1)+2)+((50-38)+(75/15)))
+67 109 Pokemon which evolves from Staryu
+67 121 Color with RGB values #000080
+68 14 Last name of the President of the United States who held the office in 1923
+68 76 Last name of the President of the United States who held the office in 1927
+68 115 Color with RGB values [255,0,0]
+69 29 First name of the President of the United States who held the office in 1857
+69 67 First name of the President of the United States who held the office in 1944
+69 93 Pokemon with number #7
+70 0 Chemical element with the symbol Lu
+70 12 Chemical element with the symbol Ne
+70 20 First name of the President of the United States who held the office in 1936
+70 37 Chemical element with the symbol Ni
+70 51 First name of the President of the United States who held the office in 1940
+70 62 Last name of the President of the United States who held the office in 1842
+70 74 Pokemon with number #91
+70 107 Chemical element with atomic number 48
+71 29 Last name of the President of the United States who held the office in 1901
+71 98 Last name of the next President of the United States after Warren G. Harding
+71 114 Chemical element with atomic number 72
+72 0 Pokemon with number #105
+72 8 First name of the President of the United States who held the office in 1934
+72 57 Chemical element with the symbol Sb
+72 87 First name of the President of the United States who held the office in 1903
+73 20 Pokemon with number #79
+73 33 Pokemon with number #(97-((2*2)+(23-21)))
+73 43 Chemical element with the symbol Se
+73 67 Chemical element with atomic number 84
+73 78 First name of the President of the United States who held the office in 1904
+73 95 Color with RGB values #00FFFF
+73 102 Last name of the President of the United States who held the office in 1814
+74 7 Pokemon with number #(((8+21)*(1+1))-((13-12)+23))
+74 85 Pokemon which evolves from Ponyta
+74 110 Chemical element with the symbol Hs
+75 18 First name of the President of the United States who held the office in 1905
+75 30 Pokemon which evolves from Seel
+75 46 Chemical element with atomic number ((3*(7-1))+((159-3)/(1209/31)))
+75 59 Chemical element with atomic number 87
+75 69 Pokemon with number #(((157*2)-(3+17))/((8+24)+(54-44)))
+75 93 Pokemon with number #49
+75 117 First name of the President of the United States who held the office in 1912
+76 82 Chemical element with atomic number (((93/1)-(4*2))-((4+29)-(520/40)))
+77 8 Chemical element with the symbol Db
+77 18 First name of the President of the United States who held the office in 1973
+77 26 Chemical element with atomic number 68
+77 35 Color with RGB values #FF00FF
+77 43 First name of the President of the United States who held the office in 1867
+77 89 Last name of the President of the United States who held the office in 1836
+77 97 Chemical element with atomic number 83
+77 105 Last name of the President of the United States who held the office in 1837
+77 113 Last name of the President of the United States who held the office in 1965
+78 49 Pokemon with number #139
+78 65 First name of the President of the United States who held the office in 1873
+78 73 Last name of the next President of the United States after John Quincy Adams
+78 82 Pokemon with number #(1+((78-49)/(25+4)))
+79 19 Pokemon with number #(((128/32)+(2/2))*((288/48)+(19-13)))
+79 29 Pokemon which evolves from Psyduck
+79 38 Chemical element with atomic number 33
+79 59 Chemical element with atomic number 100
+79 89 First name of the previous President of the United States before Woodrow Wilson
+79 98 Last name of the President of the United States who held the office in 1812
+79 108 Last name of the President of the United States who held the office in 1811
+79 118 Last name of the next President of the United States after Abraham Lincoln
+80 2 First name of the President of the United States who held the office in 1862
+80 10 First name of the President of the United States who held the office in 1883
+80 51 Pokemon which evolves into Hypno
+80 73 Chemical element with atomic number 67
+81 42 First name of the President of the United States who held the office in 1970
+81 63 Chemical element with atomic number 80
+81 96 Last name of the President of the United States who held the office in 1831
+81 105 First name of the President of the United States who held the office in 1919
+82 8 Pokemon with number #(((11*3)/(10+1))*((56-20)-(1+2)))
+82 23 First name of the President of the United States who held the office in 1931
+82 35 Pokemon with number #18
+82 51 Chemical element with the symbol Si
+82 84 Last name of the President of the United States who held the office in 1993
+82 118 Pokemon which evolves into Gengar
+83 0 Pokemon with number #147
+83 16 Last name of the next President of the United States after Thomas Jefferson
+83 43 First name of the President of the United States who held the office in 1913
+83 58 Last name of the President of the United States who held the office in 1922
+83 69 Pokemon which evolves from Machop
+83 77 Pokemon with number #(43+11)
+83 96 Color with RGB values [255,0,255]
+83 112 Pokemon with number #97
+84 24 Last name of the next President of the United States after Andrew Jackson
+84 103 Pokemon with number #(((43512/42)-(4+24))/((4+48)-(2*2)))
+84 118 Pokemon with number #119
+85 8 Last name of the next President of the United States after Woodrow Wilson
+85 16 Chemical element with the symbol Br
+85 29 Last name of the President of the United States who held the office in 1830
+85 39 Last name of the President of the United States who held the office in 1963
+85 49 Pokemon which evolves from Meowth
+85 58 Pokemon with number #109
+85 66 Pokemon with number #99
+85 74 Pokemon with number #(((74664/17)/(2*18))-((84-35)-(3*15)))
+85 86 Chemical element with the symbol Rh
+85 96 Chemical element with atomic number 77
+85 112 First name of the previous President of the United States before Franklin D. Roosevelt
+87 2 Pokemon which evolves into Parasect
+87 19 Pokemon with number #((17+(144/36))*((3-2)+1))
+87 37 Chemical element with the symbol Hf
+87 45 Pokemon which evolves into Vileplume
+87 57 Chemical element with atomic number (43-((320/40)+(17-15)))
+87 65 Chemical element with atomic number (5*((37/37)+3))
+87 81 Last name of the President of the United States who held the office in 1961
+87 90 Chemical element with the symbol Li
+87 103 First name of the previous President of the United States before John Tyler
+87 115 Chemical element with the symbol Y
+88 8 Last name of the President of the United States who held the office in 1835
+88 26 Last name of the President of the United States who held the office in 1966
+88 50 Pokemon with number #(((61725-15)/17)/(3*(308/28)))
+88 72 Pokemon which evolves into Alakazam
+89 15 Pokemon which evolves from Pidgeotto
+89 41 Last name of the President of the United States who held the office in 1964
+89 57 Pokemon with number #(((160-29)-(69-21))-((760-10)/(25*2)))
+89 83 Pokemon with number #37
+89 104 First name of the previous President of the United States before Andrew Johnson
+90 4 First name of the President of the United States who held the office in 1901
+90 24 Last name of the President of the United States who held the office in 1815
+90 32 Last name of the President of the United States who held the office in 1994
+90 50 Pokemon with number #(5*((276/23)*(1+1)))
+90 64 First name of the President of the United States who held the office in 1805
+90 75 Pokemon with number #135
+90 96 Pokemon with number #(((178-33)-(48/3))-((92/23)*(2+2)))
+90 111 Chemical element with atomic number 35
+90 119 First name of the President of the United States who held the office in 2006
+91 18 Chemical element with the symbol O
+91 43 Last name of the President of the United States who held the office in 1917
+92 0 Chemical element with the symbol Ba
+92 24 Chemical element with the symbol Cd
+92 34 Last name of the next President of the United States after John F. Kennedy
+92 53 First name of the President of the United States who held the office in 1924
+92 60 Pokemon with number #80
+92 88 Chemical element with atomic number (((79+7)/(26+17))*((26136/33)/(6+12)))
+92 106 First name of the President of the United States who held the office in 1837
+92 115 Pokemon which evolves into Starmie
+93 7 First name of the President of the United States who held the office in 1928
+93 18 First name of the President of the United States who held the office in 1886
+93 46 First name of the President of the United States who held the office in 2010
+93 72 Last name of the President of the United States who held the office in 1978
+93 80 First name of the President of the United States who held the office in 1872
+93 94 First name of the President of the United States who held the office in 1983
+94 12 Pokemon with number #(((708+696)/(74-48))+((629/37)+(30/10)))
+94 25 Pokemon with number #(((15*1148)/3)/((9*2)+(1081/47)))
+94 52 Chemical element with atomic number (((561/33)+(113-50))-((10+2)+(140/14)))
+94 59 Chemical element with the symbol Co
+94 104 First name of the President of the United States who held the office in 1834
+94 111 Chemical element with the symbol Rn
+94 119 First name of the President of the United States who held the office in 2007
+95 3 Last name of the next President of the United States after Calvin Coolidge
+95 35 Pokemon with number #(((72-6)/(8+25))+((1660+176)/(162/9)))
+95 66 First name of the previous President of the United States before Barack Obama
+95 82 Pokemon which evolves from Doduo
+95 89 Chemical element with the symbol Fe
+96 16 Last name of the President of the United States who held the office in 1919
+96 25 First name of the President of the United States who held the office in 1958
+96 42 Chemical element with atomic number 55
+96 59 Pokemon with number #145
+96 73 Pokemon with number #16
+96 94 Pokemon which evolves from Haunter
+96 107 Last name of the President of the United States who held the office in 1933
+97 3 Last name of the President of the United States who held the office in 1916
+97 36 Last name of the President of the United States who held the office in 1975
+97 80 Last name of the President of the United States who held the office in 1824
+97 100 Pokemon with number #104
+97 113 Color with RGB values [255,255,255]
+97 119 Pokemon which evolves into Kakuna
+98 9 First name of the President of the United States who held the office in 1922
+98 16 First name of the President of the United States who held the office in 1806
+98 23 Color with RGB values [128,0,0]
+98 48 First name of the President of the United States who held the office in 1977
+98 61 First name of the previous President of the United States before George W. Bush
+98 89 Last name of the President of the United States who held the office in 1930
+98 106 Pokemon with number #(((95+19)-(4*2))+((3+12)+(396/36)))
+99 0 Pokemon with number #(((3672/8)-(1+10))/((1961/37)-(2115/47)))
+99 31 Last name of the President of the United States who held the office in 1931
+99 38 Chemical element with the symbol Os
+99 55 Pokemon with number #131
+99 70 First name of the President of the United States who held the office in 1976
+99 77 Pokemon with number #42
+99 84 Pokemon with number #(((4842+1125)/(731/43))/((3*369)/(12+29)))
+99 101 First name of the previous President of the United States before Martin Van Buren
+99 115 Last name of the next President of the United States after Gerald Ford
+100 8 First name of the President of the United States who held the office in 1802
+100 23 Pokemon which evolves into Beedrill
+100 63 Chemical element with the symbol He
+100 95 First name of the President of the United States who held the office in 2009
+100 120 Chemical element with atomic number 79
+101 0 Pokemon which evolves into Primeape
+101 34 Last name of the President of the United States who held the office in 1982
+101 47 Pokemon with number #98
+101 54 First name of the President of the United States who held the office in 1954
+101 71 Chemical element with atomic number 88
+101 81 Pokemon which evolves into Rapidash
+101 89 Chemical element with atomic number 49
+101 106 First name of the President of the United States who held the office in 1885
+101 115 Last name of the next President of the United States after Millard Fillmore
+102 6 Last name of the President of the United States who held the office in 1981
+102 19 First name of the President of the United States who held the office in 1987
+102 41 Last name of the President of the United States who held the office in 1952
+102 99 Pokemon with number #117
+103 2 Pokemon with number #63
+103 47 First name of the President of the United States who held the office in 1792
+103 54 Last name of the President of the United States who held the office in 1949
+103 71 Chemical element with the symbol Cs
+103 78 Last name of the President of the United States who held the office in 1987
+103 94 Pokemon which evolves from Zubat
+103 106 First name of the President of the United States who held the office in 1807
+104 14 First name of the President of the United States who held the office in 1925
+104 34 Pokemon with number #(((2650/50)+(455/5))-((42+16)-(94-49)))
+104 41 Chemical element with the symbol Cu
+104 61 Chemical element with atomic number (3*2)
+104 112 First name of the President of the United States who held the office in 1990
+104 119 Chemical element with atomic number 8
+105 7 First name of the President of the United States who held the office in 1789
+105 23 First name of the previous President of the United States before John F. Kennedy
+105 52 Pokemon with number #(((2*11)*(672/32))/((96-50)-(5*8)))
+105 69 First name of the previous President of the United States before Herbert Clark Hoover
+105 87 First name of the President of the United States who held the office in 1957
+105 94 Pokemon with number #(((25+96)+(62-46))-((30-27)*(570/38)))
+106 2 Last name of the President of the United States who held the office in 1822
+106 36 Last name of the President of the United States who held the office in 1988
+106 45 Chemical element with atomic number (((24/12)*(65/5))+((2+2)+(5*5)))
+106 59 First name of the President of the United States who held the office in 1895
+106 101 First name of the President of the United States who held the office in 1989
+106 114 First name of the President of the United States who held the office in 1795
+107 14 First name of the President of the United States who held the office in 1986
+107 26 Pokemon with number #128
+107 67 Pokemon which evolves into Ninetales
+107 76 Last name of the next President of the United States after James Madison
+107 92 Pokemon with number #150
+108 0 First name of the President of the United States who held the office in 1831
+108 40 Last name of the President of the United States who held the office in 1884
+108 50 Last name of the President of the United States who held the office in 1914
+108 82 Chemical element with atomic number (((423/9)+(13+4))-((39-32)+(42-41)))
+108 104 First name of the President of the United States who held the office in 1959
+108 116 Pokemon with number #22
+109 7 Chemical element with the symbol In
+109 20 Chemical element with the symbol Er
+109 32 Pokemon with number #77
+109 56 Chemical element with atomic number 58
+109 76 First name of the President of the United States who held the office in 1833
+109 93 Last name of the President of the United States who held the office in 1984
+109 111 Last name of the President of the United States who held the office in 2012
+110 25 Chemical element with atomic number ((7-3)*((164+577)/(32+7)))
+110 43 Last name of the President of the United States who held the office in 1948
+110 64 First name of the President of the United States who held the office in 1927
+110 72 Chemical element with atomic number 5
+110 83 Pokemon with number #(((54+8)*(1+1))-((1140/38)+(55-45)))
+110 99 Last name of the President of the United States who held the office in 1821
+110 106 Last name of the President of the United States who held the office in 1932
+110 117 Color with RGB values [128,0,128]
+111 4 First name of the President of the United States who held the office in 1894
+111 16 First name of the President of the United States who held the office in 1840
+111 50 Pokemon with number #(((153-33)+31)-((2592/48)-(580/29)))
+111 58 Pokemon with number #(2+((896/32)-(20/5)))
+111 88 Color with RGB values #800080
+111 111 First name of the President of the United States who held the office in 1796
+112 22 Last name of the President of the United States who held the office in 1820
+112 35 First name of the President of the United States who held the office in 1808
+112 65 First name of the President of the United States who held the office in 2013
+112 80 Pokemon with number #120
+113 4 Last name of the President of the United States who held the office in 1854
+113 29 Chemical element with atomic number (((88-45)/(688/16))+((26/13)*(41-36)))
+113 45 First name of the President of the United States who held the office in 1818
+113 52 First name of the previous President of the United States before William Henry Harrison
+113 60 Pokemon with number #56
+113 72 Pokemon with number #116
+113 95 Pokemon with number #(((372+1080)/(58-46))+((165+45)/(2*21)))
+113 116 First name of the President of the United States who held the office in 1965
+114 13 Pokemon with number #(((300+827)/(38+11))+((54-46)-(91/13)))
+114 21 First name of the previous President of the United States before William McKinley
+114 79 First name of the President of the United States who held the office in 1861
+114 89 Chemical element with atomic number (((1122/34)-(3*3))*((4*46)/(1840/40)))
+114 104 Last name of the President of the United States who held the office in 1880
+115 9 Last name of the next President of the United States after Andrew Johnson
+115 27 Last name of the President of the United States who held the office in 1870
+115 33 First name of the President of the United States who held the office in 1951
+115 40 First name of the President of the United States who held the office in 1793
+115 66 First name of the previous President of the United States before Abraham Lincoln
+115 108 Pokemon with number #(((220/4)*(40-37))-((45-3)+(36-29)))
+115 116 Last name of the President of the United States who held the office in 1872
+116 3 First name of the President of the United States who held the office in 1847
+116 52 First name of the President of the United States who held the office in 1949
+116 58 Chemical element with atomic number 5
+116 71 First name of the President of the United States who held the office in 1846
+116 77 First name of the President of the United States who held the office in 1809
+116 102 Color with RGB values #FFFFFF
+117 14 First name of the previous President of the United States before Ronald Reagan
+117 29 Last name of the President of the United States who held the office in 1841
+117 35 Last name of the President of the United States who held the office in 2009
+117 41 Last name of the President of the United States who held the office in 1969
+117 48 Last name of the next President of the United States after George W. Bush
+117 89 Chemical element with the symbol Xe
+117 109 Pokemon which evolves from Drowzee
+117 118 Last name of the President of the United States who held the office in 1800
+118 1 First name of the President of the United States who held the office in 1823
+118 7 Chemical element with atomic number 54
+118 20 First name of the President of the United States who held the office in 1815
+118 55 Pokemon with number #41
+118 75 First name of the President of the United States who held the office in 1845
+118 96 Last name of the President of the United States who held the office in 2011
+119 13 First name of the President of the United States who held the office in 1997
+119 29 First name of the President of the United States who held the office in 1945
+119 36 Last name of the President of the United States who held the office in 1912
+119 42 First name of the President of the United States who held the office in 1849
+119 62 Last name of the next President of the United States after Ulysses S. Grant
+119 68 First name of the President of the United States who held the office in 1814
+119 87 First name of the President of the United States who held the office in 1819
+119 105 Chemical element with atomic number 82
+119 114 First name of the President of the United States who held the office in 1860
+119 120 Chemical element with the symbol Ar
+120 17 Last name of the President of the United States who held the office in 1869
+120 55 Last name of the President of the United States who held the office in 1845
+120 73 First name of the President of the United States who held the office in 1820
+120 100 Pokemon with number #24
+120 109 Pokemon with number #(((50-3)*(1+1))-((26+71)-47))
+121 0 Last name of the President of the United States who held the office in 2002
+121 22 Last name of the President of the United States who held the office in 1847
+121 33 Last name of the President of the United States who held the office in 1826
+121 45 Last name of the President of the United States who held the office in 1840
+121 84 Last name of the next President of the United States after Ronald Reagan
+121 94 First name of the President of the United States who held the office in 1813
+121 116 First name of the President of the United States who held the office in 1816
+122 10 Last name of the President of the United States who held the office in 2006
+122 39 First name of the President of the United States who held the office in 1843
+122 52 First name of the President of the United States who held the office in 1998
+122 71 First name of the previous President of the United States before James K. Polk
+123 82 Last name of the President of the United States who held the office in 1990
+123 99 First name of the President of the United States who held the office in 2000
+123 114 First name of the President of the United States who held the office in 1826
+124 9 First name of the President of the United States who held the office in 1963
+124 37 First name of the President of the United States who held the office in 1800
+664
+0 0 Chemical element with atomic number (((220/44)*(12+5))-((12*7)-(1443/37)))
+0 2 Last name of the President of the United States who held the office in 1934
+0 16 Pokemon with number #146
+0 19 First name of the President of the United States who held the office in 1993
+0 28 Pokemon which evolves into Nidoking
+0 32 Last name of the President of the United States who held the office in 1904
+0 41 Pokemon which evolves into Wartortle
+0 52 Pokemon with number #103
+0 78 Chemical element with atomic number 23
+0 80 First name of the President of the United States who held the office in 1890
+0 92 Pokemon with number #30
+0 105 Pokemon which evolves from Cubone
+0 115 First name of the President of the United States who held the office in 1920
+0 120 Pokemon with number #50
+0 122 First name of the previous President of the United States before Rutherford B. Hayes
+1 22 Chemical element with the symbol Np
+1 24 Last name of the President of the United States who held the office in 1846
+1 54 Chemical element with the symbol Sg
+1 56 Pokemon with number #(((2054/26)*(26-24))-((17-15)*(1+7)))
+1 59 Last name of the President of the United States who held the office in 1794
+1 61 Pokemon which evolves from Grimer
+1 69 Last name of the President of the United States who held the office in 1977
+1 72 Pokemon with number #(((73-26)-(13+25))+((3+2)+(7*2)))
+1 83 Pokemon with number #(13*((45*4)/(56-26)))
+1 101 Chemical element with the symbol Rb
+1 112 Last name of the President of the United States who held the office in 1997
+2 12 Pokemon which evolves from Paras
+2 38 Last name of the President of the United States who held the office in 1902
+2 96 Pokemon with number #((2*3)*((7380/30)/(1435/35)))
+2 107 Chemical element with the symbol Kr
+2 118 First name of the President of the United States who held the office in 1898
+3 4 Chemical element with atomic number (((40/5)+(1078/22))-5)
+3 10 Chemical element with atomic number (((235710/6)/(1080/40))/((12+45)-(54-12)))
+3 64 Pokemon which evolves from Eevee
+3 87 Pokemon with number #82
+3 90 Pokemon which evolves from Clefairy
+3 124 First name of the President of the United States who held the office in 1882
+4 7 Last name of the President of the United States who held the office in 1886
+4 26 Pokemon with number #106
+4 36 Last name of the next President of the United States after William McKinley
+5 18 Pokemon with number #149
+5 62 Chemical element with the symbol Lr
+5 94 Chemical element with the symbol H
+6 24 Pokemon with number #45
+6 34 Chemical element with the symbol Ru
+6 48 Last name of the President of the United States who held the office in 1939
+6 70 Pokemon with number #28
+6 85 Chemical element with atomic number 102
+6 99 Pokemon with number #47
+6 109 Chemical element with atomic number 1
+7 14 Pokemon with number #31
+7 45 Pokemon which evolves from Dratini
+7 68 Chemical element with atomic number 46
+7 74 Chemical element with atomic number 44
+7 116 Pokemon with number #((3*3)+((6*10)/(2*3)))
+8 29 Chemical element with atomic number 38
+8 42 Last name of the next President of the United States after Benjamin Harrison
+8 104 Pokemon with number #(((1691+855)/(57-19))-((6+13)-(57-48)))
+8 114 Chemical element with atomic number 83
+8 121 Chemical element with atomic number (13+((63+13)-(11+6)))
+9 31 Chemical element with atomic number ((2*(87-27))-((39-20)+(7+24)))
+9 78 Chemical element with the symbol K
+10 16 Chemical element with atomic number (((68640/44)/(11+28))-((7*2)+7))
+10 21 Chemical element with the symbol Hg
+10 57 Last name of the President of the United States who held the office in 1956
+10 66 Last name of the President of the United States who held the office in 1913
+10 80 First name of the President of the United States who held the office in 1943
+11 0 Pokemon with number #62
+11 72 Pokemon with number #(((34-1)+(59-32))-37)
+11 89 Last name of the President of the United States who held the office in 1860
+11 118 Chemical element with atomic number 41
+12 2 Pokemon with number #(((5851-23)/(68-37))-((30*2)-(43-23)))
+12 38 Last name of the next President of the United States after Lyndon B. Johnson
+12 60 Pokemon with number #(((73-50)*(148/37))+(13-(2+8)))
+12 64 Pokemon with number #(((3564/27)-(1222/26))+((35-30)*(61-48)))
+12 107 Last name of the President of the United States who held the office in 1998
+12 111 Pokemon which evolves from Slowpoke
+12 124 Pokemon with number #110
+13 91 Chemical element with atomic number 78
+13 102 Last name of the President of the United States who held the office in 1852
+14 7 Pokemon with number #(((31820/37)/(390/39))-((45-40)*(1+4)))
+14 12 Pokemon with number #81
+14 26 Last name of the President of the United States who held the office in 1802
+14 36 Color with RGB values #00FF00
+14 47 Chemical element with the symbol Gd
+14 53 Chemical element with the symbol Mo
+14 100 Pokemon with number #144
+15 33 Chemical element with the symbol Mn
+15 51 Chemical element with the symbol Pb
+15 87 Pokemon which evolves from Venonat
+15 97 Chemical element with atomic number (1+((8-2)+(46-32)))
+15 115 Last name of the next President of the United States after Dwight D. Eisenhower
+16 59 Chemical element with atomic number 43
+16 61 Pokemon which evolves from Nidorina
+16 66 Pokemon with number #5
+16 71 Chemical element with atomic number 109
+17 19 Pokemon with number #(((130-34)/(33+15))*3)
+17 22 Last name of the President of the United States who held the office in 1893
+17 39 Last name of the President of the United States who held the office in 1953
+17 82 Pokemon with number #(3*((4800/24)/(31+9)))
+17 85 Last name of the President of the United States who held the office in 1861
+17 95 Chemical element with atomic number 22
+18 5 Last name of the President of the United States who held the office in 1942
+18 24 Chemical element with the symbol Pu
+18 42 First name of the President of the United States who held the office in 1880
+18 45 Pokemon which evolves from Metapod
+18 69 Chemical element with atomic number (((4335-33)-(1+1))/(23+(61-34)))
+18 119 Chemical element with atomic number 105
+19 36 Last name of the President of the United States who held the office in 1936
+19 93 Chemical element with atomic number (((30504-6)/13)/((645-47)/(884/34)))
+19 104 Chemical element with the symbol N
+19 109 Pokemon with number #118
+19 112 Last name of the President of the United States who held the office in 1968
+20 9 Pokemon with number #101
+20 15 Chemical element with atomic number 97
+20 63 Chemical element with the symbol Tc
+20 122 Chemical element with atomic number 20
+21 29 First name of the President of the United States who held the office in 1842
+21 55 Pokemon with number #140
+21 79 Chemical element with atomic number (((1300/13)/(9+16))+((36-29)+1))
+22 3 Last name of the President of the United States who held the office in 1905
+22 17 Last name of the next President of the United States after John Adams
+22 50 Chemical element with atomic number (((77-42)/(56/8))*((88-48)-(35+2)))
+22 73 Chemical element with atomic number (((34-4)-(45-17))*((588-13)/(9+16)))
+22 75 Pokemon which evolves into Tentacruel
+22 102 Pokemon with number #10
+22 124 First name of the President of the United States who held the office in 1817
+23 77 Pokemon with number #9
+23 88 Pokemon with number #15
+23 107 Chemical element with atomic number 90
+23 114 Pokemon with number #((3+(111/37))+((3+1)*(10+1)))
+23 117 Pokemon which evolves into Weezing
+24 31 Pokemon which evolves from Wartortle
+24 69 Last name of the President of the United States who held the office in 1960
+25 28 Chemical element with the symbol Bk
+25 57 Pokemon with number #(((40+30)/(5*7))*((22+30)-(400/8)))
+25 65 Chemical element with atomic number (((6+1)*(49-44))+((60/30)*(1+3)))
+25 96 Last name of the next President of the United States after Martin Van Buren
+25 99 Last name of the next President of the United States after Zachary Taylor
+26 7 Pokemon with number #6
+26 90 First name of the President of the United States who held the office in 1907
+26 123 Pokemon which evolves into Arbok
+27 11 Pokemon with number #(((5+2)+(51-9))-((510/34)+(16-13)))
+27 22 Pokemon which evolves from Vulpix
+27 59 Last name of the President of the United States who held the office in 1883
+27 81 Last name of the President of the United States who held the office in 1858
+27 83 Pokemon which evolves into Metapod
+27 85 Last name of the President of the United States who held the office in 1897
+27 94 First name of the President of the United States who held the office in 1854
+28 39 Color with RGB values [255,255,0]
+28 61 Pokemon which evolves from Jigglypuff
+28 110 First name of the previous President of the United States before Theodore Roosevelt
+29 19 Pokemon which evolves from Gloom
+29 25 Last name of the President of the United States who held the office in 1796
+29 36 Chemical element with atomic number 26
+29 46 Last name of the next President of the United States after George Washington
+29 55 First name of the previous President of the United States before James A. Garfield
+29 67 Chemical element with atomic number (89+((79-13)-(26+21)))
+29 113 Chemical element with atomic number 92
+29 121 Pokemon with number #53
+30 1 Chemical element with atomic number (((12+29)-(5*5))*((5/5)+1))
+30 33 Chemical element with atomic number (((75*7)/3)/7)
+30 52 Pokemon with number #(((7711-43)/(120/10))/((2*2)+(3+2)))
+30 101 Chemical element with atomic number 51
+30 119 First name of the President of the United States who held the office in 1884
+31 41 Pokemon with number #(((28/14)*(20-18))+((34+158)/(11+37)))
+31 72 Chemical element with atomic number (((128-17)-(11+20))+((594-5)/(67-36)))
+31 87 Chemical element with atomic number 73
+32 9 Last name of the President of the United States who held the office in 1935
+32 74 Chemical element with the symbol Md
+32 92 Pokemon which evolves from Nidorino
+32 107 First name of the President of the United States who held the office in 1942
+33 63 Pokemon with number #(((181-43)+(825/25))-((77-44)+(14-10)))
+33 97 Chemical element with atomic number (((2106/39)-(75-39))*((96-27)/(161/7)))
+33 105 Pokemon which evolves into Gyarados
+33 123 First name of the President of the United States who held the office in 1850
+34 4 Chemical element with the symbol Sr
+34 36 Pokemon with number #70
+34 38 Chemical element with atomic number 42
+34 44 Pokemon with number #(((54/27)+(28+24))-((968/44)+(2*10)))
+34 47 Chemical element with the symbol Pm
+34 89 Chemical element with the symbol W
+34 103 Last name of the President of the United States who held the office in 1859
+34 116 Chemical element with atomic number 14
+35 16 Pokemon with number #(((2512-28)/(322/14))/((1+1)+(1+1)))
+35 29 Pokemon with number #(((856*3)/(15+9))/1)
+35 59 Pokemon with number #(((31+214)/(2401/49))*((340/20)-(96/32)))
+35 70 Chemical element with atomic number (((2540-45)-(11+6))/((12+2)*(42-39)))
+35 77 Chemical element with atomic number 89
+35 80 Chemical element with atomic number (3+((1100/22)/(15+35)))
+36 111 Pokemon with number #(((2*69)-(24+16))-((880/22)-(2*19)))
+37 13 Chemical element with atomic number 7
+37 50 First name of the previous President of the United States before Andrew Jackson
+37 66 Chemical element with the symbol Pa
+37 68 Chemical element with atomic number 59
+37 109 Pokemon with number #(((2322-42)/(10*2))+((60-22)-(533/41)))
+38 6 Pokemon with number #(((2/1)*(16*4))-((439-16)/(8+1)))
+38 20 Chemical element with atomic number (((146-34)-(6*8))+((73+15)-(7*7)))
+38 22 Last name of the President of the United States who held the office in 1789
+38 34 Pokemon which evolves into Vaporeon
+38 83 First name of the President of the United States who held the office in 1946
+38 85 First name of the previous President of the United States before Harry S. Truman
+38 95 Pokemon which evolves from Ivysaur
+38 99 First name of the President of the United States who held the office in 1855
+39 11 Pokemon which evolves into Poliwrath
+39 18 Pokemon with number #52
+39 101 Chemical element with the symbol Ti
+39 113 Pokemon which evolves into Omastar
+40 26 Chemical element with the symbol Au
+40 31 Chemical element with the symbol Pd
+40 53 Last name of the President of the United States who held the office in 1808
+40 55 Pokemon which evolves from Spearow
+40 87 Pokemon which evolves from Shellder
+40 122 Pokemon with number #51
+40 124 Chemical element with atomic number 30
+41 0 Pokemon with number #54
+41 2 Last name of the President of the United States who held the office in 1832
+41 64 Chemical element with atomic number ((23+(30-10))+((14+45)-(286/26)))
+41 93 Pokemon with number #65
+41 115 Last name of the President of the United States who held the office in 1999
+42 8 Last name of the President of the United States who held the office in 1804
+42 51 Last name of the President of the United States who held the office in 1944
+42 120 Pokemon with number #19
+43 45 Last name of the President of the United States who held the office in 1972
+43 57 Last name of the President of the United States who held the office in 1992
+43 72 Last name of the President of the United States who held the office in 1889
+43 76 Pokemon with number #20
+43 78 Last name of the President of the United States who held the office in 1803
+43 117 Pokemon with number #2
+44 83 Pokemon with number #36
+44 107 Pokemon which evolves into Dugtrio
+45 14 Chemical element with the symbol Be
+45 37 Color with RGB values #000000
+45 39 Last name of the President of the United States who held the office in 1971
+45 89 First name of the President of the United States who held the office in 1893
+45 97 Pokemon which evolves into Dewgong
+45 103 First name of the President of the United States who held the office in 1902
+45 109 Pokemon with number #68
+46 18 Pokemon with number #(((7+100)-(63-34))-(2*(43-24)))
+46 25 Pokemon which evolves into Blastoise
+46 33 Capital city of Slovakia
+46 112 Pokemon with number #143
+47 23 Pokemon which evolves from Charmeleon
+47 49 Pokemon which evolves into Wigglytuff
+47 124 First name of the President of the United States who held the office in 1978
+48 27 Pokemon which evolves into Sandslash
+48 41 Last name of the President of the United States who held the office in 1792
+48 44 Chemical element with atomic number 15
+48 56 Chemical element with atomic number (((1008/21)*(2+1))-((2*391)/(18-1)))
+49 4 Chemical element with atomic number 57
+49 11 Pokemon which evolves into Exeggutor
+49 80 Last name of the President of the United States who held the office in 1937
+49 92 Pokemon with number #134
+49 94 Last name of the President of the United States who held the office in 1899
+49 122 Pokemon with number #25
+50 21 Pokemon which evolves into Dragonite
+50 35 First name of the President of the United States who held the office in 1879
+50 61 Pokemon with number #126
+50 66 Chemical element with the symbol P
+50 74 Chemical element with the symbol Rf
+50 100 Chemical element with atomic number 63
+50 119 Pokemon with number #(((2790/45)-(25+5))+((1914*2)/(49-5)))
+51 30 Pokemon which evolves into Pidgeotto
+51 38 Pokemon with number #40
+51 52 Pokemon with number #(7-((928/16)/29))
+51 114 Pokemon with number #(((2*13)+(44-39))*3)
+51 117 Last name of the President of the United States who held the office in 1867
+52 1 Pokemon with number #(((14*2)+(10892/14))/((38-36)+(23-12)))
+52 47 Chemical element with atomic number 101
+52 54 Chemical element with the symbol Es
+52 59 Pokemon with number #(((37+13)-(925/25))*((9*3)-(4+20)))
+52 85 Last name of the President of the United States who held the office in 1926
+52 96 Last name of the next President of the United States after Rutherford B. Hayes
+52 98 Last name of the President of the United States who held the office in 1848
+52 104 Pokemon with number #(5*((190-50)/(14+6)))
+52 108 Chemical element with atomic number (((11088/22)/(72/4))+((78-13)-(8+37)))
+53 13 Last name of the President of the United States who held the office in 1938
+53 70 Pokemon with number #4
+53 72 Pokemon with number #(((4002-42)/(48-26))/((72/36)*3))
+53 76 Last name of the President of the United States who held the office in 1887
+53 78 Last name of the President of the United States who held the office in 1888
+53 124 First name of the President of the United States who held the office in 1825
+54 6 Last name of the President of the United States who held the office in 1801
+54 83 Chemical element with the symbol Tl
+54 88 Chemical element with atomic number (((69-46)*(13-11))+((17*45)/(23+22)))
+54 106 Chemical element with the symbol Nb
+55 68 Pokemon with number #26
+55 102 Chemical element with atomic number (((281*3)-(59-19))/11)
+55 110 Pokemon with number #(11*13)
+55 121 Last name of the President of the United States who held the office in 1989
+56 15 Pokemon with number #8
+56 24 Last name of the President of the United States who held the office in 1907
+57 28 Chemical element with atomic number (((2*12)-(51-29))*((9+18)-(59-49)))
+57 32 Pokemon which evolves from Kabuto
+57 112 First name of the President of the United States who held the office in 1918
+58 115 First name of the President of the United States who held the office in 1909
+58 119 Pokemon with number #136
+59 19 Chemical element with atomic number (((3*23)-47)+(5-(29-26)))
+59 41 Last name of the President of the United States who held the office in 1891
+59 93 Chemical element with atomic number (((9+8)*(3+3))-((392-2)/(5*6)))
+59 95 Last name of the President of the United States who held the office in 1882
+59 98 Chemical element with the symbol Sm
+59 100 Pokemon with number #(((40/10)+7)-((1+1)*(2*2)))
+59 123 First name of the President of the United States who held the office in 1911
+60 30 Pokemon which evolves from Kadabra
+60 50 First name of the previous President of the United States before William Howard Taft
+60 56 Chemical element with atomic number 9
+60 108 Chemical element with atomic number 3
+61 2 Chemical element with the symbol At
+61 37 Last name of the President of the United States who held the office in 1898
+61 62 Last name of the next President of the United States after Franklin D. Roosevelt
+61 65 Chemical element with atomic number ((7+(46-39))+((3*12)-(561/17)))
+61 104 Pokemon with number #(((11832/8)+(11*78))/((865-29)/(83-39)))
+62 0 Last name of the President of the United States who held the office in 1877
+62 26 Chemical element with atomic number 50
+62 80 Last name of the President of the United States who held the office in 2013
+62 89 Chemical element with the symbol Fr
+62 106 Chemical element with atomic number (((922-10)/(646/17))+((77-42)-(2+26)))
+62 117 Pokemon with number #(((22-19)*(2+1))+((53-5)/(8+16)))
+62 121 Pokemon which evolves from Koffing
+63 7 Chemical element with atomic number (((4+29)/(528/48))*((107-46)-(11*3)))
+63 9 Color with RGB values [0,255,0]
+63 12 Chemical element with atomic number 1
+63 17 Last name of the President of the United States who held the office in 1900
+63 48 Last name of the President of the United States who held the office in 1925
+63 58 First name of the President of the United States who held the office in 1889
+63 78 Pokemon with number #(((3*2)/(30-28))*((1531-27)/(80-48)))
+63 87 Pokemon with number #(((13*10)-(14+14))+((26+46)-(360/12)))
+64 23 Pokemon with number #59
+64 35 Pokemon which evolves from Growlithe
+64 52 First name of the President of the United States who held the office in 1996
+64 70 Chemical element with the symbol Al
+64 72 Pokemon which evolves from Geodude
+64 83 Pokemon which evolves from Magnemite
+64 113 Chemical element with the symbol Fm
+66 21 Pokemon which evolves from Kakuna
+66 39 Pokemon which evolves from Rattata
+66 44 Pokemon which evolves into Slowbro
+66 46 Last name of the President of the United States who held the office in 1928
+66 60 First name of the President of the United States who held the office in 1856
+66 74 Chemical element with atomic number (((3102/47)+(3*2))+((1875/5)/(69-44)))
+66 81 Pokemon with number #33
+66 96 Last name of the next President of the United States after Grover Cleveland
+66 102 Chemical element with atomic number 37
+66 115 Pokemon with number #53
+66 119 Chemical element with atomic number ((7*(4860/9))/((51-49)*(180/10)))
+67 5 Pokemon with number #(((161-32)*(10+33))/((5*6)+(21-8)))
+67 85 Pokemon which evolves into Cloyster
+68 0 Last name of the President of the United States who held the office in 1851
+68 10 Pokemon which evolves from Magikarp
+68 14 Last name of the President of the United States who held the office in 1924
+68 25 Last name of the President of the United States who held the office in 1853
+68 27 Pokemon which evolves from Krabby
+68 42 Pokemon with number #76
+68 53 Chemical element with the symbol Sc
+68 62 Chemical element with atomic number (((304/16)*3)-((450/30)+(7*5)))
+68 76 Last name of the President of the United States who held the office in 1929
+68 91 Pokemon with number #78
+68 100 Pokemon with number #(((138+4130)/(4*11))-((798/42)+(1421/49)))
+68 108 Pokemon with number #(((30870/30)/(50-49))/7)
+69 3 Pokemon with number #48
+69 30 First name of the President of the United States who held the office in 1971
+69 105 Chemical element with the symbol Re
+69 111 First name of the President of the United States who held the office in 1910
+69 123 Chemical element with atomic number 39
+70 55 Pokemon with number #(131-((6930/21)/(5*3)))
+71 18 Pokemon with number #93
+71 49 Last name of the President of the United States who held the office in 1946
+71 89 Chemical element with atomic number (((239+39)-(19+13))/(2+(25/25)))
+72 69 First name of the President of the United States who held the office in 1877
+72 79 Pokemon with number #111
+73 23 First name of the President of the United States who held the office in 1914
+73 38 Pokemon with number #114
+73 65 Chemical element with the symbol Tm
+73 82 Pokemon which evolves from Diglett
+73 98 Chemical element with atomic number (((84/6)+(374/34))+((68-42)-(5*2)))
+73 114 Last name of the President of the United States who held the office in 1862
+73 121 Last name of the President of the United States who held the office in 1995
+74 8 Chemical element with the symbol Ir
+74 51 First name of the previous President of the United States before Franklin Pierce
+74 94 Pokemon with number #(((7+18)-(119/7))*((1+1)*(1+2)))
+74 119 Last name of the President of the United States who held the office in 2000
+75 33 Pokemon with number #(((21+74)-(630/15))+((11+39)/(59-34)))
+75 36 Color with RGB values [128,128,128]
+75 43 Pokemon which evolves into Dragonair
+75 63 Chemical element with the symbol Ca
+75 71 First name of the President of the United States who held the office in 1875
+75 75 Last name of the President of the United States who held the office in 1863
+76 27 Pokemon with number #96
+76 29 Pokemon with number #(((58-23)+(2*2))-((3*182)/(20+6)))
+76 41 First name of the previous President of the United States before Chester A. Arthur
+76 57 Pokemon which evolves into Seaking
+76 67 Pokemon which evolves from Bulbasaur
+76 85 Last name of the President of the United States who held the office in 2008
+76 90 Last name of the President of the United States who held the office in 1810
+76 106 Last name of the President of the United States who held the office in 1834
+76 110 First name of the President of the United States who held the office in 1915
+76 124 Pokemon which evolves from Gastly
+77 13 First name of the President of the United States who held the office in 1874
+77 16 Chemical element with atomic number (((41475+13309)/(44-28))/((40-32)*(43-39)))
+77 31 First name of the President of the United States who held the office in 1851
+77 46 First name of the previous President of the United States before Gerald Ford
+77 60 First name of the President of the United States who held the office in 1881
+77 100 Last name of the President of the United States who held the office in 1816
+78 73 Last name of the President of the United States who held the office in 1868
+79 2 First name of the previous President of the United States before Millard Fillmore
+79 4 Chemical element with atomic number (((66700/29)/(5*5))/1)
+79 6 Chemical element with atomic number (((44-43)+(25/25))*((30/6)+(67-27)))
+79 21 Last name of the next President of the United States after James Buchanan
+79 35 Chemical element with atomic number (41-((62-27)-(5*6)))
+79 48 Pokemon with number #84
+79 92 Chemical element with atomic number (((2*15)-(61-32))+((12*3)/(468/26)))
+79 108 Last name of the President of the United States who held the office in 1813
+79 113 Pokemon with number #138
+79 116 Pokemon which evolves into Machamp
+80 0 First name of the President of the United States who held the office in 1917
+80 18 First name of the previous President of the United States before Warren G. Harding
+80 37 Chemical element with atomic number 86
+80 78 First name of the President of the United States who held the office in 1876
+80 86 Pokemon which evolves into Muk
+80 88 Pokemon with number #11
+80 97 Pokemon with number #(((310-20)/(754/26))+(43+(66/6)))
+81 24 First name of the President of the United States who held the office in 1932
+81 40 Pokemon with number #(((17*56)+1613)/((872-36)/(82-38)))
+81 80 Chemical element with atomic number 53
+81 82 Pokemon with number #67
+81 118 First name of the previous President of the United States before Grover Cleveland
+82 11 Pokemon with number #55
+82 51 Pokemon with number #121
+82 55 Last name of the next President of the United States after George H. W. Bush
+82 70 Chemical element with atomic number 31
+82 120 Chemical element with the symbol U
+83 33 Last name of the next President of the United States after Bill Clinton
+83 47 Pokemon with number #(((217/31)+(9*3))+(7*11))
+83 62 Chemical element with atomic number (((138+65)/29)+(73-(33-30)))
+83 94 Chemical element with atomic number (((26+18)+(22+51))/3)
+84 30 Last name of the President of the United States who held the office in 1833
+84 67 First name of the President of the United States who held the office in 1899
+84 76 Pokemon with number #(((7+4)+(2520/40))+((13+7)-(7*2)))
+84 84 Chemical element with atomic number ((3*(499-24))/((444-45)/(46-25)))
+84 90 First name of the President of the United States who held the office in 1900
+84 104 Pokemon which evolves into Poliwhirl
+84 124 Pokemon with number #74
+85 9 First name of the President of the United States who held the office in 1864
+85 16 Chemical element with the symbol Bh
+85 74 Chemical element with atomic number 79
+85 99 Pokemon with number #(((741+2859)/(2+46))+((3*164)/(31+10)))
+85 101 First name of the President of the United States who held the office in 1871
+85 112 First name of the President of the United States who held the office in 1933
+86 5 Chemical element with the symbol Ga
+86 27 Chemical element with the symbol Th
+86 37 Pokemon which evolves into Rhydon
+86 65 Pokemon with number #123
+87 2 Pokemon with number #(((3294-30)/(204/6))+((21+23)-(3+10)))
+87 45 Pokemon which evolves into Haunter
+87 58 Last name of the President of the United States who held the office in 1986
+87 92 Chemical element with atomic number (((1743/7)-(11+31))/((27/27)+(7-5)))
+88 12 Pokemon which evolves from Goldeen
+88 32 Chemical element with atomic number 28
+88 35 First name of the President of the United States who held the office in 1967
+88 54 Pokemon which evolves into Venusaur
+88 73 First name of the President of the United States who held the office in 1863
+88 80 Chemical element with atomic number 45
+89 0 Pokemon which evolves into Kingler
+89 18 First name of the previous President of the United States before Bill Clinton
+89 25 First name of the President of the United States who held the office in 2011
+89 97 First name of the President of the United States who held the office in 1803
+89 106 First name of the President of the United States who held the office in 1981
+89 109 First name of the President of the United States who held the office in 1835
+89 115 Last name of the President of the United States who held the office in 1918
+89 117 First name of the President of the United States who held the office in 1974
+89 122 First name of the President of the United States who held the office in 1888
+90 14 Pokemon which evolves from Rhyhorn
+90 40 Last name of the President of the United States who held the office in 1818
+90 48 First name of the President of the United States who held the office in 1868
+90 69 Chemical element with atomic number ((53-(58-13))*2)
+91 43 Pokemon with number #13
+91 62 First name of the President of the United States who held the office in 1982
+91 89 First name of the President of the United States who held the office in 1839
+91 95 First name of the President of the United States who held the office in 1794
+92 8 First name of the previous President of the United States before Calvin Coolidge
+92 30 Pokemon which evolves into Persian
+92 66 Chemical element with atomic number (((123-7)/(22+7))*(1+1))
+92 76 First name of the President of the United States who held the office in 2005
+92 82 First name of the previous President of the United States before Richard Nixon
+92 85 First name of the President of the United States who held the office in 1790
+92 104 Last name of the President of the United States who held the office in 1983
+92 111 First name of the President of the United States who held the office in 1923
+92 124 Last name of the President of the United States who held the office in 1855
+93 23 Chemical element with the symbol Ra
+93 50 Chemical element with atomic number (((421-10)+(215*2))/29)
+94 4 Chemical element with the symbol I
+94 17 First name of the President of the United States who held the office in 1956
+94 36 Chemical element with atomic number 16
+94 38 Pokemon with number #(((1552*2)/(69-37))-((5+1)*(1+1)))
+94 45 Pokemon with number #(((45-15)-2)+((2002/26)-(527/31)))
+94 52 Chemical element with atomic number 27
+94 57 Pokemon which evolves into Machoke
+94 71 First name of the President of the United States who held the office in 2001
+94 87 First name of the President of the United States who held the office in 1984
+94 91 Last name of the President of the United States who held the office in 1817
+94 101 Pokemon with number #14
+95 20 First name of the President of the United States who held the office in 1985
+95 32 Last name of the President of the United States who held the office in 1921
+95 68 Chemical element with atomic number 76
+95 78 First name of the President of the United States who held the office in 1964
+95 98 Last name of the President of the United States who held the office in 1980
+96 28 Pokemon with number #(((156+360)/(2*6))+(17+(11+23)))
+96 34 First name of the previous President of the United States before Benjamin Harrison
+96 55 Color with RGB values #FFFF00
+96 64 Color with RGB values #C0C0C0
+96 96 Chemical element with atomic number (((43-24)*(11-9))-((38/38)+(6+3)))
+96 115 Chemical element with the symbol Zn
+96 117 First name of the President of the United States who held the office in 1797
+96 120 First name of the President of the United States who held the office in 2008
+97 1 Last name of the President of the United States who held the office in 1985
+97 11 Last name of the President of the United States who held the office in 1951
+97 41 First name of the President of the United States who held the office in 1953
+97 93 Chemical element with atomic number 2
+97 123 First name of the President of the United States who held the office in 1966
+98 48 First name of the President of the United States who held the office in 1992
+98 59 First name of the President of the United States who held the office in 1838
+98 73 Pokemon with number #(((3480/8)/(13+2))*((31-22)-(2*2)))
+98 89 Chemical element with atomic number 2
+98 106 First name of the President of the United States who held the office in 1955
+99 66 Last name of the next President of the United States after William Howard Taft
+99 82 First name of the previous President of the United States before James Madison
+99 104 First name of the previous President of the United States before George H. W. Bush
+100 24 First name of the President of the United States who held the office in 1866
+100 99 Pokemon with number #92
+100 110 First name of the President of the United States who held the office in 1975
+100 113 Chemical element with atomic number (((52-29)/(32-9))+((51-37)+(2*16)))
+101 3 Pokemon which evolves into Kabutops
+101 7 First name of the previous President of the United States before John Adams
+101 21 First name of the President of the United States who held the office in 1830
+101 37 First name of the President of the United States who held the office in 2002
+101 43 Pokemon with number #37
+101 50 Chemical element with atomic number 56
+101 85 Pokemon with number #(((3+59)+(300/12))+((12628/7)/(49-5)))
+101 91 First name of the President of the United States who held the office in 1961
+101 101 Last name of the President of the United States who held the office in 1979
+101 115 Last name of the President of the United States who held the office in 1856
+101 119 Pokemon which evolves into Marowak
+102 10 First name of the previous President of the United States before Ulysses S. Grant
+102 19 First name of the President of the United States who held the office in 1988
+102 26 First name of the President of the United States who held the office in 1960
+102 61 Pokemon with number #(((3*210)/(36-30))-((47-34)*(1+2)))
+102 63 Pokemon which evolves into Seadra
+102 78 Last name of the President of the United States who held the office in 1950
+102 95 Chemical element with atomic number (((4*14)-(80-39))+((91-19)/(1+5)))
+102 121 Last name of the President of the United States who held the office in 1878
+103 5 First name of the President of the United States who held the office in 1869
+103 15 Chemical element with atomic number 6
+103 28 Last name of the next President of the United States after James A. Garfield
+103 30 Pokemon with number #(((40/20)*(58-50))+((80-26)/(19-10)))
+103 55 Pokemon with number #(((21+93)-(30+9))+((1263-42)/(957/29)))
+103 71 First name of the President of the United States who held the office in 1929
+103 87 Chemical element with atomic number 11
+103 108 Pokemon which evolves into Gloom
+103 117 First name of the President of the United States who held the office in 1991
+104 0 Pokemon with number #94
+104 12 Chemical element with the symbol Ce
+104 34 First name of the President of the United States who held the office in 1968
+104 123 Chemical element with atomic number (((204*2)/(2*12))*((36-33)+(45/45)))
+105 23 Pokemon with number #85
+105 40 First name of the President of the United States who held the office in 2012
+105 48 Last name of the President of the United States who held the office in 1915
+105 57 First name of the President of the United States who held the office in 1865
+105 69 First name of the President of the United States who held the office in 1926
+105 80 First name of the President of the United States who held the office in 1896
+105 83 First name of the previous President of the United States before Jimmy Carter
+105 97 First name of the President of the United States who held the office in 1804
+105 106 Pokemon with number #43
+106 17 Pokemon which evolves from Weedle
+106 45 Chemical element with atomic number 96
+106 93 First name of the President of the United States who held the office in 1791
+106 104 First name of the President of the United States who held the office in 1836
+106 114 Pokemon with number #88
+107 51 Pokemon with number #(((1188-48)/(2*10))-((1389+292)/(1353/33)))
+107 74 First name of the President of the United States who held the office in 1947
+107 89 Chemical element with the symbol S
+107 111 First name of the President of the United States who held the office in 2004
+108 7 Chemical element with the symbol Ag
+108 37 Pokemon with number #66
+108 53 Pokemon which evolves from Horsea
+108 60 Chemical element with the symbol Cm
+108 65 Pokemon with number #(((1092+917)-(38+11))/((299+221)/(2*13)))
+108 85 Chemical element with atomic number (((20+14)+(1683/33))-((806/31)+(8+2)))
+108 100 First name of the President of the United States who held the office in 1887
+108 102 Chemical element with the symbol C
+108 121 Last name of the President of the United States who held the office in 1920
+109 25 Last name of the President of the United States who held the office in 1823
+109 32 Pokemon with number #127
+109 76 First name of the President of the United States who held the office in 1829
+109 91 Chemical element with atomic number 29
+110 30 Color with RGB values #800000
+110 43 Last name of the next President of the United States after James K. Polk
+110 47 Last name of the President of the United States who held the office in 1828
+110 108 Pokemon with number #(((90-16)-(8/1))-((894+72)/(3*14)))
+110 119 Pokemon with number #112
+111 13 Pokemon which evolves into Golbat
+111 16 TopCoder handle of Michal Forisek
+111 19 Last name of the President of the United States who held the office in 1843
+111 39 Color with RGB values [0,0,128]
+111 70 Pokemon with number #23
+111 82 First name of the President of the United States who held the office in 1824
+111 96 Last name of the President of the United States who held the office in 1798
+111 98 First name of the President of the United States who held the office in 1822
+111 113 Last name of the President of the United States who held the office in 2010
+112 11 Pokemon with number #(((35/1)+(42-41))+((126-11)/(253/11)))
+112 56 First name of the President of the United States who held the office in 1980
+112 68 Last name of the President of the United States who held the office in 1825
+112 73 Pokemon which evolves from Graveler
+112 105 Last name of the President of the United States who held the office in 1875
+113 6 Pokemon with number #(((21-14)+(2+2))+((1+1)*61))
+113 41 Color with RGB values #008000
+113 61 Chemical element with atomic number 18
+113 93 Last name of the President of the United States who held the office in 1839
+113 110 First name of the President of the United States who held the office in 1950
+114 23 Color with RGB values #808000
+114 35 Chemical element with atomic number (3*((22-12)-(3+1)))
+114 79 First name of the President of the United States who held the office in 1848
+115 4 First name of the previous President of the United States before James Monroe
+115 9 Last name of the President of the United States who held the office in 1874
+115 27 Last name of the President of the United States who held the office in 1871
+115 31 Last name of the President of the United States who held the office in 1844
+115 33 First name of the President of the United States who held the office in 1948
+115 44 Pokemon with number #44
+115 64 First name of the previous President of the United States before Dwight D. Eisenhower
+115 66 First name of the President of the United States who held the office in 1811
+115 116 Pokemon with number #(((444-26)/(13-2))+((204/34)+(288/9)))
+115 118 Last name of the President of the United States who held the office in 1829
+116 15 First name of the President of the United States who held the office in 1999
+116 18 Last name of the next President of the United States after William Henry Harrison
+116 21 Last name of the President of the United States who held the office in 1873
+116 39 Last name of the President of the United States who held the office in 1911
+116 52 First name of the President of the United States who held the office in 1952
+116 58 Color with RGB values [0,0,0]
+116 71 First name of the President of the United States who held the office in 1821
+116 77 First name of the President of the United States who held the office in 1812
+116 90 Pokemon which evolves into Jolteon
+116 103 Pokemon with number #(((14*195)/(13*3))+((486*2)/(23+13)))
+116 106 Pokemon with number #133
+117 2 First name of the President of the United States who held the office in 1858
+117 37 Last name of the President of the United States who held the office in 1827
+117 49 Last name of the President of the United States who held the office in 1838
+117 69 Last name of the President of the United States who held the office in 1876
+117 98 First name of the previous President of the United States before John Quincy Adams
+117 100 Pokemon with number #(((361-18)/(44-37))-((7*6)/(3+11)))
+117 112 Last name of the President of the United States who held the office in 1970
+117 120 Last name of the President of the United States who held the office in 1799
+117 124 Pokemon with number #124
+118 24 Pokemon with number #(((4+83)-(4*2))+((45-41)+(135/45)))
+119 13 Last name of the President of the United States who held the office in 1991
+119 42 First name of the President of the United States who held the office in 1828
+119 87 First name of the President of the United States who held the office in 1844
+119 95 Color with RGB values #808080
+120 55 Last name of the next President of the United States after John Tyler
+120 73 First name of the President of the United States who held the office in 1801
+120 85 Last name of the President of the United States who held the office in 2003
+120 102 First name of the President of the United States who held the office in 1994
+121 11 Last name of the President of the United States who held the office in 2005
+121 40 First name of the previous President of the United States before Lyndon B. Johnson
+121 116 First name of the President of the United States who held the office in 1799

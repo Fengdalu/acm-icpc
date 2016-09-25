@@ -1,0 +1,77 @@
+<html><body bgcolor="#006633" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><i>Block Puzzle</i> is played on a square grid of unit cells. Some of those cells are marked as start cells, and one is marked as a goal cell.<br></br>
+<br></br>
+The player begins by placing a 1x1x2 block on top of one of the start cells in such a way that the 1x1 face of the block coincides with the cell.
+The goal of the game is to reach the state where the block stands with its 1x1 face covering the goal cell.
+The game is played by rolling the block across the board.
+Only some types of moves are allowed:
+When the block stands on its 1x1 face, the player may roll the block in either of the four basic directions.
+However, when the block's bottom face is 2x1, the player may only roll it onto one of its 1x1 faces.
+In other words, the block must always be rolled over an edge of length 1.<br></br>
+<br></br>
+All allowed moves are shown in the figure below. (The old state of the block is always semi-transparent, the new state is opaque.)<br></br>
+<br></br>
+<img src="http://www.topcoder.com/contest/problem/BlockTheBlockPuzzle/cubes.png"></img><br></br>
+<br></br>
+So far, the game seems trivial.
+Its difficulty comes from the fact that there are holes instead of some cells.
+Whenever the entire bottom face of the block stands on a hole, the block falls through the hole and the player loses the game. The block also falls off if the player rolls it across the edge of the game board.
+(Note that if the block stands on a 2x1 face and only one of the two cells under the face is missing, the block is still safe.
+Technically, the block would also be safe with one half of its bottom face sticking out of the game board, but obviously a move into such a configuration will never help you reach the goal.)<br></br>
+<br></br>
+Bohn has been playing <i>Block Puzzle</i> too much. Jrus is bored, so he decided to make Bohn's game unsolvable by making more holes into his board.
+Jrus can only remove cells that are neither starting nor goal. As he doesn't want to get caught, he wants to remove as few cells as possible.<br></br>
+<br></br>
+You are given the current board as a vector &lt;string&gt; <b>board</b>.
+The character '.' represents an ordinary cell, 'H' is a hole, 'b' is a starting cell, and '$' is the only goal cell.
+Return the smallest number of cells that have to be removed in order to make the puzzle unsolvable.
+If it is not possible to make the puzzle unsolvable, return -1 instead.
+
+
+
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>BlockTheBlockPuzzle</td></tr><tr><td>Method:</td><td>minimumHoles</td></tr><tr><td>Parameters:</td><td>vector &lt;string&gt;</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int minimumHoles(vector &lt;string&gt; board)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td>n will be between 3 and 50, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>board</b> will contain exactly n elements.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>board</b> will contain exactly n characters.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>board</b> will be '.', 'H', 'b' or '$'.</td></tr><tr><td align="center" valign="top">-</td><td><b>board</b> will contain exactly one '$' character.</td></tr><tr><td align="center" valign="top">-</td><td><b>board</b> will contain at least one 'b' character.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;b..$&quot;,
+ &quot;....&quot;,
+ &quot;HHHH&quot;,
+ &quot;HHHH&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2</pre></td></tr><tr><td><table><tr><td colspan="2">Remove the two cells between the start and the goal. Note that removing just one of them is not enough.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;............H..&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;HHH$HHH.....H..&quot;,
+ &quot;HHHHHHH........&quot;,
+ &quot;HHHHHHHH.......&quot;,
+ &quot;......b..H.....&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...H..H..H.....&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0</pre></td></tr><tr><td><table><tr><td colspan="2">This puzzle is already unsolvable.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;............H..&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;HHH$HHH........&quot;,
+ &quot;HHHHHHH........&quot;,
+ &quot;HHHHHHHH.......&quot;,
+ &quot;......b..H.....&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...H..H..H.....&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;,
+ &quot;...............&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1</pre></td></tr><tr><td><table><tr><td colspan="2">This puzzle is solvable. The only difference between this puzzle and Example 1 is that one cell in this example was a hole in Example 1. Hence, we can easily make this puzzle unsolvable by removing that one cell.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;b..$...&quot;,
+ &quot;...H...&quot;,
+ &quot;.......&quot;,
+ &quot;b..b..b&quot;,
+ &quot;...H...&quot;,
+ &quot;.......&quot;,
+ &quot;b..b..b&quot;}
+
+</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4</pre></td></tr><tr><td><table><tr><td colspan="2">A puzzle may contain multiple starting cells. Bohn may start the game from any of them.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;b..b..b&quot;,
+ &quot;..b..b.&quot;,
+ &quot;.......&quot;,
+ &quot;b..$bbb&quot;,
+ &quot;.b.....&quot;,
+ &quot;....b..&quot;,
+ &quot;b..b..b&quot;}
+</pre></td></tr></table></td></tr><tr><td><pre>Returns: -1</pre></td></tr><tr><td><table><tr><td colspan="2">You cannot replace start cells with holes.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

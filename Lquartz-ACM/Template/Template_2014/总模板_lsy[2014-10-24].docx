@@ -1,0 +1,705 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    
+    
+    <title>ACM/总模板_lsy[2014-10-24].docx at master · Lquartz/ACM</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="Lquartz/ACM" name="twitter:title" /><meta content="ACM - Default" name="twitter:description" /><meta content="https://avatars3.githubusercontent.com/u/7759199?v=3&amp;s=400" name="twitter:image:src" />
+<meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="https://avatars3.githubusercontent.com/u/7759199?v=3&amp;s=400" property="og:image" /><meta content="Lquartz/ACM" property="og:title" /><meta content="https://github.com/Lquartz/ACM" property="og:url" /><meta content="ACM - Default" property="og:description" />
+
+      <meta name="browser-stats-url" content="/_stats">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035">
+    <link rel="xhr-socket" href="/_sockets">
+    <meta name="pjax-timeout" content="1000">
+    <link rel="sudo-modal" href="/sessions/sudo_modal">
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient>
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="3CF72E4C:6BA8:1CC3A12A:546C890A" name="octolytics-dimension-request_id" /><meta content="7759199" name="octolytics-actor-id" /><meta content="Lquartz" name="octolytics-actor-login" /><meta content="43dc7536b9e5253b34a4ca41ee8ef32ae0e9e0e10a090baeabd3296c7487fda2" name="octolytics-actor-hash" />
+    
+    <meta content="Rails, view, blob#show" name="analytics-event" />
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="sVU7e//m9/goMNSNYQfS0MH0u6odzWsQfKHC1JI9mU3QlmJAAykOBJK9iGgR/gTquaE0yuPXO6KyciWGsCpblA==" name="csrf-token" />
+
+    <link href="https://assets-cdn.github.com/assets/github-7d0b75f377b5ab1efbdbea93dbf1f343b1a2c33191ab798621c2896974b7e793.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://assets-cdn.github.com/assets/github2-8a73399be40174e96003fcfa4384a976716cbeab22a9b77f3960218903e061b8.css" media="all" rel="stylesheet" type="text/css" />
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="48479ba17efd84e58b8fcf6fb5fd1e0f">
+
+      
+  <meta name="description" content="ACM - Default">
+  <meta name="go-import" content="github.com/Lquartz/ACM git https://github.com/Lquartz/ACM.git">
+
+  <meta content="7759199" name="octolytics-dimension-user_id" /><meta content="Lquartz" name="octolytics-dimension-user_login" /><meta content="22290702" name="octolytics-dimension-repository_id" /><meta content="Lquartz/ACM" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="22290702" name="octolytics-dimension-repository_network_root_id" /><meta content="Lquartz/ACM" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/Lquartz/ACM/commits/master.atom" rel="alternate" title="Recent Commits to ACM:master" type="application/atom+xml">
+
+  </head>
+
+
+  <body class="logged_in  env-production windows vis-public page-blob">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      <div class="header header-logged-in true" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" ga-data-click="Header, go to dashboard, icon:logo">
+  <span class="mega-octicon octicon-mark-github"></span>
+</a>
+
+
+      <div class="site-search repo-scope js-site-search" role="search">
+          <form accept-charset="UTF-8" action="/Lquartz/ACM/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/Lquartz/ACM/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <input type="text"
+    class="js-site-search-field is-clearable"
+    data-hotkey="s"
+    name="q"
+    placeholder="Search"
+    data-global-scope-placeholder="Search GitHub"
+    data-repo-scope-placeholder="Search"
+    tabindex="1"
+    autocapitalize="off">
+  <div class="scope-badge">This repository</div>
+</form>
+      </div>
+      <ul class="header-nav left" role="navigation">
+        <li class="header-nav-item explore">
+          <a class="header-nav-link" href="/explore" data-ga-click="Header, go to explore, text:explore">Explore</a>
+        </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://gist.github.com" data-ga-click="Header, go to gist, text:gist">Gist</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/blog" data-ga-click="Header, go to blog, text:blog">Blog</a>
+          </li>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
+        </li>
+      </ul>
+
+    
+<ul class="header-nav user-nav right" id="user-links">
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link name" href="/Lquartz" data-ga-click="Header, go to profile, text:username">
+      <img alt="Lquartz" class="avatar" data-user="7759199" height="20" src="https://avatars1.githubusercontent.com/u/7759199?v=3&amp;s=40" width="20" />
+      <span class="css-truncate">
+        <span class="css-truncate-target">Lquartz</span>
+      </span>
+    </a>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link js-menu-target tooltipped tooltipped-s" href="#" aria-label="Create new..." data-ga-click="Header, create new, icon:add">
+      <span class="octicon octicon-plus"></span>
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      
+<ul class="dropdown-menu">
+  <li>
+    <a href="/new"><span class="octicon octicon-repo"></span> New repository</a>
+  </li>
+  <li>
+    <a href="/organizations/new"><span class="octicon octicon-organization"></span> New organization</a>
+  </li>
+
+
+    <li class="dropdown-divider"></li>
+    <li class="dropdown-header">
+      <span title="Lquartz/ACM">This repository</span>
+    </li>
+      <li>
+        <a href="/Lquartz/ACM/issues/new"><span class="octicon octicon-issue-opened"></span> New issue</a>
+      </li>
+      <li>
+        <a href="/Lquartz/ACM/settings/collaboration"><span class="octicon octicon-person"></span> New collaborator</a>
+      </li>
+</ul>
+
+    </div>
+  </li>
+
+  <li class="header-nav-item">
+        <a href="/notifications" aria-label="You have no unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s" data-ga-click="Header, go to notifications, icon:read" data-hotkey="g n">
+        <span class="mail-status all-read"></span>
+        <span class="octicon octicon-inbox"></span>
+</a>
+  </li>
+
+  <li class="header-nav-item">
+    <a class="header-nav-link tooltipped tooltipped-s" href="/settings/profile" id="account_settings" aria-label="Settings" data-ga-click="Header, go to settings, icon:settings">
+      <span class="octicon octicon-gear"></span>
+    </a>
+  </li>
+
+  <li class="header-nav-item">
+    <form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="lnm1um8mfR/63uNHSPCFiVqikTea42GULAuUfFsgxAXP1qenZTO1ahVlqsBZtpSJ9BULcWXR4OIwClGvkoIA+Q==" /></div>
+      <button class="header-nav-link sign-out-button tooltipped tooltipped-s" aria-label="Sign out" data-ga-click="Header, sign out, icon:logout">
+        <span class="octicon octicon-sign-out"></span>
+      </button>
+</form>  </li>
+
+</ul>
+
+
+    
+  </div>
+</div>
+
+      
+
+        
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+<ul class="pagehead-actions">
+
+    <li class="subscription">
+      <form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="qCHECrFBblUm/ZN9B+D36O9Ey4dKJXYV9QDkyFKEArfiYheY1ao1sdwsFu1IR4C8ENsMDW93NN1aKaR0PPpbdA==" /></div>  <input id="repository_id" name="repository_id" type="hidden" value="22290702" />
+
+    <div class="select-menu js-menu-container js-select-menu">
+      <a class="social-count js-social-count" href="/Lquartz/ACM/watchers">
+        1
+      </a>
+      <a href="/Lquartz/ACM/subscription"
+        class="minibutton select-menu-button with-count js-menu-target" role="button" tabindex="0" aria-haspopup="true">
+        <span class="js-select-button">
+          <span class="octicon octicon-eye"></span>
+          Unwatch
+        </span>
+      </a>
+
+      <div class="select-menu-modal-holder">
+        <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Notifications</span>
+            <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+          </div> <!-- /.select-menu-header -->
+
+          <div class="select-menu-list js-navigation-container" role="menu">
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_included" name="do" type="radio" value="included" />
+                <h4>Not watching</h4>
+                <span class="description">Be notified when participating or @mentioned.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye"></span>
+                  Watch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input checked="checked" id="do_subscribed" name="do" type="radio" value="subscribed" />
+                <h4>Watching</h4>
+                <span class="description">Be notified of all conversations.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye"></span>
+                  Unwatch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_ignore" name="do" type="radio" value="ignore" />
+                <h4>Ignoring</h4>
+                <span class="description">Never be notified.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-mute"></span>
+                  Stop ignoring
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+          </div> <!-- /.select-menu-list -->
+
+        </div> <!-- /.select-menu-modal -->
+      </div> <!-- /.select-menu-modal-holder -->
+    </div> <!-- /.select-menu -->
+
+</form>
+    </li>
+
+  <li>
+    
+  <div class="js-toggler-container js-social-container starring-container ">
+
+    <form accept-charset="UTF-8" action="/Lquartz/ACM/unstar" class="js-toggler-form starred js-unstar-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="p8RIDkRG9QugFVP4cWhTQ363ILR3jybQ4x0UQv4qileppZFX/4g3eITDiXz5Z8Gt/1zmcN4KnapKHWjnu2Q6aw==" /></div>
+      <button
+        class="minibutton with-count js-toggler-target star-button"
+        aria-label="Unstar this repository" title="Unstar Lquartz/ACM">
+        <span class="octicon octicon-star"></span>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="/Lquartz/ACM/stargazers">
+          0
+        </a>
+</form>
+    <form accept-charset="UTF-8" action="/Lquartz/ACM/star" class="js-toggler-form unstarred js-star-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ko7K4ffZ/b6nV9JlzmU4DudT0Kn+7MVeD+jpobdP9kSER4IJM2MP44SXx4mnw4sgeeSq3j9vo20+DKzdt7Pm/Q==" /></div>
+      <button
+        class="minibutton with-count js-toggler-target star-button"
+        aria-label="Star this repository" title="Star Lquartz/ACM">
+        <span class="octicon octicon-star"></span>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="/Lquartz/ACM/stargazers">
+          0
+        </a>
+</form>  </div>
+
+  </li>
+
+
+        <li>
+          <a href="/Lquartz/ACM/fork" class="minibutton with-count js-toggler-target fork-button tooltipped-n" title="Fork your own copy of Lquartz/ACM to your account" aria-label="Fork your own copy of Lquartz/ACM to your account" rel="nofollow" data-method="post">
+            <span class="octicon octicon-repo-forked"></span>
+            Fork
+          </a>
+          <a href="/Lquartz/ACM/network" class="social-count">0</a>
+        </li>
+
+</ul>
+
+        <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="/Lquartz" class="url fn" itemprop="url" rel="author"><span itemprop="title">Lquartz</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="/Lquartz/ACM" class="js-current-repository" data-pjax="#js-repo-pjax-container">ACM</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline  ">
+        <div class="repository-sidebar clearfix">
+            
+<nav class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container"
+     data-issue-count-url="/Lquartz/ACM/issues/counts">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="/Lquartz/ACM" aria-label="Code" class="selected js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /Lquartz/ACM">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Issues">
+        <a href="/Lquartz/ACM/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Lquartz/ACM/issues">
+          <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+          <span class="js-issue-replace-counter"></span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+      <a href="/Lquartz/ACM/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g p" data-selected-links="repo_pulls /Lquartz/ACM/pulls">
+          <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+          <span class="js-pull-replace-counter"></span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+
+      <li class="tooltipped tooltipped-w" aria-label="Wiki">
+        <a href="/Lquartz/ACM/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g w" data-selected-links="repo_wiki /Lquartz/ACM/wiki">
+          <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+  </ul>
+  <div class="sunken-menu-separator"></div>
+  <ul class="sunken-menu-group">
+
+    <li class="tooltipped tooltipped-w" aria-label="Pulse">
+      <a href="/Lquartz/ACM/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-selected-links="pulse /Lquartz/ACM/pulse">
+        <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Graphs">
+      <a href="/Lquartz/ACM/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_graphs repo_contributors /Lquartz/ACM/graphs">
+        <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+  </ul>
+
+
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
+      <li class="tooltipped tooltipped-w" aria-label="Settings">
+        <a href="/Lquartz/ACM/settings" aria-label="Settings" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_settings /Lquartz/ACM/settings">
+          <span class="octicon octicon-tools"></span> <span class="full-word">Settings</span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+    </ul>
+</nav>
+
+              <div class="only-with-full-nav">
+                
+  
+<div class="clone-url open"
+  data-protocol-type="http"
+  data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=push">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group">
+    <input type="text" class="input-mini input-monospace js-url-field"
+           value="https://github.com/Lquartz/ACM.git" readonly="readonly">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/Lquartz/ACM.git" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="clone-url "
+  data-protocol-type="ssh"
+  data-url="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=push">
+  <h3><span class="text-emphasized">SSH</span> clone URL</h3>
+  <div class="input-group">
+    <input type="text" class="input-mini input-monospace js-url-field"
+           value="git@github.com:Lquartz/ACM.git" readonly="readonly">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="git@github.com:Lquartz/ACM.git" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="clone-url "
+  data-protocol-type="subversion"
+  data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=push">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group">
+    <input type="text" class="input-mini input-monospace js-url-field"
+           value="https://github.com/Lquartz/ACM" readonly="readonly">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/Lquartz/ACM" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+<p class="clone-options">You can clone with
+      <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>,
+      <a href="#" class="js-clone-selector" data-protocol="ssh">SSH</a>,
+      or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</p>
+
+
+  <a href="github-windows://openRepo/https://github.com/Lquartz/ACM" class="minibutton sidebar-button" title="Save Lquartz/ACM to your computer and use it in GitHub Desktop." aria-label="Save Lquartz/ACM to your computer and use it in GitHub Desktop.">
+    <span class="octicon octicon-device-desktop"></span>
+    Clone in Desktop
+  </a>
+
+                <a href="/Lquartz/ACM/archive/master.zip"
+                   class="minibutton sidebar-button"
+                   aria-label="Download the contents of Lquartz/ACM as a zip file"
+                   title="Download the contents of Lquartz/ACM as a zip file"
+                   rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container>
+          
+
+<a href="/Lquartz/ACM/blob/73e4d93912f7f315270062c4bcac81b66e128eb3/Template/Template_2014/%E6%80%BB%E6%A8%A1%E6%9D%BF_lsy%5B2014-10-24%5D.docx" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+<!-- blob contrib key: blob_contributors:v21:073437e4b19fb859ca5aac5e668d9ace -->
+
+<div class="file-navigation">
+  
+<div class="select-menu js-menu-container js-select-menu left">
+  <span class="minibutton select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    data-master-branch="master"
+    data-ref="master"
+    title="master"
+    role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+      </div> <!-- /.select-menu-header -->
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Find or create a branch…" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Find or create a branch…">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div><!-- /.select-menu-tabs -->
+      </div><!-- /.select-menu-filters -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item selected">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/Lquartz/ACM/blob/master/Template/Template_2014/%E6%80%BB%E6%A8%A1%E6%9D%BF_lsy%5B2014-10-24%5D.docx"
+                 data-name="master"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="master">master</a>
+            </div> <!-- /.select-menu-item -->
+        </div>
+
+          <form accept-charset="UTF-8" action="/Lquartz/ACM/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="F+tZkK0q8jJGdT33u4PSeWbPFdUeDlpHyE/fwgBQiV8geHrkeK0ok+TgIxPU8l5oPs90WlSJBI3KthimDcISEw==" /></div>
+            <span class="octicon octicon-git-branch select-menu-item-icon"></span>
+            <div class="select-menu-item-text">
+              <h4>Create branch: <span class="js-new-item-name"></span></h4>
+              <span class="description">from ‘master’</span>
+            </div>
+            <input type="hidden" name="name" id="name" class="js-new-item-value">
+            <input type="hidden" name="branch" id="branch" value="master">
+            <input type="hidden" name="path" id="path" value="Template/Template_2014/总模板_lsy[2014-10-24].docx">
+          </form> <!-- /.select-menu-item -->
+
+      </div> <!-- /.select-menu-list -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+    </div> <!-- /.select-menu-modal -->
+  </div> <!-- /.select-menu-modal-holder -->
+</div> <!-- /.select-menu -->
+
+  <div class="button-group right">
+    <a href="/Lquartz/ACM/find/master"
+          class="js-show-file-finder minibutton empty-icon tooltipped tooltipped-s"
+          data-pjax
+          data-hotkey="t"
+          aria-label="Quickly jump between files">
+      <span class="octicon octicon-list-unordered"></span>
+    </a>
+    <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="Template/Template_2014/总模板_lsy[2014-10-24].docx" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+  </div>
+
+  <div class="breadcrumb">
+    <span class='repo-root js-repo-root'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/Lquartz/ACM" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">ACM</span></a></span></span><span class="separator"> / </span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/Lquartz/ACM/tree/master/Template" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">Template</span></a></span><span class="separator"> / </span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/Lquartz/ACM/tree/master/Template/Template_2014" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">Template_2014</span></a></span><span class="separator"> / </span><strong class="final-path">总模板_lsy[2014-10-24].docx</strong>
+  </div>
+</div>
+
+
+  <div class="commit file-history-tease">
+    <div class="file-history-tease-header">
+        <img alt="Lquartz" class="avatar" data-user="7759199" height="24" src="https://avatars3.githubusercontent.com/u/7759199?v=3&amp;s=48" width="24" />
+        <span class="author"><a href="/Lquartz" rel="author">Lquartz</a></span>
+        <time datetime="2014-10-24T07:52:39Z" is="relative-time">Oct 24, 2014</time>
+        <div class="commit-title">
+            <a href="/Lquartz/ACM/commit/cd160130f84b73efb5601defb0691bbc1fe2ffa0" class="message" data-pjax="true" title="update">update</a>
+        </div>
+    </div>
+
+    <div class="participation">
+      <p class="quickstat">
+        <a href="#blob_contributors_box" rel="facebox">
+          <strong>1</strong>
+           contributor
+        </a>
+      </p>
+      
+    </div>
+    <div id="blob_contributors_box" style="display:none">
+      <h2 class="facebox-header">Users who have contributed to this file</h2>
+      <ul class="facebox-user-list">
+          <li class="facebox-user-list-item">
+            <img alt="Lquartz" data-user="7759199" height="24" src="https://avatars3.githubusercontent.com/u/7759199?v=3&amp;s=48" width="24" />
+            <a href="/Lquartz">Lquartz</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+<div class="file-box">
+  <div class="file">
+    <div class="meta clearfix">
+      <div class="info file-name">
+        <span>217.517 kb</span>
+      </div>
+      <div class="actions">
+        <div class="button-group">
+          <a href="/Lquartz/ACM/raw/master/Template/Template_2014/%E6%80%BB%E6%A8%A1%E6%9D%BF_lsy%5B2014-10-24%5D.docx" class="minibutton " id="raw-url">Raw</a>
+          <a href="/Lquartz/ACM/commits/master/Template/Template_2014/%E6%80%BB%E6%A8%A1%E6%9D%BF_lsy%5B2014-10-24%5D.docx" class="minibutton " rel="nofollow">History</a>
+        </div><!-- /.button-group -->
+
+          <a class="octicon-button tooltipped tooltipped-nw"
+             href="github-windows://openRepo/https://github.com/Lquartz/ACM?branch=master&amp;filepath=Template%2FTemplate_2014%2F%E6%80%BB%E6%A8%A1%E6%9D%BF_lsy%5B2014-10-24%5D.docx" aria-label="Open this file in GitHub for Windows">
+              <span class="octicon octicon-device-desktop"></span>
+          </a>
+
+
+            <a class="octicon-button danger"
+               href="/Lquartz/ACM/delete/master/Template/Template_2014/%E6%80%BB%E6%A8%A1%E6%9D%BF_lsy%5B2014-10-24%5D.docx"
+               aria-label="Delete this file"
+               data-method="post" data-test-id="delete-blob-file" rel="nofollow">
+          <span class="octicon octicon-trashcan"></span>
+        </a>
+      </div><!-- /.actions -->
+    </div>
+    
+
+  <div class="blob-wrapper data type-text">
+      <div class="image">
+          <a href="/Lquartz/ACM/blob/master/Template/Template_2014/%E6%80%BB%E6%A8%A1%E6%9D%BF_lsy%5B2014-10-24%5D.docx?raw=true">View Raw</a>
+      </div>
+  </div>
+
+  </div>
+</div>
+
+<a href="#jump-to-line" rel="facebox[.linejump]" data-hotkey="l" style="display:none">Jump to Line</a>
+<div id="jump-to-line" style="display:none">
+  <form accept-charset="UTF-8" class="js-jump-to-line-form">
+    <input class="linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" autofocus>
+    <button type="submit" class="button">Go</button>
+  </form>
+</div>
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="https://developer.github.com">API</a></li>
+      <li><a href="http://training.github.com">Training</a></li>
+      <li><a href="http://shop.github.com">Shop</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about">About</a></li>
+
+    </ul>
+
+    <a href="/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>&copy; 2014 <span title="0.12298s from github-fe139-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="/site/terms">Terms</a></li>
+        <li><a href="/site/privacy">Privacy</a></li>
+        <li><a href="/security">Security</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents js-suggester-field" placeholder=""></textarea>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w"
+      aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-2d727fed4d969b14b28165c75ad12d7dddd56c0198fa70cedc3fdad7ac395b2c.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-f82405eac9208116886d504ad90a85513ea8de114d676a6cf7f35aaa497cb974.js" type="text/javascript"></script>
+      
+      
+  </body>
+</html>
+

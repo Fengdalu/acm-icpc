@@ -1,0 +1,67 @@
+<html><body bgcolor="#009933" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+Anu is a little child.
+His teacher asked him to solve the following problem:
+</p>
+<p></p>
+<p>
+<i>
+There are n bins in a row.
+The bins are numbered 1 through n from the left to the right.
+There is also an infinite supply of balls of n distinct colors.
+Place exactly one ball into each bin, with the restriction that adjacent bins cannot contain balls of the same color.
+How many valid configurations of balls in bins are there?
+</i>
+</p>
+
+<p></p>
+
+<p>
+Anu solved this problem correctly:
+"There are n * (n-1)^(n-1) valid configurations.
+Imagine that we are filling the bins from the left to the right.
+I have n possibilities for the color of the ball in the leftmost bin, and then (n-1) possibilities for each following ball, because I cannot use the color of the previous ball I placed."
+</p>
+<p></p>
+<p>
+However, Anu's teacher then tried to confuse Anu:
+"Sure, but what would happen if you were to fill the bins in a different order? Wouldn't that change the answer?"
+</p>
+<p></p>
+<p>
+Sadly, this time Anu got confused and answered incorrectly:
+"Yes, it would change the answer.
+For example, suppose that n = 3. 
+If we fill the bins in the order {1, 2, 3}, we have 3*2*2 = 12 ways to fill them.
+However, suppose we fill them in the order {1, 3, 2}.
+Here we have 3 possibilities for the color of the ball in bin 1, then 3 possibilities for the color of the ball in bin 3, and then only 1 possibility for the color of the ball in bin 2 -- as there are already two forbidden colors when filling in bin 2.
+Thus, for this order there are only 3*3*1 = 9 ways to fill the bins."
+</p>
+<p></p>
+
+<p>
+Hopefully you can see where Anu made the mistake, but it is not really important for this problem.
+</p>
+<p></p>
+<p>
+In this problem we will focus on the (incorrect) method Anu used to count the number of ways to fill the bins, given the order in which to fill them.
+We can formally define this method as follows:
+Let P be a permutation of n bins.
+We will use f(P) to denote the value computed by Anu if the bins are filled in the order given by P.
+Anu will compute the value f(P) as follows:
+At the beginning, he sets f(P) to 1.
+Whenever he fills a bin, he multiplies f(P) by (n-x), where x is the number of neighboring bins that have already been filled.
+For example, if he has to put a ball into bin 7 in a situation where bins 6 and 8 already contain balls, he will multiply f(P) by (n-2).
+</p>
+<p></p>
+<p>
+You are given an int <b>n</b>.
+Anu has computed the value f(P) for each possible permutation P of numbers 1 through <b>n</b>.
+Let Z be the sum of the <b>n</b> factorial values Anu computed.
+Compute and return the value (Z modulo 1,000,000,007).
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>SumOverPermutations</td></tr><tr><td>Method:</td><td>findSum</td></tr><tr><td>Parameters:</td><td>int</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int findSum(int n)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>n</b> will be between 1 and 4000, inclusive.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>2</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4</pre></td></tr><tr><td><table><tr><td colspan="2">There are two possible permutations: {1, 2} and {2, 1}.
+For each of them Anu will compute the value f(P) = 2*1 = 2.
+The answer is ((2 + 2) mod (10^9 + 7)) = 4.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>3</pre></td></tr></table></td></tr><tr><td><pre>Returns: 66</pre></td></tr><tr><td><table><tr><td colspan="2">Now there are six permutations. 
+For four of them f returns 3*2*2 = 12.
+These are the permutations {1, 2, 3}, {2, 1, 3}, {2, 3, 1}, and {3, 2, 1}. 
+For the remaining two permutations f returns 3*3*1 = 9.
+Thus, the answer is 4*12 + 2*9 = 66.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>10</pre></td></tr></table></td></tr><tr><td><pre>Returns: 58310114</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>3900</pre></td></tr></table></td></tr><tr><td><pre>Returns: 940560814</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
