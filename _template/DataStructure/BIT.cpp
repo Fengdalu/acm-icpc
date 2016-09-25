@@ -1,6 +1,6 @@
 /*
  * 支持第 k 大的 BIT
- * Kybconner
+ * Kyb
  */
 inline int LB(int x) {return x & (-x);}
 const int MXN = 1e5;
@@ -20,7 +20,10 @@ struct BIT {
     void update(int w, T d) {
         for (w += 3; w < n; w += LB(w))_[w] += d;
     }
-    int find_Kth(int k) {        //UESTC_Dagon
+    /*
+     * 待验证
+     */
+    int find_Kth(int k) {        // UESTC_Dagon
         int ans=0,cnt=0;
         for(int i=22;i>=0;i--){
             ans+=1<<i;
