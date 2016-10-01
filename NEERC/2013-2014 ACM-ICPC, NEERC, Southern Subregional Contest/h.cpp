@@ -60,5 +60,3 @@ int main() {
     for(int i = 0; i < len + 1; i++) printf("%c", ans[i]);
     return 0;
 }
-
-
