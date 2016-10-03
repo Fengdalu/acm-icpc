@@ -1,4 +1,4 @@
-#include <vector>
+#include <bits/stdc++.h>
 const int POW = 18;
 const int N = 1e5;
 /*
@@ -12,11 +12,11 @@ int p[N][POW];
 int d[N];
 std::vector<int>edge[N];
 void dfs(int u, int fa){
-    d[u] = d[fa]+1;
+    d[u] = d[fa] + 1;
     p[u][0] = fa;
     for(int i = 1; i < POW; i++) p[u][i] = p[p[u][i - 1]][i - 1];
-    int sz=edge[u].size();
-    for(int i=0;i<sz;i++){
+    int sz = edge[u].size();
+    for(int i = 0;i < sz; i++){
         int v = edge[u][i];
         if(v == fa) continue;
         dfs(v, u);
@@ -24,7 +24,7 @@ void dfs(int u, int fa){
 }
 
 int lca(int a, int b) {
-    if(d[a] > d[b]) a ^= b, b ^= a, a ^= b;
+    if(d[a] > d[b]) std::swap(a, b);
     if(d[a] < d[b]) {
         int del = d[b] - d[a];
         for(int i = 0; i < POW; i++) if(del & (1 << i)) b = p[b][i];
