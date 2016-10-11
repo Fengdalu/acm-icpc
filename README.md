@@ -2,6 +2,8 @@
 
 Magic exists! Out My Limit!
 
+Fight!!
+
 ## Online Judge In Mainland China
 
 http://acm.hdu.edu.cn
