@@ -1,28 +1,16 @@
-﻿/*
- * 求一个字符串字典序最小的开头位置 ,
- * 复制串两次 , len = 原长度
+/*
+ * 待验证
  */
-#include <bits/stdc++.h>
-int smallest(char *s, int len) {
-    int i = 0, j = 1, k = 0;
-    while(i < len && j < len) {
-        k = 0;
-        while(k < len && (s[i + k] == s[j + k])) k++;
-        if(k >= len) break;
-        if(s[i + k] > s[j + k]) i = std::max(i + k + 1, j + 1);
-        else j = std::max(i + 1, j + k + 1);
-    }
-    return std::min(i, j);
-}
+#include <string>
+#include <algorithm>
 
-int biggest(char *s, int len) {
-    int i = 0,j = 1,k = 0;
-    while(i < len && j < len) {
-        k = 0;
-        while(k < len && (s[i + k] == s[j + k])) k++;
-        if(k >= len) break;
-        if(s[i + k] < s[j + k]) i = std::max(i + k + 1, j + 1);
-        else j = std::max(i + 1, j + k + 1);
+std::string find(std::string s) {
+    int i,j,k,l,N=s.length(); s+=s;
+    for(i=0,j=1;j<N;){
+        for(k=0;k<N&&s[i+k]==s[j+k];k++);
+        if(k>=N) break;
+        if(s[i+k]<s[j+k]) j+=k+1;
+        else l=i+k,i=j,j=std::max(l,j)+1;
     }
-    return std::min(i,j);
+    return s.substr(i,N);
 }
