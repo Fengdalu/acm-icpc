@@ -1,0 +1,138 @@
+
+BODY {
+	margin: 0pt;
+	padding: 4pt 0pt;
+	background-color: white;
+	font-family: sans-serif;
+}
+
+IMG {
+	border: 0
+}
+
+.banner {
+	text-align: center;
+	vertical-align: middle;
+}
+
+TABLE.header {
+	width: 100%;
+}
+
+.menu {
+    color: white;
+	background-color: #7088c0;
+	border: 2px solid #7088c0;
+	font: bold 10pt Verdana,sans-serif,Helvetica;
+}
+.menu A:link, .menu A:visited {text-decoration: none; color:white}
+.menu A:hover, .menu A:active {text-decoration: none; color:red}
+.menu A.sel:link, .menu A.sel:visited {color: yellow}
+
+.notice {
+	font-size: smaller;
+	/* font-style: italic; */
+	color: #ddd;
+}
+
+.red {
+	color: red;
+	font-weight: bold;
+}
+
+
+DIV.main {
+	margin: 18pt;
+}
+
+DIV.main TABLE.empty, DIV.main TABLE.empty TD {
+	border: 0pt;
+	background-color: white;
+	text-align: center;
+	vertical-align: middle;
+	padding: 2pt;
+}
+
+DIV.main TABLE {
+	border: solid 2pt;
+	background-color: white;
+}
+
+DIV.main TH {
+	color: white;
+	background-color: #506898;
+	padding: 6pt;
+	border: solid 1px black;
+}
+
+DIV.main TD {
+	background-color: #ffc;
+	padding: 6pt 10pt;
+	vertical-align: top;
+	border: solid 1px;
+}
+
+DIV.main TD.tdrows {
+	text-align: center;
+	line-height: 1.5
+}
+
+DIV.main TD.num {
+	text-align: right;
+}
+
+DIV.main TABLE.num TD.not, DIV.main TABLE.num TD.em {
+	text-align: left;
+}
+
+DIV.main TABLE.num TD {
+	text-align: right;
+}
+
+DIV.main TD.empty {
+	background-color: white;
+}
+
+DIV.main TD.sep {
+	background-color: #506898;
+	border: 0pt;
+	padding-left: 6pt;
+	padding-right: 6pt;
+}
+
+DIV.main TD.em {
+	font-weight: bold;
+}
+
+DIV.main IMG.red {
+	border: solid 3px red
+}
+DIV.main IMG.blue {
+	border: solid 3px blue
+}
+DIV.main IMG.green {
+	border: solid 3px #0c0
+}
+
+
+TABLE.counter {
+	border: 0pt;
+	margin: 12pt;
+}
+
+TABLE.counter TD {
+	vertical-align: middle;
+	padding: 6pt;
+}
+
+IMG.counter {
+	width: 128px;
+	height: 48px;
+}
+
+.repair {color: #990000}
+
+.new {
+	font-size: x-small;
+	color: #009900;
+}
