@@ -1,5 +1,5 @@
 /*
- * 待验证
+ * hdu 3374
  */
 #include <string>
 #include <algorithm>

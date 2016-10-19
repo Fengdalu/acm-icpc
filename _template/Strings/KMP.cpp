@@ -1,4 +1,4 @@
-﻿/*
+/*
  * 初始把 a , b, Next , 清零
  * Hdu 1711
  */
@@ -33,3 +33,4 @@ int KMP_Index(int a[N], int b[N], int n, int m) {
     if(j == m) return i - m + 1;
     else return -1;
 }
+
