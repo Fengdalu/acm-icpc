@@ -71,13 +71,13 @@ int n;
                 //*/
                 void init(int mat[][Maxm], int n, int m) {
                     cnt = 0;
-                    memset(colsum, 0, sizeof (colsum) );            
-                    head = &node[cnt ++ ];          
-                    for(int i = 1; i <= n; i ++ )           
-                        row[i] = &node[cnt ++ ];            
-                    for(int j = 1; j <= m; j ++ )           
-                        col[j] = &node[cnt ++ ];            
-                    head->D = row[1], row[1]->U = head;        
+                    memset(colsum, 0, sizeof (colsum) );
+                    head = &node[cnt ++ ];
+                    for(int i = 1; i <= n; i ++ )
+                        row[i] = &node[cnt ++ ];
+                    for(int j = 1; j <= m; j ++ )
+                        col[j] = &node[cnt ++ ];
+                    head->D = row[1], row[1]->U = head;
                     head->R = col[1], col[1]->L = head;
                     head->U = row[n], row[n]->D = head;
                     head->L = col[m], col[m]->R = head;
