@@ -1,8 +1,7 @@
 /*
- * 割边
- * Kyb
+ * Kyb 待验证
  */
-#include <bits/stdc++.h>
+#include <algorithm>
 const int N = 100000 + 5;
 
 int ntot,head[N],etot,dfn[N],low[N],belong[N],stack[N],top,tot,tim,n,m;

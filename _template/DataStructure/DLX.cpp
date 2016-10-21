@@ -14,9 +14,9 @@ struct DLX{
 
     /* dancing link
      * 精确覆盖问题
-     * 可以添加迭代加深优化：
-     * 1）枚举深度 h
-     * 2）若当前深度 +predeep > h return false；
+     * 可以添加迭代加深优化
+     * 1) 举深度 h
+     * 2) 若当前深度 + predeep > h : return false；
      * 3) mat 下标 1 开始
      */
     /*
@@ -106,9 +106,9 @@ struct DLX{
             for(Node* r = p->R; r != p; r = r->R)
                 if (r->col != 0)
                     remove (col[r->col]);
-            /*--------可修改区域-----------*/
+            // -------- 可修改区域 -----------
             ans[deep] = p->row;
-            /*-----------------------------*/
+            // -------------------------------
             int sta = dfs (deep + 1);
             if(sta) return sta;
             for(Node* r = p->L; r != p; r = r->L)

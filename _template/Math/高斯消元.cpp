@@ -26,7 +26,7 @@ int Gauss(int equ, int var) {
     for(k = 0; k < equ && col < var; k++,col++) {
         // 枚举当前处理的行 .
         // 找到该 col 列元素绝对值最大的那行与第 k 行交换  .
-        // (为了在除法时减小误差)
+        // ( 为了在除法时减小误差 )
         max_r=k;
         for(i = k + 1; i < equ; i++) {
             if((a[i][col]) > (a[max_r][col])) max_r = i;

@@ -1,8 +1,10 @@
 /*
- * 割点
- * 注意重边
+ * Kyb 待验证 注意重边
  */
-#include <bits/stdc++.h>
+#include <stack>
+#include <vector>
+#include <algorithm>
+
 const int N = 10000 + 5;
 const int M = 100000 + 5;
 
@@ -105,4 +107,3 @@ int main() {
     }
     return 0;
 }
-Contact GitHub API Training Shop Blog About
