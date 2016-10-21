@@ -12,12 +12,12 @@ struct DLX{
     int colsum[Maxm], cnt;
     /* dancing link
      * 重复覆盖问题
-     * 可以添加迭代加深优化：
-     * 1)  枚举深度 h ；
-     * 2) 若当前深度 +predeep > h return false
-     * , 继续搜索 deep + predeep + 1 <= h
-     *
+     * 可以添加迭代加深优化
+     * 1) 举深度 h
+     * 2) 若当前深度 + predeep > h : return false；
+     * 3) mat 下标 1 开始
      */
+
     int predeep(){
         bool vis[Maxm];
         Node * p, *q, *r;
@@ -104,9 +104,9 @@ struct DLX{
             for(r = p->R; r != p; r = r->R) {
                 if(r->col != 0) remove(r);
             }
-            /*--------可修改区域-----------*/
+            // -------- 可修改区域 -----------
             //       ans[deep] = p->row;
-            /*-----------------------------*/
+            // -----------------------------
             int sta = 0;
             sta = dfs(deep + 1);
             if(sta) return sta;
