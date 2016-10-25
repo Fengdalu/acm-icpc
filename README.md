@@ -48,8 +48,6 @@ http://topcoder.com
 
 生成树计数
 
-bfprf
-
 Splay
 
 LCT
