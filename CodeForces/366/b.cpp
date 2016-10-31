@@ -1,16 +1,26 @@
 #include <bits/stdc++.h>
-using namespace std;
 
+const int N = 2000;
+char s[N][N];
+int r[N], c[N];
+int n, m;
 int main() {
-    int n;
-    long long ans = 0;
-    scanf("%d", &n);
-    for(int i = 0; i < n; i++) {
-        int x; scanf("%d", &x); x--;
-        ans += 1ll * x;
-        if(ans & 1) printf("1"); else printf("2");
-        printf("\n");
-    }
-    return 0;
+	scanf("%d%d", &n, &m);
+	for(int i = 0; i < n; i++) scanf("%s", s + i);
+	int tot = 0;
+	for(int i = 0; i < n; i++)
+		for(int j = 0; j < m; j++) if(s[i][j] == '*')
+			r[i]++, c[j]++, tot++;
+	for(int i = 0; i < n; i++)	
+		for(int j = 0; j < m; j++) {
+			int sum = r[i] + c[j];
+			if(s[i][j] == '*') sum--;
+			if(sum == tot) {
+				puts("YES");
+				printf("%d %d\n", i + 1, j + 1);
+				return 0;
+			}
+		}
+	puts("NO");
+	return 0;
 }
-

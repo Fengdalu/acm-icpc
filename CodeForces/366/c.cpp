@@ -1,43 +1,26 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-#define PII pair<int, int>
-#define AA first
-#define BB second
-#define MP make_pair
-int t;
-set<PII>s;
-set<int>f[300010];
+#define cmax(x, y) x = std::max(x, y)
+const int N = 200;
+int dp[2][3];
 
 int main() {
-    int n, q;
-    scanf("%d%d", &n, &q);
-    int cnt = 1;
-    for(int i = 1; i <= q; i++) {
-        int op, t; scanf("%d%d", &op, &t);
-        if(op == 1) {
-            f[t].insert(cnt);
-            s.insert(MP(cnt, t));
-            cnt++;
-        }
-        else if(op == 2) {
-            while(f[t].size()) {
-                int g = *f[t].begin();
-                s.erase(s.find(MP(g, t)));
-                f[t].erase(f[t].begin());
-            }
-        }
-        else if(op == 3) {
-            while(s.size()) {
-                auto x = *s.begin();
-                if(x.first <= t) {
-                    s.erase(s.begin());
-                    f[x.second].erase(f[x.second].find(x.first));
-                }
-                else break;
-            }
-        }
-        printf("%d\n", s.size());
-    }
-    return 0;
+	int n; scanf("%d", &n);
+	int cur = 0, next = 1;
+	for(int j = 0; j < 3; j++) dp[cur][j] = -1;
+	dp[cur][0] = 0;
+	for(int i = 0; i < n; i++) {
+		int mk; scanf("%d", &mk);
+		for(int j = 0; j < 3; j++) dp[next][j] = -1;
+		for(int j = 0; j < 3; j++) if(~dp[cur][j]) {
+			cmax(dp[next][0], dp[cur][j]);
+			for(int k = 1; k <= 2; k++) if(k != j) if(mk >> (k - 1) & 1) {
+				cmax(dp[next][k], dp[cur][j] + 1);
+			}
+		}
+		std::swap(cur, next);
+	}
+	printf("%d\n", std::max(0, n - *std::max_element(dp[cur], dp[cur] + 3)));
+	return 0;
 }
+
