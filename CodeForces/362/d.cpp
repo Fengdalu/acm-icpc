@@ -29,8 +29,7 @@ void cal(int x) {
   // printf("%d : %lf\n", x, sum);
   for(int i = 0; i < g[x].size(); i++) {
     int v = g[x][i];
-    printf("\t %d %lf %lf\n", v, sum - son[v], (sum - son[v]) * fact[sz - 1]);
-    ans[v] = 1 + fa + (sum - son[v]) * fact[sz - 1] / sz;
+    ans[v] = 1 + fa + (sum - son[v]) / 2;
     cal(v);
   }
 }
