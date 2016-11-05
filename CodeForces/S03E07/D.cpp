@@ -9,7 +9,6 @@ int a[N];
 int sz;
 
 void add(int l, int r, int type, int id) {
-  if(l > r) return ;
   curNode->l = l;
   curNode->r = r;
   curNode->type = type;
@@ -23,31 +22,31 @@ int operator < (const node &a, const node &b) {
   return a.l / sz < b.l / sz;
 }
 
-int sum[N];
+int sum1[N], sum2[N];
 void deal() {
-  int l = 1, r = 0;
+  int l1 = 0, l2 = 0;
   ll tot = 0;
   for(int i = 0; i < curNode - nodes; i++) {
     node &cur = nodes[i];
-    while(r < cur.r) { 
-      r++; 
-      sum[a[r]]++; 
-      tot += sum[a[r]];
+    while(l2 < cur.r) { 
+      l2++; 
+      sum2[a[l2]]++; 
+      tot += sum1[a[l2]];
     }
-    while(r > cur.r) { 
-      tot -= sum[a[r]]; 
-      sum[a[r]]--; 
-      r--;  
+    while(l2 > cur.r) { 
+      tot -= sum1[a[l2]]; 
+      sum2[a[l2]]--; 
+      l2--;
     }
-    while(l > cur.l) { 
-      l--; 
-      sum[a[l]]++; 
-      tot += sum[a[l]]; 
+    while(l1 < cur.l) { 
+      l1++; 
+      sum1[a[l1]]++; 
+      tot += sum2[a[l1]]; 
     }
-    while(l < cur.l) { 
-      tot -= sum[a[l]]; 
-      sum[a[l]]--; 
-      l++; 
+    while(l1 > cur.l) { 
+      tot -= sum2[a[l1]]; 
+      sum1[a[l1]]--; 
+      l1--; 
     }
     ans[cur.id] += nodes[i].type * tot;
   }
@@ -62,25 +61,12 @@ int main() {
   int cnt = 0;
 
   for(int i = 0; i < m; i++) {
-    // puts("==============");
     int l1, r1, l2, r2;
     scanf("%d%d%d%d", &l1, &r1, &l2, &r2);
-    if(l1 > l2) {
-      std::swap(l1, l2);
-      std::swap(r1, r2);
-    }
-    if(r1 >= l2) {
-      add(l1, std::max(r1, r2), 1, i);
-      add(l1, std::max(l1, l2) - 1, -1, i);
-      add(std::min(r1, r2) + 1, std::max(r1, r2), -1, i);
-      add(std::max(l1, l2), std::min(r1, r2), 1, i);
-      ans[i] -= std::min(r1, r2) - std::max(l1, l2) + 1;
-      continue;
-    }
-    add(l1, r2, 1, i);
-    add(l1, l2 - 1, -1, i);
-    add(r1 + 1, r2, -1, i);
-    add(r1 + 1, l2 - 1, 1, i);
+    add(r1, r2, 1, i);
+    add(l1 - 1, r2, -1, i);
+    add(r1, l2 - 1, -1, i);
+    add(l1 - 1, l2 - 1, 1, i);
   }
   sz = sqrt(n);
   std::sort(nodes, curNode);
