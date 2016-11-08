@@ -48,13 +48,9 @@ http://topcoder.com
 
 生成树计数
 
-Splay
-
 LCT
 
 SAM 
-
-DLX
 
 带环图sg : async
 
