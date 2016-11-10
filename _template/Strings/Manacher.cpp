@@ -9,12 +9,12 @@ int pk[N];
 template <typename T>
 // [0, n)
 void manacher(T *a, int n) {
-    int mx = 0;
-    int p;
-    for(int i = 0; i < n; i++) {
-        if(i < mx) pk[i] = std::min(pk[2 * p - i], mx - i);
-        else pk[i] = 1;
-        while(i + pk[i] < n && i - pk[i] > -1 && a[i + pk[i]] == a[i - pk[i]]) pk[i]++;
-        if(i + pk[i] > mx) { p = i; mx = i + pk[i]; }
-    }
+  int mx = 0;
+  int p;
+  for(int i = 0; i < n; i++) {
+    if(i < mx) pk[i] = std::min(pk[2 * p - i], mx - i);
+    else pk[i] = 1;
+    while(i + pk[i] < n && i - pk[i] > -1 && a[i + pk[i]] == a[i - pk[i]]) pk[i]++;
+    if(i + pk[i] > mx) { p = i; mx = i + pk[i]; }
+  }
 }

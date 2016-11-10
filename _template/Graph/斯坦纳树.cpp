@@ -32,72 +32,72 @@ int n, m, K;
 vector<int> split[Maxk];
 int gao[MSta];
 int has (int sta) {
-    int i, a = 0, b = 0, u;
-    for (i = 0; i < 2 * K; i++) {
-        if ((1<<i) & sta) {
-            u = mp1[i];
-            if (u <= K) a++;
-            else b++;
-        }
+  int i, a = 0, b = 0, u;
+  for (i = 0; i < 2 * K; i++) {
+    if ((1<<i) & sta) {
+      u = mp1[i];
+      if (u <= K) a++;
+      else b++;
     }
-    if (a == b) return true;
-    else return false;
+  }
+  if (a == b) return true;
+  else return false;
 }
 int ans;
 queue<PII> que;
 int inque[Maxn][MSta];
 int doit() {
-    int i, j, k, u, v, w, su, sv, sub, vv, tp;
-    int kk = 2 * K;
-    for (i = 1; i <= n; i++) {
-        for (j = 0; j < (1<< kk); j++) dp[i][j] = MOD, inque[i][j] = 0;
-        dp[i][0] = 0; inque[i][0] = 0;
+  int i, j, k, u, v, w, su, sv, sub, vv, tp;
+  int kk = 2 * K;
+  for (i = 1; i <= n; i++) {
+    for (j = 0; j < (1<< kk); j++) dp[i][j] = MOD, inque[i][j] = 0;
+    dp[i][0] = 0; inque[i][0] = 0;
+  }
+  while(!que.empty()) que.pop();
+  memset(mp2, 0, sizeof(mp2));
+  for(i = 1, j = 0; i <= K; i++, j++)mp1[j] = i, mp2[i] = 1<<j;
+  for(i = n - K + 1; i <= n; i++, j++)mp1[j] = i, mp2[i] = 1<<j;
+  for(i = 0; i < kk; i++) {
+    for(u = 1; u <= n; u++) {
+      cmin(dp[u][1<<i], gg[u][mp1[i]]);
+      inque[u][1<<i] = 1;
+      que.push(MP(u, 1<<i));
     }
-    while(!que.empty()) que.pop();
-    memset(mp2, 0, sizeof(mp2));
-    for(i = 1, j = 0; i <= K; i++, j++)mp1[j] = i, mp2[i] = 1<<j;
-    for(i = n - K + 1; i <= n; i++, j++)mp1[j] = i, mp2[i] = 1<<j;
-    for(i = 0; i < kk; i++) {
-        for(u = 1; u <= n; u++) {
-            cmin(dp[u][1<<i], gg[u][mp1[i]]);
-            inque[u][1<<i] = 1;
-            que.push(MP(u, 1<<i));
+  }
+  while(!que.empty()) {
+    u = que.front().AA; su = que.front().BB; que.pop();
+    sub = su;
+    tp = dp[u][su];
+    do {
+      sv = sub ^ su;
+      cmin(tp, dp[u][sub] + dp[u][sv]);
+      sub = (sub - 1) & su;
+    }while(sub != su);
+    if(tp < dp[u][su]) dp[u][su] = tp;
+    for(j = 0; j < g[u].SZ; j++) {
+      v = g[u][j].AA; w = g[u][j].BB;
+      if(su & mp2[v]) continue;
+      sv = su | mp2[v];
+      if(dp[v][sv] > dp[u][su] + w) {
+        dp[v][sv] = dp[u][su] + w;
+        if(!inque[v][sv]) {
+          inque[v][sv] = 1;
+          que.push(MP(v, sv));
         }
+      }
     }
-    while(!que.empty()) {
-        u = que.front().AA; su = que.front().BB; que.pop();
-        sub = su;
-        tp = dp[u][su];
-        do {
-            sv = sub ^ su;
-            cmin(tp, dp[u][sub] + dp[u][sv]);
-            sub = (sub - 1) & su;
-        }while(sub != su);
-        if(tp < dp[u][su]) dp[u][su] = tp;
-        for(j = 0; j < g[u].SZ; j++) {
-            v = g[u][j].AA; w = g[u][j].BB;
-            if(su & mp2[v]) continue;
-            sv = su | mp2[v];
-            if(dp[v][sv] > dp[u][su] + w) {
-                dp[v][sv] = dp[u][su] + w;
-                if(!inque[v][sv]) {
-                    inque[v][sv] = 1;
-                    que.push(MP(v, sv));
-                }
-            }
+    for(j = 0; j < kk; j++) {
+      if(su & (1<<j)) continue;
+      sv = su | (1<<j);
+      if(dp[u][sv] > dp[u][su] + gg[u][mp1[j]]) {
+        dp[u][sv] = dp[u][su] + gg[u][mp1[j]];
+        if(!inque[u][sv]) {
+          inque[u][sv] = 1;
+          que.push(MP(u, sv));
         }
-        for(j = 0; j < kk; j++) {
-            if(su & (1<<j)) continue;
-            sv = su | (1<<j);
-            if(dp[u][sv] > dp[u][su] + gg[u][mp1[j]]) {
-                dp[u][sv] = dp[u][su] + gg[u][mp1[j]];
-                if(!inque[u][sv]) {
-                    inque[u][sv] = 1;
-                    que.push(MP(u, sv));
-                }
-            }
-        }
-        inque[u][su] = 0;
+      }
+    }
+    inque[u][su] = 0;
     }
 
     for(i = 0; i <= kk; i++) split[i].clear();

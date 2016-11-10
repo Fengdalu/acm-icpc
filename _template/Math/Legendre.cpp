@@ -4,9 +4,9 @@
 
 typedef long long ll;
 ll lrd(ll n, ll x) {
-    ll ans = 0;
-    for(ll k = x; k <= n; k *= x) {
-        ans += n / k;
-    }
-    return ans;
+  ll ans = 0;
+  for(ll k = x; k <= n; k *= x) {
+    ans += n / k;
+  }
+  return ans;
 }

@@ -9,11 +9,11 @@
 + [ ] Miller素数测试
 + [ ] 模同余方程组
 + [ ] 离散对数
-+ [ ] DLX
++ [X] DLX
 + [ ] Mobius反演
 + [ ] SAM
 + [ ] Treap
-+ [ ] Splay
++ [X] Splay
 + [ ] KDT
 + [ ] 树分治
 + [ ] FWT
@@ -28,11 +28,14 @@
     + [ ] Simpson积分
     
 ## 修补
+
 + [X] 二维线段树 ( 完善 )
 + [X] KM
 + [X] Matrix-Tree定理
+
 ==
+
 + [X] 生成树计数
 + [X] ORE Theory (  哈密尔顿回路判定 ) 
-+ [?] SPFA 优化 ( 效果不明 ）
++ [ ] SPFA 优化 ( 效果不明 ）
 + [X] .vimrc
