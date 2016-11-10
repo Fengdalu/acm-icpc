@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * 自适应 Simpson}
+\PYG{c+cm}{ * 验题 :hdu4978}
+\PYG{c+cm}{ * Kyb 待验证}
+\PYG{c+cm}{ */}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cmath\PYGZgt{}}
+\PYG{k}{const} \PYG{k+kt}{double} \PYG{n}{eps} \PYG{o}{=} \PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{;}
+\PYG{k+kt}{double} \PYG{n+nf}{f}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{k}{return} \PYG{n}{x}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n+nf}{simpson}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{c} \PYG{o}{=} \PYG{n}{a} \PYG{o}{+} \PYG{p}{(}\PYG{n}{b} \PYG{o}{\PYGZhy{}} \PYG{n}{a}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{;}
+  \PYG{k}{return} \PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{4} \PYG{o}{*} \PYG{n}{f}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)} \PYG{o}{+} \PYG{n}{f}\PYG{p}{(}\PYG{n}{b}\PYG{p}{))} \PYG{o}{*} \PYG{p}{(}\PYG{n}{b} \PYG{o}{\PYGZhy{}} \PYG{n}{a}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{6}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n+nf}{asr}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{b}\PYG{p}{,} \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{eps}\PYG{p}{,} \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{A}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{c} \PYG{o}{=} \PYG{n}{a} \PYG{o}{+} \PYG{p}{(}\PYG{n}{b} \PYG{o}{\PYGZhy{}} \PYG{n}{a}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{;}
+  \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{L} \PYG{o}{=} \PYG{n}{simpson}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{c}\PYG{p}{),} \PYG{n}{R} \PYG{o}{=} \PYG{n}{simpson}\PYG{p}{(}\PYG{n}{c}\PYG{p}{,} \PYG{n}{b}\PYG{p}{);}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{fabs}\PYG{p}{(}\PYG{n}{L} \PYG{o}{+} \PYG{n}{R} \PYG{o}{\PYGZhy{}} \PYG{n}{A}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{15} \PYG{o}{*} \PYG{n}{eps}\PYG{p}{)} \PYG{k}{return} \PYG{n}{L} \PYG{o}{+} \PYG{n}{R} \PYG{o}{+} \PYG{p}{(}\PYG{n}{L} \PYG{o}{+} \PYG{n}{R} \PYG{o}{\PYGZhy{}} \PYG{n}{A}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{15.}\PYG{p}{;}
+  \PYG{k}{return} \PYG{n}{asr}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n}{eps} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{L}\PYG{p}{)} \PYG{o}{+} \PYG{n}{asr}\PYG{p}{(}\PYG{n}{c}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{eps} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{R}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n+nf}{asr}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{b}\PYG{p}{,} \PYG{k+kt}{long} \PYG{k+kt}{double} \PYG{n}{eps}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{asr}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{eps}\PYG{p}{,} \PYG{n}{simpson}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

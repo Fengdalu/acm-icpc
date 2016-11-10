@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{MXN} \PYG{o}{=} \PYG{l+m+mi}{4}\PYG{p}{;}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{mod} \PYG{o}{=} \PYG{l+m+mf}{1e4}\PYG{o}{+}\PYG{l+m+mi}{7}\PYG{p}{;}
+\PYG{k}{template} \PYG{o}{\PYGZlt{}}\PYG{k}{typename} \PYG{n}{T}\PYG{o}{\PYGZgt{}} \PYG{k}{class} \PYG{n+nc}{Matrix}\PYG{p}{\PYGZob{}}
+  \PYG{k}{public}\PYG{o}{:}
+    \PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,}\PYG{n}{m} \PYG{p}{;}
+    \PYG{n}{T} \PYG{n}{a}\PYG{p}{[}\PYG{n}{MXN}\PYG{p}{][}\PYG{n}{MXN}\PYG{p}{];}
+    \PYG{n}{Matrix}\PYG{p}{()} \PYG{p}{\PYGZob{}}\PYG{n}{memset}\PYG{p}{(}\PYG{n}{a} \PYG{p}{,} \PYG{l+m+mi}{0} \PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{a}\PYG{p}{));\PYGZcb{}}
+    \PYG{n}{Matrix}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{\PYGZus{}n} \PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{\PYGZus{}m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{n} \PYG{o}{=} \PYG{n}{\PYGZus{}n} \PYG{p}{,} \PYG{n}{m} \PYG{o}{=} \PYG{n}{\PYGZus{}m} \PYG{p}{,} \PYG{n}{memset}\PYG{p}{(}\PYG{n}{a} \PYG{p}{,} \PYG{l+m+mi}{0} \PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{a}\PYG{p}{));}
+    \PYG{p}{\PYGZcb{};}
+    \PYG{n}{T}\PYG{o}{*} \PYG{k}{operator}\PYG{p}{[]} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{)} \PYG{p}{\PYGZob{}}\PYG{k}{return} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];\PYGZcb{}}
+    \PYG{n}{Matrix} \PYG{k}{friend} \PYG{k}{operator} \PYG{o}{*} \PYG{p}{(}\PYG{n}{Matrix} \PYG{n}{A} \PYG{p}{,} \PYG{n}{Matrix} \PYG{n}{B}\PYG{p}{)\PYGZob{}}
+      \PYG{n}{Matrix} \PYG{n}{ans}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{n} \PYG{p}{,} \PYG{n}{B}\PYG{p}{.}\PYG{n}{m}\PYG{p}{);}
+      \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0} \PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{A}\PYG{p}{.}\PYG{n}{n} \PYG{p}{;} \PYG{o}{++} \PYG{n}{i}\PYG{p}{)}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0} \PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{A}\PYG{p}{.}\PYG{n}{m} \PYG{p}{;} \PYG{o}{++} \PYG{n}{j}\PYG{p}{)}\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{o}{!=}\PYG{l+m+mi}{0}\PYG{p}{)}
+          \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0} \PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{B}\PYG{p}{.}\PYG{n}{m} \PYG{p}{;} \PYG{o}{++} \PYG{n}{k}\PYG{p}{)}
+            \PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{+}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{o}{*}\PYG{n}{B}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{])} \PYG{o}{\PYGZpc{}} \PYG{n}{mod}\PYG{p}{;}
+      \PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

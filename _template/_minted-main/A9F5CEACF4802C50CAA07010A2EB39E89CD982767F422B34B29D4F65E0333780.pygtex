@@ -1,0 +1,36 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * 初始把 a , b, Next , 清零}
+\PYG{c+cm}{ * Hdu 1711}
+\PYG{c+cm}{ */}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{2000000}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n}{Next}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{[}\PYG{n}{N}\PYG{p}{],} \PYG{n}{b}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{c+c1}{// a 为主串 ， b 为钥串}
+\PYG{k+kt}{void} \PYG{n+nf}{getNext}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{b}\PYG{p}{[}\PYG{n}{N}\PYG{p}{],} \PYG{k+kt}{int} \PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{j}\PYG{p}{,}\PYG{n}{k}\PYG{p}{;}
+  \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{k} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{n}{Next}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{k}{while}\PYG{p}{(}\PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{k} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{||} \PYG{n}{b}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{==} \PYG{n}{b}\PYG{p}{[}\PYG{n}{k}\PYG{p}{])}
+      \PYG{n}{Next}\PYG{p}{[}\PYG{o}{++}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{k}\PYG{p}{;}
+    \PYG{k}{else} \PYG{n}{k} \PYG{o}{=} \PYG{n}{Next}\PYG{p}{[}\PYG{n}{k}\PYG{p}{];}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{// 得到 b 在 a 中的第一次出现位置}
+\PYG{c+c1}{// 因为 next 与 STL 冲突所以用Next代替}
+\PYG{k+kt}{int} \PYG{n+nf}{kmp}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{[}\PYG{n}{N}\PYG{p}{],} \PYG{k+kt}{int} \PYG{n}{b}\PYG{p}{[}\PYG{n}{N}\PYG{p}{],} \PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k}{while}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{j} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{||}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{n}{b}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n}{i}\PYG{o}{++}\PYG{p}{;}
+      \PYG{n}{j}\PYG{o}{++}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{else} \PYG{n}{j} \PYG{o}{=} \PYG{n}{Next}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{j} \PYG{o}{==} \PYG{n}{m}\PYG{p}{)} \PYG{k}{return} \PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{m} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{k}{else} \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

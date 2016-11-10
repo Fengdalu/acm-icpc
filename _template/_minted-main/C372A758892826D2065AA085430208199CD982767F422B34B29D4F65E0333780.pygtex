@@ -1,0 +1,59 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * 树分治}
+\PYG{c+cm}{ * Kyb , 待验证}
+\PYG{c+cm}{ */}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{100000} \PYG{o}{+} \PYG{l+m+mi}{5}\PYG{p}{;}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{edges}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{;}
+\PYG{k+kt}{bool} \PYG{n}{vis}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{parent}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{sz}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{que}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{balance}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+
+\PYG{k+kt}{int} \PYG{n+nf}{bfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{source}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{fa} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{qf} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{qe} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{que}\PYG{p}{[}\PYG{n}{qe}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{source}\PYG{p}{;}
+  \PYG{n}{parent}\PYG{p}{[}\PYG{n}{source}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fa}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{qf} \PYG{o}{!=} \PYG{n}{qe}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{que}\PYG{p}{[}\PYG{n}{qf}\PYG{o}{++}\PYG{p}{];}
+    \PYG{n}{sz}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{balance}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{edges}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{parent}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{parent}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+        \PYG{n}{que}\PYG{p}{[}\PYG{n}{qe}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{v}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{qe} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{o}{\PYGZhy{}\PYGZhy{}} \PYG{n}{i}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{que}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{n}{sz}\PYG{p}{[}\PYG{n}{parent}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]]} \PYG{o}{+=} \PYG{n}{sz}\PYG{p}{[}\PYG{n}{u}\PYG{p}{];}
+    \PYG{n}{balance}\PYG{p}{[}\PYG{n}{parent}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]]} \PYG{o}{=} \PYG{n}{std}\PYG{o}{::}\PYG{n}{max}\PYG{p}{(}\PYG{n}{balance}\PYG{p}{[}\PYG{n}{parent}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]],}\PYG{n}{sz}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]);}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{qe}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{divide}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{root}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{tot} \PYG{o}{=} \PYG{n}{bfs}\PYG{p}{(}\PYG{n}{root}\PYG{p}{);}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{tot} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{o}{\PYGZhy{}\PYGZhy{}} \PYG{n}{i}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{que}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{n}{balance}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{std}\PYG{o}{::}\PYG{n}{max}\PYG{p}{(}\PYG{n}{balance}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],}\PYG{n}{tot} \PYG{o}{\PYGZhy{}} \PYG{n}{sz}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{balance}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{balance}\PYG{p}{[}\PYG{n}{root}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n}{root} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n}{bfs}\PYG{p}{(}\PYG{n}{root}\PYG{p}{);}
+
+  \PYG{c+c1}{// balabalah}
+
+  \PYG{n}{vis}\PYG{p}{[}\PYG{n}{root}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n+nl}{u} \PYG{p}{:} \PYG{n}{edges}\PYG{p}{[}\PYG{n}{root}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n}{divide}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,77 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{// 二进制版本 , hdu5833}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{1000}\PYG{p}{;}
+
+\PYG{k+kt}{double} \PYG{n}{a}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n+nf}{gauss}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{eq}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{var}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{line} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{ret} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{var}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{target} \PYG{o}{=} \PYG{n}{line}\PYG{p}{;}
+    \PYG{k}{while}\PYG{p}{(}\PYG{n}{target} \PYG{o}{\PYGZlt{}} \PYG{n}{eq} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{a}\PYG{p}{[}\PYG{n}{target}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{n}{target}\PYG{o}{++}\PYG{p}{;}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{target} \PYG{o}{==} \PYG{n}{eq}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{n}{ret}\PYG{o}{++}\PYG{p}{;} \PYG{k}{continue}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+    \PYG{n}{std}\PYG{o}{::}\PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{target}\PYG{p}{],} \PYG{n}{a}\PYG{p}{[}\PYG{n}{line}\PYG{p}{]);}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{eq}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{k}{if}\PYG{p}{(}\PYG{n}{j} \PYG{o}{!=} \PYG{n}{line} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{a}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{i}\PYG{p}{])} \PYG{n}{a}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{\PYGZca{}=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{line}\PYG{p}{];}
+    \PYG{n}{line}\PYG{o}{++}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{ret}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 数值版本}
+\PYG{k+kt}{int} \PYG{n+nf}{Gauss}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{equ}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{var}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{;}
+  \PYG{k+kt}{int} \PYG{n}{max\PYGZus{}r}\PYG{p}{;} \PYG{c+c1}{// 当前这列绝对值最大的行 .}
+  \PYG{k+kt}{int} \PYG{n}{col}\PYG{p}{;} \PYG{c+c1}{// 当前处理的列}
+  \PYG{c+c1}{// 转换为阶梯阵 .}
+  \PYG{n}{col} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{// 当前处理的列}
+  \PYG{k}{for}\PYG{p}{(}\PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{equ} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{col} \PYG{o}{\PYGZlt{}} \PYG{n}{var}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{,}\PYG{n}{col}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// 枚举当前处理的行 .}
+    \PYG{c+c1}{// 找到该 col 列元素绝对值最大的那行与第 k 行交换  .}
+    \PYG{c+c1}{// ( 为了在除法时减小误差 )}
+    \PYG{n}{max\PYGZus{}r}\PYG{o}{=}\PYG{n}{k}\PYG{p}{;}
+    \PYG{k}{for}\PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{n}{k} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{equ}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k}{if}\PYG{p}{((}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{col}\PYG{p}{])} \PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{max\PYGZus{}r}\PYG{p}{][}\PYG{n}{col}\PYG{p}{]))} \PYG{n}{max\PYGZus{}r} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{max\PYGZus{}r} \PYG{o}{!=} \PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{c+c1}{// 与第k行交换 .}
+      \PYG{k}{for}\PYG{p}{(}\PYG{n}{j}\PYG{o}{=}\PYG{n}{k}\PYG{p}{;} \PYG{n}{j}\PYG{o}{\PYGZlt{}}\PYG{n}{var}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{j}\PYG{p}{],} \PYG{n}{a}\PYG{p}{[}\PYG{n}{max\PYGZus{}r}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if}\PYG{p}{((}\PYG{n}{a}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{col}\PYG{p}{])}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{c+c1}{// 说明该 col 列第 k 行以下全是 0 了 , 则处理当前行的下一列 .}
+      \PYG{n}{k}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+      \PYG{k}{continue}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{for}\PYG{p}{(}\PYG{n}{i}\PYG{o}{=}\PYG{n}{k}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{equ}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{c+c1}{// 枚举要删去的行 .}
+      \PYG{k}{if}\PYG{p}{((}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{col}\PYG{p}{])} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{for}\PYG{p}{(}\PYG{n}{j} \PYG{o}{=} \PYG{n}{var}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZgt{}=} \PYG{n}{col}\PYG{p}{;} \PYG{n}{j}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+          \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{*} \PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{col}\PYG{p}{]} \PYG{o}{/} \PYG{n}{a}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{col}\PYG{p}{]);}
+        \PYG{p}{\PYGZcb{}}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{c+c1}{// 无穷解 , 返回自由变元个数}
+  \PYG{c+c1}{// 会改变解的顺序}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{var}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{equ}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k}{if}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+      \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{flag}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{j}\PYG{o}{\PYGZlt{}}\PYG{n}{var}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+          \PYG{k}{if}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n}{flag} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}=} \PYG{n}{i}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+              \PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{i}\PYG{p}{],} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]);}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{k}{break}\PYG{p}{;}
+          \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{flag}\PYG{p}{)}
+          \PYG{k}{return} \PYG{n}{var} \PYG{o}{\PYGZhy{}} \PYG{n}{i}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{var} \PYG{o}{\PYGZhy{}} \PYG{n}{equ}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

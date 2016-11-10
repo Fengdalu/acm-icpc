@@ -1,0 +1,45 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cm}{/* Hdu 4300}
+\PYG{c+cm}{ * S 为主串 , T 为子串 ,}
+\PYG{c+cm}{ * LS 为 S 长度 , LT 为 T 长度 ,}
+\PYG{c+cm}{ * B[i] 表示 S[i] 匹配了 B[i] 长度的 T}
+\PYG{c+cm}{ */}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{Maxn} \PYG{o}{=} \PYG{l+m+mf}{1e5}\PYG{p}{;}
+\PYG{k+kt}{char} \PYG{n}{S}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{],} \PYG{n}{T}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{Next}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{],} \PYG{n}{B}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{];}
+
+\PYG{k+kt}{void} \PYG{n+nf}{preExKmp}\PYG{p}{(}\PYG{k+kt}{char} \PYG{n}{T}\PYG{p}{[],} \PYG{k+kt}{int} \PYG{n}{LT}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{next}\PYG{p}{[])} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{,} \PYG{n}{ind} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{n}{next}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{LT}\PYG{p}{;}
+  \PYG{k}{while}\PYG{p}{(}\PYG{n}{ind} \PYG{o}{+} \PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}} \PYG{n}{LT} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{T}\PYG{p}{[}\PYG{n}{ind} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{==} \PYG{n}{T}\PYG{p}{[}\PYG{n}{ind}\PYG{p}{])} \PYG{n}{ind}\PYG{o}{++}\PYG{p}{;}
+  \PYG{n}{next}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ind}\PYG{p}{;}
+  \PYG{k}{for}\PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{LT}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{k} \PYG{o}{+} \PYG{n}{next}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{next}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{k}\PYG{p}{]} \PYG{o}{+} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{k} \PYG{o}{+} \PYG{n}{next}\PYG{p}{[}\PYG{n}{k}\PYG{p}{])}
+      \PYG{n}{next}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{next}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{k}\PYG{p}{];}
+    \PYG{k}{else} \PYG{p}{\PYGZob{}}
+      \PYG{n}{ind} \PYG{o}{=} \PYG{n}{std}\PYG{o}{::}\PYG{n}{max}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{k} \PYG{o}{+} \PYG{n}{next}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{i}\PYG{p}{);}
+      \PYG{k}{while}\PYG{p}{(}\PYG{n}{ind} \PYG{o}{+} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{LT} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{T}\PYG{p}{[}\PYG{n}{ind} \PYG{o}{+} \PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{n}{T}\PYG{p}{[}\PYG{n}{ind}\PYG{p}{])} \PYG{n}{ind}\PYG{o}{++}\PYG{p}{;}
+      \PYG{n}{next}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ind}\PYG{p}{;} \PYG{n}{k} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{exKmp}\PYG{p}{(}\PYG{k+kt}{char} \PYG{n}{S}\PYG{p}{[],} \PYG{k+kt}{int} \PYG{n}{LS}\PYG{p}{,} \PYG{k+kt}{char} \PYG{n}{T}\PYG{p}{[],} \PYG{k+kt}{int} \PYG{n}{LT}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{next}\PYG{p}{[],} \PYG{k+kt}{int} \PYG{n}{B}\PYG{p}{[])} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{,} \PYG{n}{ind} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{preExKmp}\PYG{p}{(}\PYG{n}{T}\PYG{p}{,} \PYG{n}{LT}\PYG{p}{,} \PYG{n}{next}\PYG{p}{);}
+  \PYG{k}{while}\PYG{p}{(}\PYG{n}{ind} \PYG{o}{\PYGZlt{}} \PYG{n}{LS} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{ind} \PYG{o}{\PYGZlt{}} \PYG{n}{LT} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{T}\PYG{p}{[}\PYG{n}{ind}\PYG{p}{]} \PYG{o}{==} \PYG{n}{S}\PYG{p}{[}\PYG{n}{ind}\PYG{p}{])} \PYG{n}{ind}\PYG{o}{++}\PYG{p}{;}
+  \PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ind}\PYG{p}{;}
+  \PYG{k}{for}\PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{LS}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{p} \PYG{o}{=} \PYG{n}{k} \PYG{o}{+} \PYG{n}{B}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{L} \PYG{o}{=} \PYG{n}{next}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{k}\PYG{p}{];}
+    \PYG{k}{if}\PYG{p}{((}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{+} \PYG{n}{L} \PYG{o}{\PYGZlt{}} \PYG{n}{p}\PYG{p}{)}
+      \PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{L}\PYG{p}{;}
+    \PYG{k}{else} \PYG{p}{\PYGZob{}}
+      \PYG{n}{ind} \PYG{o}{=} \PYG{n}{std}\PYG{o}{::}\PYG{n}{max}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{p} \PYG{o}{\PYGZhy{}} \PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+      \PYG{k}{while}\PYG{p}{(}\PYG{n}{ind} \PYG{o}{+} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{LS} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{ind} \PYG{o}{\PYGZlt{}} \PYG{n}{LT} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S}\PYG{p}{[}\PYG{n}{ind} \PYG{o}{+} \PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{n}{T}\PYG{p}{[}\PYG{n}{ind}\PYG{p}{])} \PYG{n}{ind}\PYG{o}{++}\PYG{p}{;}
+      \PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ind}\PYG{p}{;}
+      \PYG{n}{k} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

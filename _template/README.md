@@ -1,5 +1,9 @@
 # 模板
 
+pip install Pygment
+
+apt-get install texlive-full
+
 ## 添加
 
 + [ ] lucas定理

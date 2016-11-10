@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * 求以 i 为中心的最长回文串长度 ,}
+\PYG{c+cm}{ * 结果保存在 $ pk[i] $ 中 , 下标 $ [0, n) $ ,}
+\PYG{c+cm}{ * 开头 , 末尾 , 字符之间插入 \PYGZbs{}\PYGZsh{} , 例如 ababa 变为 \PYGZbs{}\PYGZsh{}a\PYGZbs{}\PYGZsh{}b\PYGZbs{}\PYGZsh{}a\PYGZbs{}\PYGZsh{}b\PYGZbs{}\PYGZsh{}a\PYGZbs{}\PYGZsh{}}
+\PYG{c+cm}{ */}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mf}{1e5}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k}{template} \PYG{o}{\PYGZlt{}}\PYG{k}{typename} \PYG{n}{T}\PYG{o}{\PYGZgt{}}
+\PYG{c+c1}{// [0, n)}
+\PYG{k+kt}{void} \PYG{n}{manacher}\PYG{p}{(}\PYG{n}{T} \PYG{o}{*}\PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{mx} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k+kt}{int} \PYG{n}{p}\PYG{p}{;}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{mx}\PYG{p}{)} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{std}\PYG{o}{::}\PYG{n}{min}\PYG{p}{(}\PYG{n}{pk}\PYG{p}{[}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{p} \PYG{o}{\PYGZhy{}} \PYG{n}{i}\PYG{p}{],} \PYG{n}{mx} \PYG{o}{\PYGZhy{}} \PYG{n}{i}\PYG{p}{);}
+    \PYG{k}{else} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{while}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{n} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]} \PYG{o}{==} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]])} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{mx}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{n}{p} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;} \PYG{n}{mx} \PYG{o}{=} \PYG{n}{i} \PYG{o}{+} \PYG{n}{pk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];} \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

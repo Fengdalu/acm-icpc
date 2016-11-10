@@ -1,0 +1,83 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * 最小树形图 ,  就是给有向带权图中指定一个特殊的点 root ,}
+\PYG{c+cm}{ * 求一棵以 root 为根的有向生成树$T$ , 并且$T$中所有边的总权值最小 .}
+\PYG{c+cm}{ * 最小树形图 ( 根固定 ) , $ O(VE) $ .}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * 求一个有向图的最小生成树 ,}
+\PYG{c+cm}{ * 如果根不固定 , 添加一个根节点与所有点连无穷大的边 ,}
+\PYG{c+cm}{ * 或者总边权$+1$ , 如果求出比$2*MOD$大或者返回值为$-1$ , 则不连通 ;}
+\PYG{c+cm}{ * 求根 , 则求和虚拟根相连的结点 .}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * 根据pre的信息能构造出这棵树 , 注意结点必须从$ [0, n) $ ,}
+\PYG{c+cm}{ * 因为要考虑重新标号建图的统一 , mytype 根据实际情况确定 .}
+\PYG{c+cm}{ */}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{Maxn} \PYG{o}{=} \PYG{l+m+mi}{1000}\PYG{p}{;}
+\PYG{k}{const} \PYG{k+kt}{double} \PYG{n}{MOD} \PYG{o}{=} \PYG{l+m+mf}{1e9}\PYG{p}{;}
+\PYG{k}{struct} \PYG{n}{obj} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{;}
+  \PYG{k+kt}{double} \PYG{n}{w}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{e}\PYG{p}{[}\PYG{n}{Maxn} \PYG{o}{*} \PYG{n}{Maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{;}
+
+\PYG{k}{typedef} \PYG{k+kt}{double} \PYG{n}{mytype}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{visit}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{],} \PYG{n}{pre}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{],} \PYG{n}{belong}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{],} \PYG{n}{ROOT}\PYG{p}{;}
+\PYG{n}{mytype} \PYG{n}{inv}\PYG{p}{[}\PYG{n}{Maxn}\PYG{p}{];}
+\PYG{n}{mytype} \PYG{n+nf}{dirtree}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{m}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{root}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{mytype} \PYG{n}{sum} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{inv}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{MOD}\PYG{p}{;}
+      \PYG{n}{pre}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+      \PYG{n}{belong}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+      \PYG{n}{visit}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{inv}\PYG{p}{[}\PYG{n}{root}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 除原点外，找每个点的最小入边}
+      \PYG{n}{u} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{;} \PYG{n}{v} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{;}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{u} \PYG{o}{!=} \PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w} \PYG{o}{\PYGZlt{}} \PYG{n}{inv}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+          \PYG{n}{inv}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w}\PYG{p}{;}
+          \PYG{n}{pre}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+          \PYG{k}{if}\PYG{p}{(}\PYG{n}{u} \PYG{o}{==} \PYG{n}{root}\PYG{p}{)} \PYG{n}{ROOT} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;} \PYG{c+c1}{// 记录根所在的边}
+          \PYG{c+c1}{// 输出根时利用$ROOT-m$计算是原图哪个结点}
+        \PYG{p}{\PYGZcb{}}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{inv}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{n}{MOD}\PYG{p}{)} \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kt}{int} \PYG{n}{num} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 找圈，收缩圈}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{visit}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{j} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+        \PYG{k}{for}\PYG{p}{(}\PYG{n}{j} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;} \PYG{n}{j} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{visit}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{j} \PYG{o}{!=} \PYG{n}{root}\PYG{p}{;} \PYG{n}{j} \PYG{o}{=} \PYG{n}{pre}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+          \PYG{n}{visit}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{j} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{visit}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{==} \PYG{n}{i}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+          \PYG{k}{for} \PYG{p}{(}\PYG{n}{k} \PYG{o}{=} \PYG{n}{pre}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];} \PYG{n}{k} \PYG{o}{!=} \PYG{n}{j}\PYG{p}{;} \PYG{n}{k} \PYG{o}{=} \PYG{n}{pre}\PYG{p}{[}\PYG{n}{k}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+            \PYG{n}{belong}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n}{num}\PYG{p}{;}
+          \PYG{p}{\PYGZcb{}}
+          \PYG{n}{belong}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{num}\PYG{o}{++} \PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+      \PYG{p}{\PYGZcb{}}
+      \PYG{n}{sum} \PYG{o}{+=} \PYG{n}{inv}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{num} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{k}{return} \PYG{n}{sum}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{belong}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{belong}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{num} \PYG{o}{++} \PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 重新构图}
+      \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w} \PYG{o}{\PYGZhy{}} \PYG{n}{inv}\PYG{p}{[}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{];}
+      \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v} \PYG{o}{=} \PYG{n}{belong}\PYG{p}{[}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{];}
+      \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u} \PYG{o}{=} \PYG{n}{belong}\PYG{p}{[}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n}{num}\PYG{p}{;}
+    \PYG{n}{root} \PYG{o}{=} \PYG{n}{belong}\PYG{p}{[}\PYG{n}{root}\PYG{p}{];}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,79 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cstdio\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stack\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cstring\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}algorithm\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cstring\PYGZgt{}}
+
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{500}\PYG{p}{;}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{M} \PYG{o}{=} \PYG{l+m+mf}{2e6}\PYG{p}{;}
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * dfn: 标号数组}
+\PYG{c+cm}{ * low: 回向边数组}
+\PYG{c+cm}{ */}
+\PYG{k+kt}{int} \PYG{n}{ind}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{to}\PYG{p}{[}\PYG{n}{M}\PYG{p}{],} \PYG{n}{nt}\PYG{p}{[}\PYG{n}{M}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{N}\PYG{p}{],} \PYG{n}{low}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{color}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{bool} \PYG{n}{vis}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{cnt}\PYG{p}{,} \PYG{n}{num}\PYG{p}{,} \PYG{n}{idn}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{ncnt}\PYG{p}{;}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{stack}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{n}{s}\PYG{p}{;}
+
+\PYG{k+kt}{void} \PYG{n+nf}{add}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{j}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{cnt}\PYG{o}{++}\PYG{p}{;}
+  \PYG{n}{to}\PYG{p}{[}\PYG{n}{cnt}\PYG{p}{]} \PYG{o}{=} \PYG{n}{j}\PYG{p}{;}
+  \PYG{n}{nt}\PYG{p}{[}\PYG{n}{cnt}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ind}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+  \PYG{n}{ind}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{cnt}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{tarjan}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{k}{return}\PYG{p}{;}
+  \PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{num}\PYG{p}{;}
+  \PYG{n}{vis}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+  \PYG{n}{s}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{n}{ind}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];} \PYG{n}{k} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{k} \PYG{o}{=} \PYG{n}{nt}\PYG{p}{[}\PYG{n}{k}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{n}{tarjan}\PYG{p}{(}\PYG{n}{to}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]);}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{to}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]])} \PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{std}\PYG{o}{::}\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],} \PYG{n}{low}\PYG{p}{[}\PYG{n}{to}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]]);}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{==} \PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{n}{ncnt}\PYG{o}{++}\PYG{p}{;}
+    \PYG{k}{while}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k+kt}{int} \PYG{n}{p} \PYG{o}{=} \PYG{n}{s}\PYG{p}{.}\PYG{n}{top}\PYG{p}{();}
+      \PYG{n}{s}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+      \PYG{n}{color}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ncnt}\PYG{p}{;}
+      \PYG{n}{vis}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+      \PYG{k}{if}\PYG{p}{(}\PYG{n}{p} \PYG{o}{==} \PYG{n}{x}\PYG{p}{)} \PYG{k}{break}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{Maxn} \PYG{o}{=} \PYG{l+m+mi}{500}\PYG{p}{;}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{Maxm} \PYG{o}{=} \PYG{l+m+mi}{50000}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{[}\PYG{n}{Maxm}\PYG{p}{],} \PYG{n}{b}\PYG{p}{[}\PYG{n}{Maxm}\PYG{p}{],} \PYG{n}{c}\PYG{p}{[}\PYG{n}{Maxm}\PYG{p}{];}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{check}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{memset}\PYG{p}{(}\PYG{n}{dfn}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof} \PYG{n}{dfn}\PYG{p}{);}
+  \PYG{n}{memset}\PYG{p}{(}\PYG{n}{low}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof} \PYG{n}{low}\PYG{p}{);}
+  \PYG{n}{memset}\PYG{p}{(}\PYG{n}{vis}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof} \PYG{n}{vis}\PYG{p}{);}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{n}{ind}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{k+kt}{int} \PYG{n}{tot} \PYG{o}{=} \PYG{n}{n}\PYG{p}{;}
+  \PYG{n}{num} \PYG{o}{=} \PYG{n}{idn} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{cnt} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{ncnt} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{c+cm}{/*}
+\PYG{c+cm}{   * 这里建图}
+\PYG{c+cm}{   * 每个节点分为两个，选和不选}
+\PYG{c+cm}{   * $(p->q)$, 表示选$p$一定要选$q$}
+\PYG{c+cm}{   * 检查每个节点选和不选是否在同一个集合}
+\PYG{c+cm}{   */}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{n}{tarjan}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{color}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{n}{color}\PYG{p}{[}\PYG{n}{tot} \PYG{o}{+} \PYG{n}{i}\PYG{p}{])} \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

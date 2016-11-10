@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{POW} \PYG{o}{=} \PYG{l+m+mi}{18}\PYG{p}{;}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mf}{1e5}\PYG{p}{;}
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * p[i][j]: $i$的第$j$倍祖先}
+\PYG{c+cm}{ * d[i]: $i$在树中的深度}
+\PYG{c+cm}{ * edge[N]: 边集合}
+\PYG{c+cm}{ * dfs(u, fa): 求出$p, d$}
+\PYG{c+cm}{ * lca(a, b): 求出$(a, b)$的最近公共祖先}
+\PYG{c+cm}{ */}
+\PYG{k+kt}{int} \PYG{n}{p}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{POW}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{n}{edge}\PYG{p}{[}\PYG{n}{N}\PYG{p}{];}
+\PYG{k+kt}{void} \PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{fa}\PYG{p}{)\PYGZob{}}
+  \PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{d}\PYG{p}{[}\PYG{n}{fa}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{n}{p}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fa}\PYG{p}{;}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{POW}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{n}{p}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]][}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{];}
+  \PYG{k+kt}{int} \PYG{n}{sz} \PYG{o}{=} \PYG{n}{edge}\PYG{p}{[}\PYG{n}{u}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{sz}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{v} \PYG{o}{=} \PYG{n}{edge}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{v} \PYG{o}{==} \PYG{n}{fa}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+    \PYG{n}{dfs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{u}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{lca}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{d}\PYG{p}{[}\PYG{n}{a}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{d}\PYG{p}{[}\PYG{n}{b}\PYG{p}{])} \PYG{n}{std}\PYG{o}{::}\PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{);}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{d}\PYG{p}{[}\PYG{n}{a}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{d}\PYG{p}{[}\PYG{n}{b}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{del} \PYG{o}{=} \PYG{n}{d}\PYG{p}{[}\PYG{n}{b}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{[}\PYG{n}{a}\PYG{p}{];}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{POW}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{k}{if}\PYG{p}{(}\PYG{n}{del} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{i}\PYG{p}{))} \PYG{n}{b} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{b}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{a} \PYG{o}{!=} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{POW} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+      \PYG{k}{if}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{a}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{b}\PYG{p}{][}\PYG{n}{i}\PYG{p}{])}
+        \PYG{n}{a} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{a}\PYG{p}{][}\PYG{n}{i}\PYG{p}{],} \PYG{n}{b} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{b}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{a}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{b} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{b}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{a}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

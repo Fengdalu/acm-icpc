@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{ll}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}define MP make\PYGZus{}pair}
+\PYG{c+cp}{\PYGZsh{}define AA first}
+\PYG{c+cp}{\PYGZsh{}define BB second}
+\PYG{c+cp}{\PYGZsh{}define PB push\PYGZus{}back}
+\PYG{c+cp}{\PYGZsh{}define SZ size}
+\PYG{c+cp}{\PYGZsh{}define OP begin()}
+\PYG{c+cp}{\PYGZsh{}define ED end()}
+\PYG{k}{typedef} \PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{PII}\PYG{p}{;}
+\PYG{c+cm}{/* =========================================================== */}
+\end{Verbatim}
