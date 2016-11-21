@@ -8,19 +8,16 @@ using namespace std;
 long long f[20000];
 int T, n, m;
 
-int main()
-{
+int main() {
    scanf("%d", &T);
-   for(int ii = 0; ii < T; ii++)
-   {
+   for(int ii = 0; ii < T; ii++) {
        for(int i = 0; i < 20000; i++) f[i] = INF; 
        f[0] = 0;
        int x, y;
        scanf("%d%d", &x, &y);
        n = y - x;
        scanf("%d", &m);
-       for(int i = 0; i < m; i++)
-       {
+       for(int i = 0; i < m; i++) {
            int w;
            long v;
            scanf("%I64d%d", &v, &w);
