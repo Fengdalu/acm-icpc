@@ -1,44 +1,40 @@
-#include <cstdio>
-#include <cstring>
-#include <map>
 #include <iostream>
+#include <cstdio>
 #include <algorithm>
+#include <cstring>
+#include <vector>
 #include <queue>
-#include <cmath>
-using namespace std;
-#define eps 1e-8
-const int maxn=10005;
-bool notprime[maxn];
-int prime[maxn],prinum;
-int ans[maxn];
-void init()
-{
-    for(int i=2;i<maxn;i++)
-    {
-        if(notprime[i])continue;
-        prime[prinum++]=i;
-        for(int j=2*i;j<maxn;j+=i)
-            notprime[j]=1;
-    }
-    for(int i=0;i<prinum;i++)
-    {
-        int sum=0;
-        for(int j=i;j<prinum;j++)
-        {
-            sum+=prime[j];
-            if(sum>=maxn)break;
-            ans[sum]++;
-        }
-    }
-}
 
-int main()
-{
-    init();
-    int n;
-    while(scanf("%d",&n),n)
-    {
-        printf("%d\n",ans[n]);
+char buf[200010];
+int main() {
+    int n, m;
+    scanf("%d%d", &n, &m);
+    std::vector<std::string> s(n);
+    for(int i = 0; i < n; i++) {
+        scanf("%s", buf);
+        s[i] = std::string(buf);
+    }
+    int last = 0;
+    for(int Q = 0; Q < m; Q++) {
+        int op; scanf("%d", &op);
+        if(op == 1) {
+            scanf("%s", buf);
+            int len = strlen(buf);
+            for(int i = 0; i < len; i++) buf[i] = 'a' + (buf[i] - 'a' + last) % 26;
+            std::string S(buf);
+            bool flag = false;
+            for(int i = 0; i < n; i++) {
+                if(S.find(s[i]) != S.npos) {flag = true; break;}
+            }
+            if(flag) {puts("YES"); last = Q;} else puts("NO");
+        }
+        else if(op == 2) {
+            int p, ss; scanf("%d%d", &p, &ss);
+            p = (p + last) % n;
+            ss = 'a' + (ss + last) % 26;
+            s[p].push_back(ss);
+        }
     }
     return 0;
 }
+close
