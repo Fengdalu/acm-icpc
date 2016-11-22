@@ -1,5 +1,0 @@
-ACM
-===
-
-Try my best!
-

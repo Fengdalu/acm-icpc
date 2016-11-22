@@ -1,4 +1,0 @@
-Training
-========
-
-Coding everyday

@@ -1,6 +1,0 @@
- `gcc -print-prog-name=cc1plus` -v
-
-`g++ -print-prog-name=cc1plus` -v
-
-
-
