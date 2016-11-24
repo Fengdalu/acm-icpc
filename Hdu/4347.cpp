@@ -32,9 +32,13 @@ struct node {
     }
     return tot;
   }
-
-
 } nodes[N];
+int operator < (point a, point b) {return a[cur] < b[cur];}
+
+int newNode() {
+  nodes[cnt].l = nodes[cnt].r = -1;
+  return cnt++;
+}
 
 LL dis(point a, point b) {
   LL tot = 0;
@@ -42,11 +46,6 @@ LL dis(point a, point b) {
     tot += SQ(1LL * a[i] - b[i]);
   }
   return tot;
-}
-
-int newNode() {
-  nodes[cnt].l = nodes[cnt].r = -1;
-  return cnt++;
 }
 
 void update(node &p) {
@@ -61,7 +60,6 @@ void update(node &p) {
   }
 }
 
-int operator < (point a, point b) {return a[cur]<b[cur];}
 void build(int &rt, int d, int l, int r) {
   int mid = (l + r) >> 1;
   rt = newNode();
@@ -87,10 +85,11 @@ void sol(int rt, point t, priority_queue< pair<LL, point> >&ans, int m) {
   }
 }
 
-
+const char *fin = "";
+const char *fout = "";
 int main() {
-//  freopen("a.in", "r", stdin);
-//  freopen("1.out", "w", stdout);
+  freopen(fin, "r", stdin);
+  freopen(fout, "w", stdout);
   while(~scanf("%d%d", &n, &k)) {
     for(int i = 0; i < n; i++) {
       for(int j = 0; j < k; j++) scanf("%I64d", &a[i][j]);
