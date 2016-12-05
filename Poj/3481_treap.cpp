@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+#include <cstdio>
 
 using namespace std;
 #define AA first
@@ -6,111 +9,110 @@ using namespace std;
 #define MP make_pair
 #define PII pair<int, int>
 
-const int N = 100000+1000, MOD = 1e9+7;
+const int N = 1000000+1000, MOD = 1e9+7;
+const int nil = 0;
 struct node {
-    node* ch[2];
-    int key, sz;
+    int ch[2], key, sz;
     PII data;
-    void up() {
-        sz = ch[0]->sz + ch[1]->sz;
-    }
-} f[N], *cur = f;
-node *nil = &f[0];
-node *rt = nil;
+} f[N];
+int cnt, rt;
 
-node* get(PII data) {
-    cur++;
-    cur->ch[0] = cur->ch[1] = nil;
-    cur->sz = 1;
-    cur->key = rand();
-    cur->data = data;
-    return cur;
+void up(int cur) {
+    f[cur].sz = f[f[cur].ch[0]].sz + f[f[cur].ch[1]].sz + 1;
 }
 
-pair<node*, node*> split(node *p, int n) {
+int newNode(PII data) {
+    cnt++;
+    f[cnt].ch[0] = f[cnt].ch[1] = 0;
+    f[cnt].data = data;
+    f[cnt].sz = 1;
+    f[cnt].key = rand();
+    return cnt;
+}
+
+PII split(int p, int n) {
     if(n == 0) return MP(nil, p);
-    int sz = p->ch[0]->sz;
+    int sz = f[f[p].ch[0]].sz;
     if(n == sz) {
-        node *x = p->ch[0];
-        p->ch[0] = nil;
-        p->up();
+        int x = f[p].ch[0];
+        f[p].ch[0] = nil;
+        up(p);
         return MP(x, p);
     }
     else if(n == sz + 1) {
-        node *x = p->ch[1];
-        p->ch[1] = nil;
-        p->up();
+        int x = f[p].ch[1];
+        f[p].ch[1] = nil;
+        up(p);
         return MP(p, x);
     }
     else if(n < sz) {
-        pair<node*, node*> res = split(p->ch[0], n);
-        p->ch[0] = res.BB;
-        p->up();
+        PII res = split(f[p].ch[0], n);
+        f[p].ch[0] = res.BB;
+        up(p);
         return MP(res.AA, p);
     }
     else {
-        pair<node*, node*> res = split(p->ch[0], n - sz - 1);
-        p->ch[1] = res.AA;
-        p->up();
+        PII res = split(f[p].ch[1], n - sz - 1);
+        f[p].ch[1] = res.AA;
+        up(p);
         return MP(p, res.BB);
     }
 }
 
-node* merge(node *p, node *q) {
+int merge(int p, int q) {
     if(p == nil) return q;
     if(q == nil) return p;
-    if(p->key > q->key) {
-        q->ch[0] = merge(p, q->ch[0]);
-        q->up();
+    if(f[p].key > f[q].key) {
+        f[q].ch[0] = merge(p, f[q].ch[0]);
+        up(q);
         return q;
     }
     else {
-        p->ch[1] = merge(p->ch[1], q);
-        p->up();
+        f[p].ch[1] = merge(f[p].ch[1], q);
+        up(p);
         return p;
     }
 }
 
-int getrank(node *p, int w) {
+int getrank(int p, int w) {
     int ans = 0;
     while(p != nil) {
-        if(w == p->data.BB) return ans + p->ch[0]->sz;
-        if(w < p->data.BB) p = p->ch[0];
+        if(w == f[p].data.BB) return ans + f[f[p].ch[0]].sz;
+        if(w < f[p].data.BB) p = f[p].ch[0];
         else {
-            ans += p->ch[0]->sz + 1;
-            p = p->ch[1];
+            ans += f[f[p].ch[0]].sz + 1;
+            p = f[p].ch[1];
         }
     }
     return ans;
 }
 
 PII small() {
-    if(rt->sz == 0) return MP(0, 0);
-    pair<node*, node*> cur = split(rt, 1);
+    if(f[rt].sz == 0) return MP(0, 0);
+    PII cur = split(rt, 1);
     rt = cur.BB;
-    return cur.AA->data;
+    return f[cur.AA].data;
 }
 
 PII big() {
-    if(rt->sz == 0) return MP(0, 0);
-    pair<node*, node*> cur = split(rt, rt->sz - 1);
+    if(f[rt].sz == 0) return MP(0, 0);
+    PII cur = split(rt, f[rt].sz - 1);
     rt = cur.AA;
-    return cur.BB->data;
+    return f[cur.BB].data;
 }
 
 int main() {
-    freopen("a.in", "r", stdin);
-
+//    freopen("a.in", "r", stdin);
+    rt = nil;
     while(true) {
         int op;
         scanf("%d", &op);
-//        printf("OP: %d\n", op);
         if(op == 0) break;
         if(op == 1) {
             PII data; scanf("%d%d", &data.AA, &data.BB);
-            node *cur = get(data);
+            int cur = newNode(data);
             int rk = getrank(rt, data.BB);
-            pair<node*, node*> t = split(rt, rk);
+            PII t = split(rt, rk);
             rt = merge(t.AA, cur);
             rt = merge(rt, t.BB);
         }
