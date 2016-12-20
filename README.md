@@ -1,8 +1,6 @@
-# Ceva's Magical Training Index
+﻿# Ceva's Training Index
 
-Magic exists! Out My Limit!
-
-Fight!!
+Go Pro!
 
 ## Online Judge In Mainland China
 
