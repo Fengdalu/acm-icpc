@@ -1,3 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[15];
+int c[15][15];
+
+int main() {
+    int n = 15;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j <= i; j++)
+            scanf("%d", &c[i][j]);
+    for(int i = 0; i < n; i++) {
+        dp[i] = c[n-1][i];
+    }
+    for(int i = n - 2; i > -1; i--) {
+        for(int j = 0; j <= i; j++)
+            dp[j] = max(dp[j], dp[j + 1]) + c[i][j];
+    }
+    printf("%d\n", dp[0]);
+    return 0;
+}
+
+/*
+3
+7 4
+2 4 6
+8 5 9 3
 75
 95 64
 17 47 82
@@ -13,3 +40,6 @@
 91 71 52 38 17 14 91 43 58 50 27 29 48
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
+*/
+
+
