@@ -1,6 +1,7 @@
 ﻿# Ceva's Training Index
 
-This is my youth. 2015-2017
+This is my youth, Life as a ACMer from 2015 to 2017.
+
 https://icpc.baylor.edu/ICPCID/OB8R9U47XJ6A
 
 
