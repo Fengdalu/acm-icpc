@@ -1,6 +1,8 @@
 ﻿# Ceva's Training Index
 
-Go Pro!
+This is my youth. 2015-2017
+https://icpc.baylor.edu/ICPCID/OB8R9U47XJ6A
+
 
 ## Online Judge In Mainland China
 
