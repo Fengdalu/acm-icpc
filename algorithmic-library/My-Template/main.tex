@@ -1,0 +1,304 @@
+\documentclass[titlepage,landscape,a4paper,10pt]{article}
+\usepackage{listings, color, fontspec, minted, setspace, titlesec, fancyhdr, dingbat, mdframed, multicol}
+\usepackage{graphicx, amssymb, amsmath, textcomp, booktabs}
+\usepackage[Chinese]{ucharclasses}
+\usepackage[left=1.5cm, right=0.7cm, top=1.7cm, bottom=0.0cm]{geometry}
+
+%configure the top corners
+\pagestyle{fancy}
+\setlength{\headsep}{0.1cm}
+\rhead{Page \thepage}
+\lhead{北京交通大学 Beijing JiaoTong University}
+
+%configure space between the two columns
+\setlength{\columnsep}{30pt}
+
+%configure fonts
+\setmonofont{Isotype}[Scale=0.8]
+\newfontfamily\substitutefont{SimHei}[Scale=0.8]
+\setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
+
+%configure minted to display codes 
+\definecolor{Gray}{rgb}{0.9,0.9,0.9}
+
+%remove leading numbers in table of contents
+\setcounter{secnumdepth}{0}
+
+%configure section style
+%\titleformat{\section}
+%    {\normalfont\normalsize}    % The style of the section title
+%    {}                    % a prefix
+%    {0pt}                % How much space exists between the prefix and the title
+%    {\quad}                % How the section is represented
+\titleformat{\section}{\large}{}{0pt}{}
+\titlespacing{\section}{0pt}{0pt}{0pt}
+
+%enable section to start new page automatically
+%\let\stdsection\section
+%\renewcommand\section{\penalty-100\vfilneg\stdsection}
+
+%\renewcommand\theFancyVerbLine{\arabic{FancyVerbLine}}
+\renewcommand{\theFancyVerbLine}{\sffamily \textcolor[rgb]{0.5,0.5,0.5}{\scriptsize {\arabic{FancyVerbLine}}}}
+
+\setminted[cpp]{
+    style=xcode,
+    mathescape,
+    linenos,
+    autogobble,
+    baselinestretch=0.9,
+    tabsize=2,
+    fontsize=\normalsize,
+    %bgcolor=Gray,
+    frame=single,
+    framesep=1mm,
+    framerule=0.3pt,
+    numbersep=1mm,
+    breaklines=true,
+    breaksymbolsepleft=2pt,
+    %breaksymbolleft=\raisebox{0.8ex}{ \small\reflectbox{\carriagereturn}}, %not moe!
+    %breaksymbolright=\small\carriagereturn,
+    breakbytoken=false,
+}
+\setminted[java]{
+    style=xcode,
+    mathescape,
+    linenos,
+    autogobble,
+    baselinestretch=1.0,
+    tabsize=2,
+    %bgcolor=Gray,
+    frame=single,
+    framesep=1mm,
+    framerule=0.3pt,
+    numbersep=1mm,
+    breaklines=true,
+    breaksymbolsepleft=2pt,
+    %breaksymbolleft=\raisebox{0.8ex}{ \small\reflectbox{\carriagereturn}}, %not moe!
+    %breaksymbolright=\small\carriagereturn,
+    breakbytoken=false,
+}
+\setminted[text]{
+    style=xcode,
+    mathescape,
+    linenos,
+    autogobble,
+    baselinestretch=1.0,
+    tabsize=2,
+    %bgcolor=Gray,
+    frame=single,
+    framesep=1mm,
+    framerule=0.3pt,
+    numbersep=1mm,
+    breaklines=true,
+    breaksymbolsepleft=2pt,
+    %breaksymbolleft=\raisebox{0.8ex}{ \small\reflectbox{\carriagereturn}}, %not moe!
+    %breaksymbolright=\small\carriagereturn,
+    breakbytoken=false,
+}
+
+%configure titles
+\title{\LARGE{Beijing Jiaotong University , Standard Code Library} \\
+[2ex] \Large{SpadeAce, Fengdalu} }
+\date{\today}
+
+%THE SCL BEGINS
+\begin{document}
+\maketitle
+
+\begin{multicols*}{2}
+
+    \begin{spacing}{0}
+        \tableofcontents
+    \end{spacing}
+\end{multicols*}
+
+\begin{multicols}{2}
+
+\newpage
+\begin{spacing}{0.8}
+
+\section{基础}
+
+\subsection{头文件}
+\inputminted{cpp}{Basic/headers.cpp}
+
+\subsection{二进制函数 枚举组合数}
+\inputminted{cpp}{Basic/枚举组合.cpp}
+
+\subsection{日期时间公式}
+\inputminted{cpp}{Basic/zeller.cpp}
+
+\section{IO}
+
+\subsection{Cpp 快速读入}
+\inputminted{cpp}{IO/fastio.cpp}
+
+\subsection{Java 模板}
+\inputminted{java}{IO/Main.java}
+
+\section{数据结构}
+
+\subsection{BIT}
+\inputminted{cpp}{DataStructure/BIT.cpp}
+
+\subsection{LCA}
+\inputminted{cpp}{DataStructure/LCA.cpp}
+
+\subsection{RMQ}
+\inputminted{cpp}{DataStructure/RMQ.cpp}
+
+\subsection{二维线段树}
+\inputminted{cpp}{DataStructure/二维线段树.cpp}
+
+\subsection{主席树}
+\inputminted{cpp}{DataStructure/主席树.cpp}
+
+\subsection{树链剖分}
+\inputminted{cpp}{DataStructure/树链剖分.cpp}
+
+\subsection{树分治}
+\inputminted{cpp}{DataStructure/树分治.cpp}
+
+\subsection{Treap}
+\inputminted{cpp}{DataStructure/treap.cpp}
+
+\subsection{Splay}
+\inputminted{cpp}{DataStructure/Splay.cpp}
+
+\subsection{KD-Tree}
+\inputminted{cpp}{DataStructure/KDT.cpp}
+
+\subsection{KD-Tree 欧几里得距离}
+\inputminted{cpp}{DataStructure/KDT2.cpp}
+
+
+\subsection{DLX 精确覆盖}
+\inputminted{cpp}{DataStructure/DLX.cpp}
+
+\subsection{DLX 多重覆盖}
+\inputminted{cpp}{DataStructure/DLX2.cpp}
+
+\section{图论}
+
+\subsection{2-SAT}
+\inputminted{cpp}{Graph/2-SAT.cpp}
+
+\subsection{KM}
+\inputminted{cpp}{Graph/KM.cpp}
+
+\subsection{ISAP}
+\inputminted{cpp}{Graph/ISAP.cpp}
+
+\subsection{SAP}
+\inputminted{cpp}{Graph/SAP.cpp}
+
+\subsection{Dinic}
+\inputminted{cpp}{Graph/dinic.cpp}
+
+\subsection{Dijkstra 费用流}
+\inputminted{cpp}{Graph/MinCostFlow.cpp}
+
+\subsection{zkw 费用流}
+\inputminted{cpp}{Graph/zkw费用流.cpp}
+
+\subsection{欧拉回路}
+\inputminted{cpp}{Graph/欧拉回路.cpp}
+
+\subsection{二分图最大匹配 匈牙利算法}
+\inputminted{cpp}{Graph/匈牙利算法.cpp}
+
+\subsection{最小树形图}
+\inputminted{cpp}{Graph/朱刘.cpp}
+
+\subsection{哈密尔顿回路}
+\inputminted{cpp}{Graph/哈密尔顿回路.cpp}
+
+\subsection{增广路费用流}
+\inputminted{cpp}{Graph/增广路费用流.cpp}
+
+\subsection{无向图最小割}
+\inputminted{cpp}{Graph/无向图最小割.cpp}
+
+\subsection{一般图最大匹配 带花树}
+\inputminted{cpp}{Graph/带花树.cpp}
+
+
+\subsection{割点/割边}
+\inputminted{cpp}{Graph/tarjan.cpp}
+
+\subsection{斯坦纳树}
+\inputminted{cpp}{Graph/斯坦纳树.cpp}
+
+\section{字符串}
+
+\subsection{Hash}
+\inputminted{cpp}{Strings/BKDRHash.cpp}
+
+\subsection{KMP}
+\inputminted{cpp}{Strings/KMP.cpp}
+
+\subsection{EXKMP}
+\inputminted{cpp}{Strings/EXKMP.cpp}
+
+\subsection{SA}
+\inputminted{cpp}{Strings/SA.cpp}
+
+\subsection{DC3}
+\inputminted{cpp}{Strings/DC3.cpp}
+
+\subsection{Manacher 最长回文串}
+\inputminted{cpp}{Strings/Manacher.cpp}
+
+\subsection{最小表示法}
+\inputminted{cpp}{Strings/最小表示法.cpp}
+
+\subsection{SAM}
+\inputminted{cpp}{Strings/SAM.cpp}
+
+\subsection{Trie}
+\inputminted{cpp}{Strings/trie.cpp}
+
+\section{数学}
+
+\subsection{Fib}
+\inputminted{cpp}{Math/fib.cpp}
+
+\subsection{矩阵}
+\inputminted{cpp}{Math/Matrix.cpp}
+
+\subsection{高斯消元}
+\inputminted{cpp}{Math/高斯消元.cpp}
+
+\subsection{四边形不等式}
+\inputminted{cpp}{Math/四边形不等式.cpp}
+
+\subsection{Java 开根号}
+\inputminted{java}{Math/Java开根号.java}
+
+\subsection{Cpp 大数}
+\inputminted{cpp}{Math/C++大数.cpp}
+
+\subsection{线性逆元}
+\inputminted{cpp}{Math/linear-inversion.cc}
+
+\subsection{勒让德定理}
+\inputminted{cpp}{Math/Legendre.cpp}
+
+\subsection{欧拉函数}
+\inputminted{cpp}{Math/欧拉函数.cpp}
+
+\subsection{行列式求值}
+\inputminted{cpp}{Math/Det.cpp}
+
+\subsection{生成树计数}
+\inputminted{cpp}{Math/生成树计数.cpp}
+
+\subsection{Simpson 积分}
+\inputminted{cpp}{Math/Simpson.cpp}
+
+\input{Tips.tex}
+
+\end{spacing}
+\end{multicols}
+
+\end{document}

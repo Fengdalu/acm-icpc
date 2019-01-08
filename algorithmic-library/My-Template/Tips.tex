@@ -1,0 +1,233 @@
+\section{常用结论}
+\subsection{vimrc}
+syntax on \\
+set nu \\
+set cindent \\
+set shiftwidth=2 \\
+set tabstop=2 \\ 
+set expandtab \\
+\subsection{矩阵乘法}
+for(i)for(j)if(A[i][j])for(k)C[i][k]+=A[i][j]*B[j][k]
+\subsection{四边形体积公式}
+$ (12V)^2 = a^2d^2(b^2 + c^2 + e^2 + f^2 − a^2 − d^2) + b^2e^2(c^2 + a^2 + f^2 + d^2 − b^2 − e^2) + c^2f^2(a^2 + b^2 + d^2 + e^2 −c^2 − f^2) − a^2b^2c^2 − a^2e^2f^2 − d^2b^2f^2 − d^2e^2c^2 $
+\subsection{卡特兰数}
+$ Cat(n)=Comb(2n,n)/(n+1)=Comb(2n,n)-Comb(2n,n+1)=Cat(n-1)*(4n-2)/(n+1) $ \\
+n 节点二叉树个数 Cat(n) \\
+正 n 边形划分为 n-2 个三角形的种数 Cat(n-2) \\
+n 个矩阵连乘括号化种数 Cat(n-1) \\
+n 个元素入栈的出栈顺序种数 Cat(n) \\
+n 对括号的合法括号序列个数 Cat(n) \\
+\subsection{牛顿迭代法}
+$ x_m = \frac{(xf'(x)-f(x))}{f'(x)} $
+\subsection{康托展开}
+\paragraph{}
+$ X = a_n  n! + a_{n-1}  (n - 1)! + ... + a_2 \cdot 2! + a_1 \cdot 1! $ \\
+$ a_i $ 表示 i 开头的后缀中逆序对的个数
+\subsection{高阶等差数列}
+    \paragraph{}
+    \begin{eqnarray}
+        && \sum n = \frac{1}{2}n(n+1)\\
+        && \sum n^2 = \frac{1}{6}n(n+1)(2n+1) \\
+        && \sum n^3 = \left(\sum n\right)^2 \\
+        && \sum n^4 = \left(\sum n^2\right)\frac{1}{5}(3n^2+3n-1)\\
+        && \sum n^5 = \left(\sum n\right)^2\frac{1}{3}(2n^2+2n-1)\\
+        && \sum n^6 = \left(\sum n^2\right)\frac{1}{7}(3n^4+6n^3-3n+1)\\
+        && \sum n^7 = \left(\sum n\right)^2\frac{1}{6}(3n^4+6n^3-n^2-4n+2)\\
+        && \sum n^8 = \left(\sum n^2\right)\frac{1}{15}(5n^6+15n^5+5n^4-15n^3-n^2+9n-3)
+    \end{eqnarray}
+
+\subsection{割建图}
+对于图G=(V,E)中的一个点覆盖是一个集合S⊆V使得每一条边至少有一个端点在S中 . \\
+        对于二分图 , \\
+        最小路径覆盖 = | P | - 最大匹配数 . \\
+        最小点覆盖数 = 最大匹配数 , \\
+        最大独立顶点集 = 总顶点数 - 最大匹配数 , \\
+\subsection{哈密尔顿判定}
+对于$ n >= 3 $个点的图$ G $ , 如果对于任意$ u, v $ 都有  $ deg(u) + deg(v) >= n $ , 则$ G $一定是哈密尔顿图 .
+\subsection{弦图}
+设 $next(v)$ 表示 $N(v)$ 中最前的点 . 
+令 $w*$ 表示所有满足 $A \in B$ 的 $w$ 中最后的一个点 , 
+判断 $v \cup N(v)$ 是否为极大团 , 
+只需判断是否存在一个 $w \in w*$, 
+满足 $Next(w)=v$ 且 $|N(v)| + 1 \leq |N(w)|$ 即可 . 
+\subsection{五边形数}
+$
+\prod_{n=1}^{\infty}{(1-x^{n})}=\sum_{n=0}^{\infty}{(-1)^{n}(1-x^{2n+1})x^{n(3n+1)/2}} \\
+f(n) = \frac{n(3n - 1)}{2}
+$
+\subsection{重心}
+半径为 $r$ , 圆心角为 $\theta$ 的扇形重心与圆心的距离为 $\frac{4r\sin(\theta/2)}{3\theta}$ \\
+半径为 $r$ , 圆心角为 $\theta$ 的圆弧重心与圆心的距离为 $\frac{4r\sin^3(\theta/2)}{3(\theta-\sin(\theta))}$ \\
+\subsection{第二类 Bernoulli number}
+\begin{align*}
+    B_m &= 1 - \sum_{k=0}^{m-1}{\binom{m}{k}\frac{B_{k}}{m-k+1}} \\
+    S_m(n) &= \sum_{k=1}^{n}{k^{m}} = \frac{1}{m+1}\sum_{k=0}^{m}{\binom{m+1}{k}B_{k}n^{m+1-k}}
+\end{align*}
+\subsection{Stirling 数}
+第一类 :n 个元素的项目分作 k 个环排列的方法数目\\
+\begin{align*}
+    s(n, k) &= (-1)^{n+k}|s(n, k)| \\
+    |s(n, 0)| &=0\\ 
+    |s(1, 1)| &=1 \\
+    |s(n, k)| &=|s(n-1, k-1)|+(n-1)*|s(n-1, k)|
+\end{align*}
+第二类 :n 个元素的集定义 k 个等价类的方法数\\
+\begin{align*}
+    S(n,1)&=S(n,n)=1\\
+    S(n,k)&=S(n-1,k-1)+k*S(n-1,k)
+\end{align*}
+
+\subsection{数据范围}
+
+
+\subsection{三角公式}
+
+\begin{footnotesize}
+\noindent
+\mbox{\vbox to 11pt{  \hbox{$
+\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\tan(a \pm b) = \frac{\tan(a)\pm\tan(b)}{1 \mp \tan(a)\tan(b)}
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\tan(a) \pm \tan(b) = \frac{\sin(a \pm b)}{\cos(a)\cos(b)}
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\sin(a) + \sin(b) = 2\sin(\frac{a + b}{2})\cos(\frac{a - b}{2})
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\sin(a) - \sin(b) = 2\cos(\frac{a + b}{2})\sin(\frac{a - b}{2})
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\cos(a) + \cos(b) = 2\cos(\frac{a + b}{2})\cos(\frac{a - b}{2})
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\cos(a) - \cos(b) = -2\sin(\frac{a + b}{2})\sin(\frac{a - b}{2})
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\sin(na) = n\cos^{n-1}a\sin a - \binom{n}{3}\cos^{n-3}a \sin^3a + \binom{n}{5}\cos^{n-5}a\sin^5a - \dots
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\cos(na) = \cos^{n}a - \binom{n}{2}\cos^{n-2}a \sin^2a + \binom{n}{4}\cos^{n-4}a\sin^4a - \dots
+$}  }}
+
+\end{footnotesize}
+\subsection{积分表}
+\begin{footnotesize}
+\noindent
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{1}{1+x^2}dx = \tan^{-1}x
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\tan^{-1}\frac{x}{a}
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{x}{a^2+x^2}dx = \frac{1}{2}\ln|a^2+x^2|
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{x^2}{a^2+x^2}dx = x-a\tan^{-1}\frac{x}{a}
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int\sqrt{x^2 \pm a^2} dx  = \frac{1}{2}x\sqrt{x^2\pm a^2} 
+%\nonumber \\ 
+\pm\frac{1}{2}a^2 \ln \left | x + \sqrt{x^2\pm a^2} \right | 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int  \sqrt{a^2 - x^2} dx  = \frac{1}{2} x \sqrt{a^2-x^2} 
+%\nonumber \\  
++\frac{1}{2}a^2\tan^{-1}\frac{x}{\sqrt{a^2-x^2}}
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{x^2}{\sqrt{x^2 \pm a^2}} dx  = \frac{1}{2}x\sqrt{x^2 \pm a^2}
+%\nonumber \\  
+\mp \frac{1}{2}a^2 \ln \left| x + \sqrt{x^2\pm a^2} \right | 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{1}{\sqrt{x^2 \pm a^2}} dx = \ln \left | x + \sqrt{x^2 \pm a^2} \right | 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{1}{\sqrt{a^2 - x^2}} dx = \sin^{-1}\frac{x}{a} 
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{x}{\sqrt{x^2\pm a^2}}dx = \sqrt{x^2 \pm a^2} 
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \frac{x}{\sqrt{a^2-x^2}}dx = -\sqrt{a^2-x^2} 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int  \sqrt{a x^2 + b x + c} dx = 
+\frac{b+2ax}{4a}\sqrt{ax^2+bx+c}
+\nonumber \\  
++
+\frac{4ac-b^2}{8a^{3/2}}\ln \left| 2ax + b + 2\sqrt{a(ax^2+bx^+c)}\right |
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int x^n e^{ax}\hspace{1pt}\text{d}x = \dfrac{x^n e^{ax}}{a} - 
+\dfrac{n}{a}\int x^{n-1}e^{ax}\hspace{1pt}\text{d}x
+$}  }} 
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \sin^2 ax dx = \frac{x}{2} - \frac{1} {4a} \sin{2ax}
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \sin^3 ax dx = -\frac{3 \cos ax}{4a} + \frac{\cos 3ax} {12a} 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \cos^2 ax dx = \frac{x}{2}+\frac{ \sin 2ax}{4a} 
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \cos^3 ax dx = \frac{3 \sin ax}{4a}+\frac{ \sin 3ax}{12a} 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \tan ax dx = -\frac{1}{a} \ln \cos ax 
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int \tan^2 ax dx = -x + \frac{1}{a} \tan ax 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int x \cos ax dx = \frac{1}{a^2} \cos ax + \frac{x}{a} \sin ax 
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int x^2 \cos ax dx = \frac{2 x \cos ax }{a^2} + \frac{ a^2 x^2 - 2  }{a^3} \sin ax 
+$}  }}
+\\
+\mbox{\vbox to 11pt{  \hbox{$
+\int x \sin ax dx = -\frac{x \cos ax}{a} + \frac{\sin ax}{a^2} 
+$}  }}
+\
+\mbox{\vbox to 11pt{  \hbox{$
+\int x^2 \sin ax dx =\frac{2-a^2x^2}{a^3}\cos ax +\frac{ 2 x \sin ax}{a^2} 
+$}  }}
+\end{footnotesize}
