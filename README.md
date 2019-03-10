@@ -42,14 +42,3 @@ http://icpc.iisf.or.jp/
 http://opentrain.snarknews.info/
 
 http://topcoder.com
-
-## Addition
-
-生成树计数
-
-LCT
-
-SAM 
-
-带环图sg : async
-
