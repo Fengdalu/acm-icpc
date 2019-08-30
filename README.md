@@ -1,4 +1,4 @@
-﻿# Ceva's Training Index
+﻿# ACM-ICPC Training Index (2013-2016)
 
 ![BJTU 9# Room 401](banner.jpg)
 
